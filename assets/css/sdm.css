@@ -110,6 +110,18 @@ body {
     transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
 }
 
+/* .card-custom-kepsek {
+    width: 179.8px;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 3px solid #000;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
+} */
+
 .card-custom:hover {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
     z-index: 2;
@@ -147,18 +159,25 @@ body {
     transform: translateY(0);
 }
 
-.info-guru h5 {
-    font-size: clamp(10px, 1.5vw, 13px);
+.info-guru .nama-guru {
+    font-size: clamp(10px, 1.5vw, 14px);
     margin: 0 0 2px;
     font-weight: 600;
     color: #fff;
 }
 
-.info-guru p {
+.info-guru .jabatan {
     font-size: clamp(9px, 1.2vw, 11px);
     margin: 0;
     color: rgba(255, 255, 255, 0.8);
 }
+
+.info-guru .mapel {
+    font-size: clamp(9px, 1.2vw, 11px);
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 
 .hero {
     background-color: #ABD1C6;
