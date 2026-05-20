@@ -1,0 +1,345 @@
+* {
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  color: white;
+  background-color: #0d4f4a;
+}
+.logotext {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4px;
+}
+
+.tulisan1 {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  color: #64AC7B;
+  letter-spacing: 0.002em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.tulisan2 {
+  display: block;
+  font-size: 30px;
+  color: #C45050;
+  line-height: 1.2;
+  letter-spacing: 0.10em;
+  font-weight: 600;
+}
+
+/* TITLE */
+.title {
+  width: 1200px;
+  height: 49px;
+  margin: 30px auto;
+  background: #f2f2f2;
+  border-radius: 16px;
+  border: 3px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.9);
+  color: black;
+  font-size: 24px;
+ font-family: 'Inter', 'Segoe UI', sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* KATA */
+.kata {
+  width: 800px;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* GARIS */
+hr {
+  width: 1200px;
+  margin: auto;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* CONTAINER */
+.container-custom {
+  width: 1200px;
+  margin: auto;
+  padding: 30px 0;
+}
+
+/* SOSMED */
+.sosmed {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+  padding-left: 0;
+  width: 232px;
+}
+
+.item a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  color: white;
+  text-decoration: none;
+}
+
+.item-icon {
+  width: 52px;
+  height: 52px;
+
+  background: #d9d9d9;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+/* MAPS */
+.maps iframe {
+  width: 395px;
+  height: 317px;
+
+  border: 0;
+  border-radius: 10px;
+}
+
+/* FORM */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+}
+
+.contact textarea {
+  height: 124px;
+  resize: none;
+}
+
+.contact button {
+  width: 176px;
+  height: 46px;
+  border: none;
+  border-radius: 15px;
+  background: #64ac7b;
+  color: #f2f2f2;
+  cursor: pointer;
+}
+
+/* INFO */
+.info-section {
+  padding-top: 10px;
+  padding-bottom: 35px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.info-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.info-label {
+  color: #bfc7c9;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.info-text {
+  color: white;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* LOGO */
+.logo {
+  width: 1200px;
+  margin: auto;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 0;
+}
+
+.logo img {
+  width: 58px;
+  height: 58px;
+}
+/* Title */
+.title {
+  box-shadow: 0 4 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Input & Textarea */
+.contact input,
+.contact textarea {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 10);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .title,
+  .container-custom,
+  .logo,
+  hr {
+    width: 95%;
+  }
+
+  .kata {
+    width: 95%;
+  }
+  
+  .maps iframe {
+    width: 100%;
+    height: 317px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+    margin: 20px auto;
+  }
+
+  .kata {
+    font-size: 14px;
+  }
+  
+  .sosmed {
+    width: 100%;
+  }
+  
+  .maps iframe {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .contact {
+    gap: 12px;
+  }
+  
+  .contact input,
+  .contact textarea {
+    font-size: 14px;
+  }
+  
+  .contact button {
+    width: 100%;
+  }
+  
+  .info-item {
+    gap: 10px;
+  }
+  
+  .info-icon {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .info-label {
+    font-size: 12px;
+  }
+  
+  .info-text {
+    font-size: 12px;
+  }
+  
+  .logo {
+    gap: 5px;
+  }
+  
+  .logo img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px;
+    width: 90%;
+    height: 40px;
+  }
+  
+  .container-custom,
+  .logo,
+  hr {
+    width: 90%;
+  }
+  
+  .kata {
+    width: 90%;
+    font-size: 13px;
+  }
+  
+  .sosmed {
+    gap: 15px;
+  }
+  
+  .maps iframe {
+    height: 200px;
+  }
+  
+  .contact button {
+    height: 40px;
+  }
+  
+  .info-item {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+}

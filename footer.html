@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>footer</title>
+    <link rel="icon" type="image/png" href="img/logomts.png">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* ===== FOOTER WRAPPER ===== */
+      .footer {
+        background-color: #004b49;
+        width: 100%;
+        padding: 28px 80px;
+      }
+
+      /* ===== TOP: LOGO + VISI ===== */
+      .top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        padding-bottom: 24px;
+      }
+
+      .logos {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .logos img {
+        width: 58px;
+        height: 58px;
+        object-fit: contain;
+      }
+
+      .visi-text {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 1.7;
+        flex: 1;
+      }
+
+      /* ===== DIVIDER ===== */
+      .divider {
+        border: none;
+        border-top: 1px solid #888888;
+        margin: 0;
+      }
+
+      /* ===== MIDDLE ROW ===== */
+      .middle-row {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 3rem;
+        align-items: center;
+        padding: 28px 0;
+      }
+
+      /* ===== KONTAK ===== */
+      .kontak-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 16px;
+      }
+
+      .kontak-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 4px;
+      }
+
+      .kontak-item img {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        /* placeholder jika gambar tidak ada */
+      }
+
+      .kontak-item .label {
+        font-size: 12px;
+        color: #aaaaaa;
+        margin: 0;
+      }
+
+      .kontak-item .value {
+        font-size: 13px;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      .kontak-divider {
+        border: none;
+        border-top: 1px solid #555555;
+        margin: 12px 0;
+        width: 260px;
+      }
+
+      /* ===== SOSMED ===== */
+      .sosmed {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        min-width: 220px;
+        justify-content: center;
+        align-self: center;
+      }
+
+      .sosmed-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .sosmed-item .icon-circle {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background-color: #d9d9d9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .sosmed-item .icon-circle img {
+        width: 26px;
+        height: 26px;
+        object-fit: contain;
+      }
+
+      /* fallback SVG icon warna */
+      .sosmed-item .icon-circle svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .sosmed-item p {
+        font-size: 14px;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      /* ===== FORM ===== */
+      .form-section {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        min-width: 340px;
+      }
+
+      .form-section input,
+      .form-section textarea {
+        width: 100%;
+        background-color: #ffffff;
+        border: none;
+        border-radius: 20px;
+        padding: 13px 20px;
+        font-size: 13px;
+        color: #333333;
+        outline: none;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .form-section input::placeholder,
+      .form-section textarea::placeholder {
+        color: #aaaaaa;
+      }
+
+      .form-section textarea {
+        height: 130px;
+        resize: none;
+        border-radius: 16px;
+      }
+
+      .btn-submit {
+        width: 160px;
+        height: 44px;
+        background-color: #64ac7b;
+        border: none;
+        border-radius: 10px;
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .btn-submit:hover {
+        background-color: #4e9464;
+      }
+
+      /* ===== FOOTER BAWAH ===== */
+      .footer-akhir {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 20px 0 4px;
+        text-align: center;
+      }
+
+      .footer-akhir img {
+        width: 27px;
+        height: 32px;
+        object-fit: contain;
+      }
+
+      .footer-akhir p {
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 1.7;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    
+    <footer class="footer">
+      <!-- TOP ROW: Logo + Visi -->
+      <div class="top-row">
+        <div class="logos">
+          <img src="image/logo2.png" alt="Logo 1" />
+          <img src="image/logo3.png" alt="Logo 2" />
+          <img src="image/upscalemedia-transformed.png" alt="Logo 3" />
+        </div>
+        <p class="visi-text">
+          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
+          berakhlak, dan penuh empati<br />
+          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- MIDDLE ROW -->
+      <div class="middle-row">
+        <!-- Kontak -->
+        <div class="kontak">
+          <p class="kontak-title">Kontak</p>
+
+          <div class="kontak-item">
+            <img
+              src="image/ChatGPT Image May 6, 2026, 10_21_06 AM.png"
+              alt="Telepon"
+            />
+            <div>
+              <p class="label">Telepon</p>
+              <p class="value">+62 877-2552-5133</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="image/pesan.png" alt="Email" />
+            <div>
+              <p class="label">Email</p>
+              <p class="value">mtsmomo@gmail.com</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="image/alamat.png" alt="Alamat" />
+            <div>
+              <p class="label">Alamat</p>
+              <p class="value">
+                RT.04/RW.05, Sukamanah, Kec.<br />
+                Cipedes, Kab. Tasikmalaya, Jawa<br />
+                Barat 46131, Indonesia
+              </p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="image/Pesann.png" alt="Jam Kerja" />
+            <div>
+              <p class="label">Jam Kerja</p>
+              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sosmed -->
+        <div class="sosmed">
+        <div class="sosmed-item">
+          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+            <div class="icon-circle">
+              <img src="img/ig.png" alt="Instagram" />
+            </div>
+          </a>
+          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+            <p>darussalamleuwianyar</p>
+          </a>
+        </div>
+        <!-- link tiktok -->
+        <div class="sosmed-item">
+          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+            <div class="icon-circle">
+              <img src="img/tiktok.png  " alt="TikTok" />
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+            <p>Darussalam</p>
+          </a>
+        </div>
+        <!-- link facebook -->
+        <div class="sosmed-item">
+          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+            <div class="icon-circle">
+              <img src="img/fb.png" alt="Facebook" />
+            </div>
+          </a>
+          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+            <p>Darussalam</p>
+          </a>
+        </div>
+        <!-- link youtube -->
+        <div class="sosmed-item">
+          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
+            <div class="icon-circle">
+              <img src="img/youtube.png" alt="YouTube" />
+            </div>
+          </a>
+          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
+            <p>Darussalam</p>
+          </a>
+        </div>
+      </div>
+
+        <!-- Form -->
+        <div class="form-section">
+          <input type="text" placeholder="Nama" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Pesan"></textarea>
+          <button class="btn-submit" type="button">Kirim</button>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Footer bawah -->
+      <div class="footer-akhir">
+      <p>
+        &copy;2026.<br />
+       Design By TEFA PPLG SMKN 4 Tasikmalaya.
+      </p>
+    </div>
+    </footer>
+  </body>
+</html>

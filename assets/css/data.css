@@ -1,0 +1,540 @@
+* {
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  background-color: #6fa8a4;
+}
+.logotext {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4px;
+}
+
+.tulisan1 {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  color: #64AC7B;
+  letter-spacing: 0.002em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.tulisan2 {
+  display: block;
+  font-size: 30px;
+  color: #C45050;
+  line-height: 1.2;
+  letter-spacing: 0.10em;
+  font-weight: 600;
+}
+
+#hero {
+    background-color: #004643;
+    width: 100vw;
+   
+    padding: 24px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.judul-pengajar {
+    width: 100%;
+    max-width: 792px;
+    height: 49px;
+    background-color: #F2F2F2;
+    text-align: center;
+    border: 3px solid #000;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.judul-pengajar:hover {
+    background-color: #C9C9C9;
+}
+
+.judul-pengajar h2 {
+    font-size: clamp(14px, 3vw, 22px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+.container-pengajar {
+    width: 100%;
+    max-width: 792px;
+    background-color: #fff;
+    border: solid 3px #000;
+    border-radius: 30px;
+    padding: 16px;
+}
+
+.grid-pengajar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.card-custom {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 3px solid #000;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
+}
+
+.card-custom:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.card-custom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.card-custom:hover img {
+    transform: scale(1.08);
+}
+
+.card-custom:active img {
+    transform: scale(1.15);
+}
+
+.info-guru {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 10px 8px;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+    transform: translateY(100%);
+    transition: transform 0.35s ease;
+}
+
+.card-custom:hover .info-guru {
+    transform: translateY(0);
+}
+
+.info-guru h5 {
+    font-size: clamp(10px, 1.5vw, 13px);
+    margin: 0 0 2px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.info-guru p {
+    font-size: clamp(9px, 1.2vw, 11px);
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero {
+    background-color: #ABD1C6;
+    width: 100%;
+    padding: 24px 20px 50px;
+}
+
+.container-hero {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-wrapper {
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 8px;
+}
+
+.judul {
+    width: 100%;
+    height: 49px;
+    background-color: #F2F2F2;
+    text-align: center;
+    border: 3px solid #000;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s;
+}
+
+.judul:hover {
+    background-color: #C9C9C9;
+}
+
+.judul h2 {
+    font-size: clamp(14px, 3vw, 22px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+.siswa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+.siswa-kolom {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.siswa-kolom-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.siswa-kolom-link:hover {
+    transform: translateY(-4px);
+}
+
+.siswa-kolom-link:hover .card-siswa,
+.siswa-kolom-link:hover .kotak {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.kotak {
+    background-color: #F2F2F2;
+    color: #333;
+    text-align: center;
+    font-size: clamp(16px, 3vw, 24px);
+    border-radius: 30px;
+    border: 3px solid #000;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.kotak:hover {
+    background-color: #C9C9C9;
+    transform: translateY(-2px);
+}
+
+.card-siswa {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: clamp(11px, 1.8vw, 14px);
+    color: #333;
+    line-height: 1.7;
+    background-color: #F9BC60;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 193px;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-siswa:hover {
+    background-color: #C9C9C9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+.eskul-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.card-eskul {
+    width: 538px;
+    height: 328px;
+    max-width: 100%;
+    background-color: #F9BC60;
+    border: 3px solid #000;
+    border-radius: 16px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-eskul:hover {
+    background-color: #C9C9C9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.eskul-kiri {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.img-eskul {
+    width: 200px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #000;
+    display: block;
+}
+
+.eskul-nama {
+    font-size: clamp(14px, 2vw, 20px);
+    font-weight: 500;
+    color: #000;
+    text-align: center;
+}
+
+.eskul-desc {
+    font-size: clamp(11px, 1.4vw, 14px);
+    color: #333;
+    line-height: 1.5;
+    text-align: left;
+    margin: 0;
+}
+
+.prestasi-center {
+    display: flex;
+    justify-content: center;
+}
+
+.card-prestasi {
+    width: 538px;
+    height: 328px;
+    max-width: 100%;
+    background-color: #F9BC60;
+    border: 3px solid #000;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-prestasi:hover {
+    background-color: #C9C9C9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-prestasi img {
+    width: 100%;
+    max-width: 240px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #000;
+    display: block;
+    margin: 0 auto 12px;
+}
+
+.prestasi-nama {
+    font-size: 15px;
+    font-weight: 500;
+    color: #3A2000;
+}
+
+hr {
+    border: 1px solid #000000;
+    margin: 0 0 16px;
+}
+
+@media (max-width: 900px) {
+    .grid-pengajar {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-eskul {
+        height: auto;
+        min-height: 200px;
+    }
+
+    .card-prestasi {
+        height: auto;
+        min-height: 200px;
+    }
+
+    .card-siswa {
+        height: auto;
+        min-height: 100px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid-pengajar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-pengajar {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .container-pengajar {
+        border-radius: 25px;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    #hero {
+        padding: 16px 12px 30px;
+    }
+
+    .container-pengajar {
+        border-radius: 20px;
+        padding: 12px;
+    }
+
+    .grid-pengajar {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .siswa-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card-prestasi {
+        width: 85%;
+    }
+
+    .eskul-desc {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-pengajar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .info-guru {
+        padding: 20px 8px 6px;
+    }
+
+    .info-guru h5 {
+        font-size: 10px;
+    }
+
+    .info-guru p {
+        font-size: 9px;
+    }
+
+    .container-pengajar {
+        max-width: 100%;
+        padding: 10px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .grid-pengajar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .info-guru h5 {
+        font-size: 9px;
+    }
+
+    .info-guru p {
+        font-size: 8px;
+    }
+
+    .card-siswa {
+        width: 100%;
+        height: auto;
+        min-height: 120px;
+    }
+
+    .siswa-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .siswa-kolom {
+        width: 100%;
+    }
+
+    .card-eskul {
+        width: 100%;
+        height: auto;
+        min-height: 180px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-prestasi {
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+    }
+
+    .img-eskul {
+        width: 140px;
+        height: 110px;
+    }
+
+    .eskul-desc {
+        text-align: center;
+    }
+}
