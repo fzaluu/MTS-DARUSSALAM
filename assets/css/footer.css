@@ -1,0 +1,215 @@
+.footer {
+        background-color: #004b49;
+        width: 100%;
+        padding: 28px 80px;
+        text-decoration: none;
+      }
+
+      /* ===== TOP: LOGO + VISI ===== */
+      .top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        padding-bottom: 24px;
+      }
+
+      .logos {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .logos img {
+        width: 58px;
+        height: 58px;
+        object-fit: contain;
+      }
+
+      .visi-text {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        
+        color: #ffffff;
+        text-align: center;
+        line-height: 1.7;
+        flex: 1;
+      }
+
+      /* ===== DIVIDER ===== */
+      .divider {
+        border: none;
+        border-top: 1px solid #888888;
+        margin: 0;
+      }
+
+      /* ===== MIDDLE ROW ===== */
+      .middle-row {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 3rem;
+        align-items: center;
+        padding: 28px 0;
+      }
+
+      /* ===== KONTAK ===== */
+      .kontak-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 16px;
+      }
+
+      .kontak-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 4px;
+      }
+
+      .kontak-item img {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        /* placeholder jika gambar tidak ada */
+      }
+
+      .kontak-item .lab {
+        font-size: 12px;
+        color: #aaaaaa;
+        margin: 0;
+      }
+
+      .kontak-item .value {
+        font-size: 13px;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      .kontak-divider {
+        border: none;
+        border-top: 1px solid #555555;
+        margin: 12px 0;
+        width: 260px;
+      }
+
+      /* ===== SOSMED ===== */
+      .sosmed {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        min-width: 220px;
+        justify-content: center;
+        align-self: center;
+      }
+
+      .sosmed-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .sosmed-item .icon-circle {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background-color: #d9d9d9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .sosmed-item .icon-circle img {
+        width: 26px;
+        height: 26px;
+        object-fit: contain;
+      }
+
+      /* fallback SVG icon warna */
+      .sosmed-item .icon-circle svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .sosmed-item p {
+        font-size: 14px;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      /* ===== FORM ===== */
+      .form-section {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        min-width: 340px;
+      }
+
+      .form-section input,
+      .form-section textarea {
+        width: 100%;
+        background-color: #ffffff;
+        border: none;
+        border-radius: 20px;
+        padding: 13px 20px;
+        font-size: 13px;
+        color: #333333;
+        outline: none;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .form-section input::placeholder,
+      .form-section textarea::placeholder {
+        color: #aaaaaa;
+      }
+
+      .form-section textarea {
+        height: 130px;
+        resize: none;
+        border-radius: 16px;
+      }
+
+      .btn-submit {
+        width: 160px;
+        height: 44px;
+        background-color: #64ac7b;
+        border: none;
+        border-radius: 10px;
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .btn-submit:hover {
+        background-color: #4e9464;
+      }
+
+      /* ===== FOOTER BAWAH ===== */
+      .footer-akhir {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 20px 0 4px;
+        text-align: center;
+      }
+
+      .footer-akhir img {
+        width: 27px;
+        height: 32px;
+        object-fit: contain;
+      }
+
+      .footer-akhir p {
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 1.7;
+        margin: 0;
+      }

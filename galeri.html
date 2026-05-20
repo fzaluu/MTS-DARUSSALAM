@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/galeri.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+<link rel="stylesheet" href="assets/css/footer.css">
+<link rel="icon" type="image/png" href="assets/img/logomts.png">
+
+</head>
+<body>
+        <input type="checkbox" id="menu-toggle" />
+
+    <nav>
+        <a href="" class="brand">
+            <img src="assets/img/logomts.jpeg" alt="Logo MTS Darussalam" />
+            <div class="logotext">
+                <p class="tulisan1">MTS</p>
+                <p class="tulisan2">Darussalam</p>
+            </div>
+        </a>
+
+
+        <ul>
+            <li><a href="index.html" >Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="galeri.html" class="active">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+
+        <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="index.html" >Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="galeri.html" class="active">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </div>
+  <div class="section-galeri">
+    <h2 class="section-title">SERAGAM</h2>
+
+    <div class="galeri-body">
+
+      <div class="galeri-grid">
+        <div class="galeri-item" onclick="bukaModal('seragam1.jpg','Seragam Senin & Selasa','Baju PSAS adalah seragam sekolah yang digunakan sebagai pakaian resmi siswa pada hari-hari tertentu sesuai aturan sekolah. Seragam ini mencerminkan kerapian dan identitas siswa di lingkungan sekolah.')">
+          <img src="assets/img/putihbiru.jpeg" alt="Seragam Senin">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Seragam PSAS</h2>
+              <p>Senin &amp; Selasa</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-item" onclick="bukaModal('seragam2.jpg','Olahraga','Dipakai saat jam PJOK.')">
+          <img src="assets/img/olga.jpeg" alt="Seragam Olahraga">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Olahraga</h2>
+              <p>Rabu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="galeri-grid-bawah">
+        <div class="galeri-item" onclick="bukaModal('seragam3.jpg','Batik','Dipakai setiap Hari Kamis.')">
+          <img src="assets/img/batik.jpeg" alt="Seragam Batik">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Batik</h2>
+              <p>Hari Kamis</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-item" onclick="bukaModal('seragam4.jpg','Pramuka','Dipakai setiap Hari Jumat.')">
+          <img src="assets/img/busanamuslim.jpeg" alt="Seragam Pramuka">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Busana Muslim</h2>
+              <p>Hari Jumat</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-item" onclick="bukaModal('seragam5.jpg','Seragam Rabu','Seragam sekolah untuk Hari Rabu.')">
+          <img src="assets/img/pramuka.jpeg" alt="Seragam Rabu">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Pramuka</h2>
+              <p>Sabtu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-fasilitas">
+    <hr style="border: none; border-top: 1px solid black; width: min(1011px, 100%); margin-bottom: 15px;">
+    <div style="margin-top: 15px;" class="section-title">FASILITAS</div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item">
+          <img src="assets/img/fasilitas1.jpeg" alt="Fasilitas 1">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/lab.jpeg" alt="Fasilitas 2">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/fasilitas2.jpeg" alt="Fasilitas 3">
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="geserCarousel(-1)">&#8592;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" onclick="geserCarousel(1)">&#8594;</button>
+    </div>
+  </div>
+  <div class="section-kegiatan" id="kegiatan">
+    <hr style="border: none; border-top: 1px solid black; width: min(1011px, 100%); margin-bottom: 100px;">
+    <div class="section-title">KEGIATAN</div>
+
+    <div class="card-list">
+
+      <div class="card">
+        <img src="assets/img/muhadoroh.jpeg" alt="Foto Kegiatan 1">
+        <div class="card-body">
+          <div class="card-desc">Muhadoroh adalah kegiatan latihan pidato untuk melatih keberanian, percaya diri, dan kemampuan berbicara di depan umum</div>
+          <div class="card-schedule">Setiap Kamis</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/lkbb.jpeg" alt="Foto Kegiatan 2">
+        <div class="card-body">
+          <div class="card-desc">LKBB adalah latihan baris-berbaris yang melatih disiplin, kekompakan, dan kerja sama tim."</div>
+          <div class="card-schedule">Setiap Jum'at</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/pramuka1.jpeg" alt="Foto Kegiatan 3">
+        <div class="card-body">
+          <div class="card-desc">Pramuka adalah kegiatan yang melatih disiplin, kemandirian, dan kepemimpinan melalui kegiatan positif.</div>
+          <div class="card-schedule">Setiap Sabtu</div>
+        </div>
+      </div>
+
+    </div>
+    <hr style="border: none; border-top: 1px solid black; width: min(1011px, 100%); margin-top: 100px;">
+  </div>
+
+          <footer class="footer">
+      <!-- TOP ROW: Logo + Visi -->
+      <div class="top-row">
+        <div class="logos">
+          <img src="assets/kontak/img/yayasan.png" alt="Logo 1" />
+          <img src="assets/kontak/img/kemenag.png" alt="Logo 2" />
+          <img src="assets/kontak/img/mts.png" alt="Logo 3" />
+        </div>
+        <p class="visi-text">
+          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
+          berakhlak, dan penuh empati<br />
+          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- MIDDLE ROW -->
+      <div class="middle-row">
+        <!-- Kontak -->
+        <div class="kontak">
+          <p class="kontak-title">Kontak</p>
+
+          <div class="kontak-item">
+            <img
+              src="assets/kontak/img/icons8-phone-50.png"
+              alt="Telepon"
+            />
+            <div>
+              <p class="lab">Telepon</p>
+              <p class="value">+62 877-2552-5133</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="assets/kontak/img/icons8-email-30.png" alt="Email" />
+            <div>
+              <p class="lab">Email</p>
+              <p class="value">mtsmomo@gmail.com</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="assets/kontak/img/icons8-location-50.png" alt="Alamat" />
+            <div>
+              <p class="lab">Alamat</p>
+              <p class="value">
+                RT.04/RW.05, Sukamanah, Kec.<br />
+                Cipedes, Kab. Tasikmalaya, Jawa<br />
+                Barat 46131, Indonesia
+              </p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="assets/kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+            <div>
+              <p class="lab">Jam Kerja</p>
+              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sosmed -->
+        <div class="sosmed">
+        <div class="sosmed-item">
+          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+            <div class="icon-circle">
+              <img src="assets/kontak/img/ig.png" alt="Instagram" />
+            </div>
+          </a>
+          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+            <p>darussalamleuwianyar</p>
+          </a>
+        </div>
+        <!-- link tiktok -->
+        <div class="sosmed-item">
+          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+            <div class="icon-circle">
+              <img src="assets/kontak/img/tt.png" alt="TikTok" />
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+            <p>Darussalam</p>
+          </a>
+        </div>
+        <!-- link facebook -->
+        <div class="sosmed-item">
+          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+            <div class="icon-circle">
+              <img src="assets/kontak/img/icons8-facebook-30.png" alt="Facebook" />
+            </div>
+          </a>
+          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+            <p>Darussalam</p>
+          </a>
+        </div>
+        <!-- link youtube -->
+        <div class="sosmed-item">
+          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
+            <div class="icon-circle">
+              <img src="assets/kontak/img/yt.png" alt="YouTube" />
+            </div>
+          </a>
+          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
+            <p>Darussalam</p>
+          </a>
+        </div>
+      </div>
+
+        <!-- Form -->
+        <div class="form-section">
+          <input type="text" placeholder="Nama" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Pesan"></textarea>
+          <button class="btn-submit" type="button">Kirim</button>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Footer bawah -->
+      <div class="footer-akhir">
+      <p>
+        &copy;2026.<br />
+       Design By TEFA PPLG SMKN 4 Tasikmalaya.
+      </p>
+    </div>
+    </footer>
+
+  <script>
+    function bukaModal(src, judul, deskripsi) {
+      document.getElementById('modal-img').src = src;
+      document.getElementById('modal-img').alt = judul;
+      document.getElementById('modal-judul').textContent = judul;
+      document.getElementById('modal-deskripsi').textContent = deskripsi;
+      document.getElementById('modal').classList.add('aktif');
+    }
+
+    function tutupModal(e) {
+      if (e.target.id === 'modal') tutup();
+    }
+
+    function tutup() {
+      document.getElementById('modal').classList.remove('aktif');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') tutup();
+    });
+
+    const track     = document.getElementById('carouselTrack');
+    const items     = track.querySelectorAll('.carousel-item');
+    const total     = items.length;
+    let   current   = 0;
+    let   autoTimer;
+
+    const dotsContainer = document.getElementById('carouselDots');
+    items.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('aktif');
+      dot.addEventListener('click', () => { pindahKe(i); resetAuto(); });
+      dotsContainer.appendChild(dot);
+    });
+
+    function pindahKe(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) => {
+        d.classList.toggle('aktif', i === current);
+      });
+    }
+
+    function geserCarousel(arah) {
+      pindahKe(current + arah);
+      resetAuto();
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => pindahKe(current + 1), 4000);
+    }
+
+    resetAuto();
+
+  </script>
+</body>
+</html>
