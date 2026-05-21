@@ -4,10 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rombel</title>
-<link rel="stylesheet" href="assets/css/nav.css">
-<link rel="stylesheet" href="assets/css/footer.css">
-<link rel="icon" type="image/png" href="assets/img/logomts.png">
-
 <style>
 * {
     margin: 0;
@@ -17,15 +13,11 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     min-height: 100vh;
     margin: 0;
     padding: 0;
 }
 
-/* CONTAINER */
 .container {
     width: 100%;
     min-height: 100vh;
@@ -35,39 +27,6 @@ body {
     color: white;
 }
 
-/* NEXT BUTTON */
-.next-btn {
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
-    background: #64AC7B;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    box-shadow: 4px 4px 0 #000;
-    transition: all 0.3s ease;
-    z-index: 10;
-    animation: slideInRight 0.8s ease-out 0.4s both;
-}
-
-.next-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 6px 6px 0 #000;
-}
-
-.next-btn:active {
-    transform: translateY(-50%) scale(0.95);
-}
-
-/* overlay */
 .container::before {
     content: "";
     position: absolute;
@@ -75,7 +34,6 @@ body {
     background: rgba(0,0,0,0.5);
 }
 
-/* CONTENT */
 .content {
     position: relative;
     z-index: 2;
@@ -84,52 +42,21 @@ body {
     margin: 0 auto;
 }
 
-/* ANIMATIONS */
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* TITLE */
 .title {
     text-align: center;
     font-size: 48px;
@@ -138,7 +65,6 @@ body {
     animation: fadeInDown 0.8s ease-out;
 }
 
-/* BUTTON */
 .btn {
     width: 137px;
     height: 52px;
@@ -152,40 +78,40 @@ body {
     margin-bottom: 25px;
     cursor: pointer;
     border: none;
+    color: white;
+    text-decoration: none;
     animation: fadeInUp 0.8s ease-out 0.2s both;
     transition: all 0.3s ease;
 }
 
 .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 .btn:active {
     transform: scale(0.98);
 }
 
-/* GRID ATAS */
 .top {
     display: flex;
     flex-direction: row;
     gap: 20px;
     margin-bottom: 20px;
     align-items: flex-start;
+    width: 100%;
 }
 
-/* KOLOM */
 .column {
     display: flex;
     flex-direction: column;
     gap: 18px;
     flex: 1;
+    min-width: 0;
 }
 
-/* BOX */
 .box {
     width: 100%;
-    height: auto;
     min-height: 49px;
     background: #fff;
     border-radius: 16px;
@@ -204,7 +130,6 @@ body {
     box-shadow: 6px 6px 0 #000;
 }
 
-/* TEXT */
 .label {
     font-size: 15px;
     font-weight: 600;
@@ -218,11 +143,8 @@ body {
 .single {
     font-size: 20px;
     font-weight: 600;
-    display: flex;
-    align-items: center;
 }
 
-/* SECTION */
 .section {
     width: 100%;
     height: 41px;
@@ -244,21 +166,19 @@ body {
     box-shadow: 6px 6px 0 #000;
 }
 
-/* GRID SISWA */
 .students {
     width: 100%;
-    margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px 30px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 16px;
     justify-items: center;
 }
 
-/* CARD */
 .card {
     width: 100%;
-    max-width: 345px;
-    height: 68px;
+    max-width: 100%;
+    min-height: 68px;
+    height: auto;
     background: #fff;
     border-radius: 16px;
     box-shadow: 4px 4px 0 #000;
@@ -267,19 +187,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    opacity: 0;
     animation: scaleIn 0.5s ease-out forwards;
     transition: all 0.3s ease;
 }
-
-.card:nth-child(1) { animation-delay: 0.6s; }
-.card:nth-child(2) { animation-delay: 0.7s; }
-.card:nth-child(3) { animation-delay: 0.8s; }
-.card:nth-child(4) { animation-delay: 0.9s; }
-.card:nth-child(5) { animation-delay: 1s; }
-.card:nth-child(6) { animation-delay: 1.1s; }
-.card:nth-child(7) { animation-delay: 1.2s; }
-.card:nth-child(8) { animation-delay: 1.3s; }
-.card:nth-child(9) { animation-delay: 1.4s; }
 
 .card:hover {
     transform: translateY(-8px) scale(1.02);
@@ -287,412 +198,144 @@ body {
 }
 
 .name {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 
 .nis {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 300;
 }
 
-/* RESPONSIVE */
 @media (max-width: 1024px) {
-    .content {
-        padding: 30px 15px;
-    }
-
-    .title {
-        font-size: 36px;
-        margin-bottom: 20px;
-    }
-
-    .students {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px 20px;
-    }
-
-    .top {
-        gap: 15px;
-    }
-
-    .box {
-        padding: 10px 12px;
-    }
+    .content { padding: 30px 15px; }
+    .title { font-size: 36px; }
+    .students { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .top { gap: 15px; }
 }
 
 @media (max-width: 768px) {
-    .content {
-        padding: 25px 15px;
-    }
-
-    .title {
-        font-size: 28px;
-        margin-bottom: 15px;
-    }
-
-    .btn {
-        width: 120px;
-        height: 45px;
-        font-size: 16px;
-    }
-
-    .top {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .column {
-        width: 100%;
-    }
-
-    .box {
-        width: 100%;
-        padding: 10px 12px;
-    }
-
-    .students {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px 15px;
-    }
-
-    .name {
-        font-size: 16px;
-    }
-
-    .nis {
-        font-size: 14px;
-    }
-
-    .card {
-        height: auto;
-        min-height: 60px;
-    }
-
-    .section {
-        font-size: 16px;
-        height: 38px;
-        margin: 25px auto 15px;
-    }
-
-    .label {
-        font-size: 13px;
-    }
-
-    .value {
-        font-size: 13px;
-    }
+    .content { padding: 25px 15px; }
+    .title { font-size: 28px; }
+    .btn { width: 120px; height: 45px; font-size: 16px; }
+    .top { gap: 12px; }
+    .students { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .name { font-size: 15px; }
+    .nis { font-size: 12px; }
+    .section { font-size: 15px; height: 38px; margin: 25px auto 15px; }
+    .label, .value { font-size: 12px; }
 }
 
 @media (max-width: 480px) {
-    .content {
-        padding: 15px 10px;
-    }
-
-    .title {
-        font-size: 22px;
-        margin-bottom: 15px;
-    }
-
-    .btn {
-        width: 100px;
-        height: 40px;
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
-
-    .students {
-        grid-template-columns: 1fr;
-        gap: 12px 0;
-    }
-
-    .card {
-        max-width: 100%;
-        height: auto;
-        min-height: 55px;
-        padding: 8px 12px;
-    }
-
-    .name {
-        font-size: 14px;
-    }
-
-    .nis {
-        font-size: 12px;
-    }
-
-    .section {
-        font-size: 14px;
-        height: 35px;
-        padding-left: 12px;
-        margin: 20px auto 15px;
-    }
-
-    .box {
-        padding: 8px 10px;
-        border-radius: 12px;
-    }
-
-    .label {
-        font-size: 12px;
-    }
-
-    .value {
-        font-size: 12px;
-    }
-
-    .top {
-        margin-bottom: 15px;
-    }
-
- 
+    .content { padding: 15px 10px; }
+    .title { font-size: 18px; }
+    .btn { width: 100px; height: 40px; font-size: 14px; }
+    .top { gap: 8px; }
+    .students { grid-template-columns: 1fr; gap: 10px; }
+    .name { font-size: 13px; }
+    .nis { font-size: 11px; }
+    .section { font-size: 13px; height: 35px; padding-left: 12px; margin: 20px auto 15px; }
+    .box { padding: 8px 10px; border-radius: 12px; }
+    .label, .value { font-size: 11px; }
 }
 </style>
-
-
 </head>
 
 <body>
-
-<input type="checkbox" id="menu-toggle" />
-
-   <nav>
-        <a href="" class="brand">
-            <img src="assets/img/logomts.jpeg" alt="Logo MTS Darussalam" />
-            <div class="logotext">
-                <p class="tulisan1">MTS</p>
-                <p class="tulisan2">Darussalam</p>
-            </div>
-        </a>
-
-
-        <ul>
-           <li><a href="index.html" >Beranda</a></li>
-            <li><a href="profil.html" >Profil</a></li>
-            <li><a href="sdm.html" class="active">SDM</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-
-        <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-    </nav>
-
-    <div class="mobile-menu">
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="profil.html">Profil</a></li>
-            <li><a href="sdm.html" class="active">SDM</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-    </div>
-
 <div class="container">
     <div class="content">
 
         <div class="title">ROMBEL MTS DARUSSALAM</div>
 
-        <a href="sdm.html" class="btn">Kembali</a>
+        <a href="data.html" class="btn">Kembali</a>
 
         <div class="top">
-            <!-- kiri -->
             <div class="column">
                 <div class="box single">Kelas VII</div>
-
                 <div class="box">
                     <div class="label">Jumlah Siswa Laki-Laki</div>
-                    <div class="value">10</div>
+                    <div class="value">28</div>
                 </div>
             </div>
-
-            <!-- kanan -->
             <div class="column">
                 <div class="box">
                     <div class="label">Wali Kelas</div>
                     <div class="value">Nanang M. Nashir S.Pd.I</div>
                 </div>
-
                 <div class="box">
                     <div class="label">Jumlah Siswa Perempuan</div>
-                    <div class="value">13</div>
+                    <div class="value">17</div>
                 </div>
             </div>
         </div>
 
-        <div class="section">= Anggota Rombel</div>
+        <div class="section"><h3>Anggota Rombel (44 Siswa)</h3></div>
 
         <div class="students" id="list"></div>
-        
 
     </div>
 </div>
-        
 
-
-<footer class="footer">
-      <!-- TOP ROW: Logo + Visi -->
-      <div class="top-row">
-        <div class="logos">
-          <img src="assets/kontak/img/yayasan.png" alt="Logo 1" />
-          <img src="assets/kontak/img/kemenag.png" alt="Logo 2" />
-          <img src="assets/kontak/img/mts.png" alt="Logo 3" />
-        </div>
-        <p class="visi-text">
-          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
-          berakhlak, dan penuh empati<br />
-          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
-        </p>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- MIDDLE ROW -->
-      <div class="middle-row">
-        <!-- Kontak -->
-        <div class="kontak">
-          <p class="kontak-title">Kontak</p>
-
-          <div class="kontak-item">
-            <img
-              src="assets/kontak/img/icons8-phone-50.png"
-              alt="Telepon"
-            />
-            <div>
-              <p class="lab">Telepon</p>
-              <p class="value">+62 877-2552-5133</p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="assets/kontak/img/icons8-email-30.png" alt="Email" />
-            <div>
-              <p class="lab">Email</p>
-              <p class="value">mtsmomo@gmail.com</p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="assets/kontak/img/icons8-location-50.png" alt="Alamat" />
-            <div>
-              <p class="lab">Alamat</p>
-              <p class="value">
-                RT.04/RW.05, Sukamanah, Kec.<br />
-                Cipedes, Kab. Tasikmalaya, Jawa<br />
-                Barat 46131, Indonesia
-              </p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="assets/kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
-            <div>
-              <p class="lab">Jam Kerja</p>
-              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sosmed -->
-        <div class="sosmed">
-        <div class="sosmed-item">
-          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
-            <div class="icon-circle">
-              <img src="assets/kontak/img/ig.png" alt="Instagram" />
-            </div>
-          </a>
-          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
-            <p>darussalamleuwianyar</p>
-          </a>
-        </div>
-        <!-- link tiktok -->
-        <div class="sosmed-item">
-          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
-            <div class="icon-circle">
-              <img src="assets/kontak/img/tt.png  " alt="TikTok" />
-            </div>
-          </a>
-          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
-            <p>Darussalam</p>
-          </a>
-        </div>
-        <!-- link facebook -->
-        <div class="sosmed-item">
-          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-            <div class="icon-circle">
-              <img src="assets/kontak/img/icons8-facebook-30.png" alt="Facebook" />
-            </div>
-          </a>
-          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-            <p>Darussalam</p>
-          </a>
-        </div>
-        <!-- link youtube -->
-        <div class="sosmed-item">
-          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
-            <div class="icon-circle">
-              <img src="assets/kontak/img/yt.png" alt="YouTube" />
-            </div>
-          </a>
-          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
-            <p>Darussalam</p>
-          </a>
-        </div>
-      </div>
-
-        <!-- Form -->
-        <div class="form-section">
-          <input type="text" placeholder="Nama" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Pesan"></textarea>
-          <button class="btn-submit" type="button">Kirim</button>
-        </div>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- Footer bawah -->
-      <div class="footer-akhir">
-      <p>
-        &copy;2026.<br />
-       Design By TEFA PPLG SMKN 4 Tasikmalaya.
-      </p>
-    </div>
-    </footer>
-
-    <script>
-    const data = [
-{ name: "Ahmad Fauzan", nis: "12301" },
-{ name: "Budi Santoso", nis: "12302" },
-{ name: "Citra Lestari", nis: "12303" },
-{ name: "Dewi Anggraini", nis: "12304" },
-{ name: "Eko Prasetyo", nis: "12305" },
-{ name: "Fajar Hidayat", nis: "12306" },
-{ name: "Gina Putri", nis: "12307" },
-{ name: "Hadi Saputra", nis: "12308" },
-{ name: "Indah Permata", nis: "12309" },
-{ name: "Indah Permata", nis: "12309" }
+<script>
+const data = [
+    { name: "Fraza Saka Afgani",            nis: "12301" },
+    { name: "Zaki Nur Faizi",               nis: "12302" },
+    { name: "Taufiq Rohman",                nis: "12303" },
+    { name: "Fahri Israhadi Putra",         nis: "12304" },
+    { name: "Ai Rahmawati",                 nis: "12305" },
+    { name: "Klara Oktaviana",              nis: "12306" },
+    { name: "Sintha Melinda",               nis: "12307" },
+    { name: "Rajil Apriana",                nis: "12308" },
+    { name: "Rezalka Aisha Firjatillah",    nis: "12309" },
+    { name: "Muhammad Nazar Khorulakwan",   nis: "12310" },
+    { name: "Zahra Afifah Hifdillah",       nis: "12311" },
+    { name: "Ahmad Fasha",                  nis: "12312" },
+    { name: "Dimas Prasetyo",               nis: "12313" },
+    { name: "Siti Nurhaliza",               nis: "12314" },
+    { name: "Rizky Maulana",                nis: "12315" },
+    { name: "Nazwa Aulia Putri",            nis: "12316" },
+    { name: "Farhan Hidayat",               nis: "12317" },
+    { name: "Salwa Azzahra",                nis: "12318" },
+    { name: "Arif Rahman",                  nis: "12319" },
+    { name: "Nurul Fadhilah",               nis: "12320" },
+    { name: "Bagas Wicaksono",              nis: "12321" },
+    { name: "Putri Ramadhani",              nis: "12322" },
+    { name: "Ilham Saputra",                nis: "12323" },
+    { name: "Dewi Kartika",                 nis: "12324" },
+    { name: "Andika Pratama",               nis: "12325" },
+    { name: "Reva Aulia Sari",              nis: "12326" },
+    { name: "Hafidz Al Fatih",              nis: "12327" },
+    { name: "Nadia Permata",                nis: "12328" },
+    { name: "Yoga Firmansyah",              nis: "12329" },
+    { name: "Indah Lestari",                nis: "12330" },
+    { name: "Fauzan Aditya",                nis: "12331" },
+    { name: "Rini Anggraeni",               nis: "12332" },
+    { name: "Daffa Ramadhan",               nis: "12333" },
+    { name: "Syifa Aulia Rahma",            nis: "12334" },
+    { name: "Rizal Firmansyah",             nis: "12335" },
+    { name: "Amelia Putri Sari",            nis: "12336" },
+    { name: "Fajri Nurdiansyah",            nis: "12337" },
+    { name: "Laila Nur Azizah",             nis: "12338" },
+    { name: "Gilang Ramadhan",              nis: "12339" },
+    { name: "Tsaniya Azzahra",              nis: "12340" },
+    { name: "Muhamad Alfarizi",             nis: "12341" },
+    { name: "Salsabila Nur Aini",           nis: "12342" },
+    { name: "Raihan Dwi Saputra",           nis: "12343" },
+    { name: "Fitria Ramadhani",             nis: "12344" },
 ];
 
 const grid = document.getElementById("list");
 
-data.forEach(siswa => {
-const card = document.createElement("div");
-card.classList.add("card");
-
-card.innerHTML = `     <div class="name">${siswa.name}</div>     <div class="nis">${siswa.nis}</div>
-  `;
-
-grid.appendChild(card);
+data.forEach((siswa, index) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.style.animationDelay = `${0.05 * index}s`;
+    card.innerHTML = `
+        <div class="name">${siswa.name}</div>
+        <div class="nis">NIS: ${siswa.nis}</div>
+    `;
+    grid.appendChild(card);
 });
-
-
 </script>
 
 </body>
