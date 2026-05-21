@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +44,56 @@
             background: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 100;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            min-width: 180px;
+            padding: 6px;
+            z-index: 200;
+        }
+
+        nav ul li:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 14px;
+            font-size: 15px;
+            color: #333;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #eaf5ee;
+            color: #64AC7B;
+        }
+
+        .dropdown-menu li a::after {
+            display: none;
+        }
+
+        .siswa-arrow {
+            font-size: 10px;
+            margin-left: 2px;
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        nav ul li:hover .siswa-arrow {
+            transform: rotate(180deg);
         }
 
         .brand {
@@ -115,15 +166,22 @@
             transition: width 0.25s ease;
         }
 
-        nav ul li a:hover { color: #64AC7B; }
-        nav ul li a:hover::after { width: 50%; }
+        nav ul li a:hover {
+            color: #64AC7B;
+        }
+
+        nav ul li a:hover::after {
+            width: 50%;
+        }
 
         nav ul li a.active {
             color: #64AC7B;
             font-weight: 600;
         }
 
-        nav ul li a.active::after { width: 50%; }
+        nav ul li a.active::after {
+            width: 50%;
+        }
 
         .garis-label {
             display: none;
@@ -136,7 +194,9 @@
             transition: background 0.2s;
         }
 
-        .garis-label:hover { background: #f0f0f0; }
+        .garis-label:hover {
+            background: #f0f0f0;
+        }
 
         .garis-label span {
             display: block;
@@ -147,13 +207,15 @@
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        #menu-toggle:checked ~ nav .garis-label span:nth-child(1) {
+        #menu-toggle:checked~nav .garis-label span:nth-child(1) {
             transform: translateY(7.5px) rotate(45deg);
         }
-        #menu-toggle:checked ~ nav .garis-label span:nth-child(2) {
+
+        #menu-toggle:checked~nav .garis-label span:nth-child(2) {
             opacity: 0;
         }
-        #menu-toggle:checked ~ nav .garis-label span:nth-child(3) {
+
+        #menu-toggle:checked~nav .garis-label span:nth-child(3) {
             transform: translateY(-7.5px) rotate(-45deg);
         }
 
@@ -164,7 +226,7 @@
             left: 0;
             right: 0;
             background: white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
             padding: 12px 20px 20px;
             opacity: 0;
             transform: translateY(-8px);
@@ -172,7 +234,7 @@
             z-index: 99;
         }
 
-        #menu-toggle:checked ~ .mobile-menu {
+        #menu-toggle:checked~.mobile-menu {
             opacity: 1;
             transform: translateY(0);
         }
@@ -205,21 +267,46 @@
             color: #64AC7B;
         }
 
-        .mobile-menu ul li a.active { font-weight: 600; }
+        .mobile-menu ul li a.active {
+            font-weight: 600;
+        }
 
         @media (max-width: 768px) {
-            nav ul { display: none; }
-            .garis-label { display: flex; }
-            .mobile-menu { display: block; }
-            nav { padding: 0 20px; height: 70px; }
+            nav ul {
+                display: none;
+            }
 
-            .brand img { width: 46px; height: 46px; }
-            .tulisan1 { font-size: 15px; }
-            .tulisan2 { font-size: 13px; }
+            .garis-label {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            nav {
+                padding: 0 20px;
+                height: 70px;
+            }
+
+            .brand img {
+                width: 46px;
+                height: 46px;
+            }
+
+            .tulisan1 {
+                font-size: 15px;
+            }
+
+            .tulisan2 {
+                font-size: 13px;
+            }
         }
 
         @media (max-width: 480px) {
-            nav { padding: 0 14px; }
+            nav {
+                padding: 0 14px;
+            }
         }
     </style>
 </head>
@@ -240,8 +327,15 @@
         <ul>
             <li><a href="#beranda" class="active">Beranda</a></li>
             <li><a href="#sambutan">Profil</a></li>
-            <li><a href="#data">Data</a></li>
-            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#SDM">SDM</a></li>
+            <li>
+                <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#rombel">Rombel</a></li>
+                    <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
+                    <li><a href="#prestasi">Prestasi</a></li>
+                </ul>
+            </li>
             <li><a href="#kontak">Kontak</a></li>
         </ul>
 
@@ -256,11 +350,12 @@
         <ul>
             <li><a href="#beranda" class="active">Beranda</a></li>
             <li><a href="#sambutan">Profil</a></li>
-            <li><a href="#data">Data</a></li>
+            <li><a href="#sdm">Sdm</a></li>
             <li><a href="#galeri">Galeri</a></li>
             <li><a href="#kontak">Kontak</a></li>
         </ul>
     </div>
 
 </body>
+
 </html>

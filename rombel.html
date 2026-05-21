@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rombel</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rombel</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background-color: #ABD1C6;
+            width: 100vw;
+            min-height: 100vh;
+            padding: 40px 5vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container-hero {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .section-wrapper {
+            width: 100%;
+            padding: 12px 0;
+            margin-bottom: 8px;
+        }
+
+        .judul {
+            width: 100%;
+            height: 49px;
+            background-color: #F2F2F2;
+            text-align: center;
+            border: 3px solid #000;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.2s;
+        }
+
+        .judul:hover {
+            background-color: #C9C9C9;
+        }
+
+        .judul h2 {
+            font-size: clamp(14px, 3vw, 22px);
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #333;
+        }
+
+        .siswa-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .siswa-kolom-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+
+        .siswa-kolom-link:hover {
+            transform: translateY(-4px);
+        }
+
+        .siswa-kolom-link:hover .card-siswa,
+        .siswa-kolom-link:hover .kotak {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .siswa-kolom {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            flex: 1;
+        }
+
+        .kotak {
+            background-color: #F2F2F2;
+            color: #333;
+            text-align: center;
+            font-size: clamp(16px, 3vw, 24px);
+            border-radius: 30px;
+            border: 3px solid #000;
+            padding: 8px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .kotak:hover {
+            background-color: #C9C9C9;
+            transform: translateY(-2px);
+        }
+
+        .card-siswa {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: clamp(11px, 1.8vw, 14px);
+            color: #333;
+            line-height: 1.7;
+            background-color: #F9BC60;
+            border: 3px solid #000;
+            border-radius: 10px;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-height: 193px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-siswa:hover {
+            background-color: #C9C9C9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 32px 4vw;
+            }
+
+            .siswa-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .card-siswa {
+                min-height: 160px;
+            }
+        }
+
+        /* HP landscape / tablet kecil */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 24px 4vw;
+                min-height: auto;
+            }
+
+            .siswa-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+
+            .card-siswa {
+                min-height: 140px;
+                font-size: 12px;
+            }
+
+            .kotak {
+                font-size: 16px;
+                padding: 6px 0;
+            }
+        }
+
+        /* HP portrait */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 20px 4vw;
+            }
+
+            .siswa-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .card-siswa {
+                min-height: 100px;
+            }
+        }
+
+        /* HP kecil */
+        @media (max-width: 400px) {
+            .hero {
+                padding: 16px 3vw;
+            }
+
+            .card-siswa {
+                width: 100%;
+                height: auto;
+                min-height: 90px;
+            }
+
+            .siswa-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .siswa-kolom {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <body>
+        <section class="hero">
+            <div class="container-hero">
+                <div class="section-wrapper">
+                    <div class="judul">
+                        <h2>DATA SISWA</h2>
+                    </div>
+                    <div class="siswa-grid">
+                        <a href="kelas7.html" class="siswa-kolom-link">
+                            <div class="siswa-kolom">
+                                <div class="kotak">VII</div>
+                                <div class="card-siswa">
+                                    <h2>Total Siswa : 33</h2>
+                                    <span>Laki Laki : 16</span>
+                                    <span>Perempuan : 17</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="kelas8.html" class="siswa-kolom-link">
+                            <div class="siswa-kolom">
+                                <div class="kotak">VIII</div>
+                                <div class="card-siswa">
+                                    <h2>Total Siswa : 41</h2>
+                                    <span>Laki Laki : 24</span>
+                                    <span>Perempuan : 17</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="kelas9.html" class="siswa-kolom-link">
+                            <div class="siswa-kolom">
+                                <div class="kotak">IX</div>
+                                <div class="card-siswa">
+                                    <h2>Total Siswa : 45</h2>
+                                    <span>Laki Laki : 28</span>
+                                    <span>Perempuan : 17</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    </html>
+</body>
+</html>
