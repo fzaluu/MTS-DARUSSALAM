@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seragam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/galeri.css">
+  <link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/footer.css">
+
+</head>
+<body>
+        <input type="checkbox" id="menu-toggle" />
+
+    <nav>
+        <a href="" class="brand">
+            <img src="assets/img/logo.jpeg" alt="Logo MTS Darussalam" />
+            <div class="logotext">
+                <p class="tulisan1">MTS</p>
+                <p class="tulisan2">Darussalam</p>
+            </div>
+        </a>
+
+
+        <ul>
+            <li><a href="index.html" >Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="galeri.html" class="active">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+
+        <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="index.html" >Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="galeri.html" class="active">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </div>
+  <div class="section-galeri">
+    <h2 class="section-title">SERAGAM</h2>
+
+    <div class="galeri-body">
+
+      <div class="galeri-grid">
+        <div class="galeri-item" onclick="bukaModal('seragam1.jpg','Seragam Senin & Selasa','Baju PSAS adalah seragam sekolah yang digunakan sebagai pakaian resmi siswa pada hari-hari tertentu sesuai aturan sekolah. Seragam ini mencerminkan kerapian dan identitas siswa di lingkungan sekolah.')">
+          <img src="assets/img/putihbiru.png" alt="Seragam Senin">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Seragam PSAS</h2>
+              <p>Senin &amp; Selasa</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-item" onclick="bukaModal('seragam2.jpg','Olahraga','Dipakai saat jam PJOK.')">
+          <img src="assets/img/olga.png" alt="Seragam Olahraga">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Olahraga</h2>
+              <p>Rabu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="galeri-grid-bawah">
+        <div class="galeri-item" onclick="bukaModal('seragam3.jpg','Batik','Dipakai setiap Hari Kamis.')">
+          <img src="assets/img/batik.png" alt="Seragam Batik">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Batik</h2>
+              <p>Hari Kamis</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-item" onclick="bukaModal('seragam4.jpg','Pramuka','Dipakai setiap Hari Jumat.')">
+          <img src="assets/img/busanamuslim.jpeg" alt="Seragam Pramuka">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Busana Muslim</h2>
+              <p>Hari Jumat</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-item" onclick="bukaModal('seragam5.jpg','Seragam Rabu','Seragam sekolah untuk Hari Rabu.')">
+          <img src="assets/img/pramuka.jpeg" alt="Seragam Rabu">
+          <div class="overlay">
+            <div class="overlay-text">
+              <h2>Pramuka</h2>
+              <p>Sabtu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="footer">
+      <!-- TOP ROW: Logo + Visi -->
+      <div class="top-row">
+        <div class="logos">
+          <img src="kontak/img/yayasan.png" alt="Logo 1" />
+          <img src="kontak/img/kemenag.png" alt="Logo 2" />
+          <img src="kontak/img/mts.png" alt="Logo 3" />
+        </div>
+        <p class="visi-text">
+          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
+          berakhlak, dan penuh empati<br />
+          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- MIDDLE ROW -->
+      <div class="middle-row">
+        <!-- Kontak -->
+        <div class="kontak">
+          <p class="kontak-title">Kontak</p>
+
+          <div class="kontak-item">
+            <img
+              src="kontak/img/icons8-phone-50.png"
+              alt="Telepon"
+            />
+            <div>
+              <p class="lab">Telepon</p>
+              <p class="value">+62 877-2552-5133</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-email-30.png" alt="Email" />
+            <div>
+              <p class="lab">Email</p>
+              <p class="value">mtsmomo@gmail.com</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
+            <div>
+              <p class="lab">Alamat</p>
+              <p class="value">
+                RT.04/RW.05, Sukamanah, Kec.<br />
+                Cipedes, Kab. Tasikmalaya, Jawa<br />
+                Barat 46131, Indonesia
+              </p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+            <div>
+              <p class="lab">Jam Kerja</p>
+              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sosmed -->
+        <div class="sosmed">
+        <div class="sosmed-item">
+          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+            <div class="icon-circle">
+              <img src="kontak/img/ig.png" alt="Instagram" />
+            </div>
+          </a>
+          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+            <p>darussalamleuwianyar</p>
+          </a>
+        </div>
+        <!-- link tiktok -->
+        <div class="sosmed-item">
+          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+            <div class="icon-circle">
+              <img src="kontak/img/tt.png" alt="TikTok" />
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+            <p>Darussalam</p>
+          </a>
+        </div>
+        <!-- link facebook -->
+        <div class="sosmed-item">
+          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+            <div class="icon-circle">
+              <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
+            </div>
+          </a>
+          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+            <p>Darussalam</p>
+          </a>
+        </div>
+        <!-- link youtube -->
+        <div class="sosmed-item">
+          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
+            <div class="icon-circle">
+              <img src="kontak/img/yt.png" alt="YouTube" />
+            </div>
+          </a>
+          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
+            <p>Darussalam</p>
+          </a>
+        </div>
+      </div>
+
+        <!-- Form -->
+        <div class="form-section">
+          <input type="text" placeholder="Nama" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Pesan"></textarea>
+          <button class="btn-submit" type="button">Kirim</button>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Footer bawah -->
+      <div class="footer-akhir">
+      <p>
+        &copy;2026.<br />
+       Design By TEFA PPLG SMKN 4 Tasikmalaya.
+      </p>
+    </div>
+    </footer>
