@@ -1,74 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seragam</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="seragam.css">
-  <link rel="stylesheet" href="css/nav.css">
-<link rel="stylesheet" href="css/footer.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seragam</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/seragam.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+  </head>
+  <body>
+    <div class="section-galeri">
+      <h2 class="section-title">SERAGAM</h2>
+      <div class="galeri-body">
+        <div class="galeri-grid">
+          <div
+            class="galeri-item"
+            onclick="
+              bukaModal(
+                'seragam1.jpg',
+                'Seragam Senin & Selasa',
+                'Baju PSAS adalah seragam sekolah yang digunakan sebagai pakaian resmi siswa pada hari-hari tertentu sesuai aturan sekolah. Seragam ini mencerminkan kerapian dan identitas siswa di lingkungan sekolah.',
+              )
+            "
+          >
+            <img src="assets/img/putihbiru.png" alt="Seragam Senin" />
+            <div class="overlay">
+              <div class="overlay-text">
+                <h2>Seragam PSAS</h2>
+                <p>Senin &amp; Selasa</p>
+              </div>
+            </div>
+          </div>
 
-</head>
-<body>
-  <div class="section-galeri">
-    <h2 class="section-title">SERAGAM</h2>
-
-    <div class="galeri-body">
-
-      <div class="galeri-grid">
-        <div class="galeri-item" onclick="bukaModal('seragam1.jpg','Seragam Senin & Selasa','Baju PSAS adalah seragam sekolah yang digunakan sebagai pakaian resmi siswa pada hari-hari tertentu sesuai aturan sekolah. Seragam ini mencerminkan kerapian dan identitas siswa di lingkungan sekolah.')">
-          <img src="assets/img/putihbiru.png" alt="Seragam Senin">
-          <div class="overlay">
-            <div class="overlay-text">
-              <h2>Seragam PSAS</h2>
-              <p>Senin &amp; Selasa</p>
+          <div
+            class="galeri-item"
+            onclick="
+              bukaModal('seragam2.jpg', 'Olahraga', 'Dipakai saat jam PJOK.')
+            "
+          >
+            <img src="assets/img/olga.png" alt="Seragam Olahraga" />
+            <div class="overlay">
+              <div class="overlay-text">
+                <h2>Olahraga</h2>
+                <p>Rabu</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="galeri-item" onclick="bukaModal('seragam2.jpg','Olahraga','Dipakai saat jam PJOK.')">
-          <img src="assets/img/olga.png" alt="Seragam Olahraga">
-          <div class="overlay">
-            <div class="overlay-text">
-              <h2>Olahraga</h2>
-              <p>Rabu</p>
+        <div class="galeri-grid-bawah">
+          <div
+            class="galeri-item"
+            onclick="
+              bukaModal('seragam3.jpg', 'Batik', 'Dipakai setiap Hari Kamis.')
+            "
+          >
+            <img src="assets/img/batik.png" alt="Seragam Batik" />
+            <div class="overlay">
+              <div class="overlay-text">
+                <h2>Batik</h2>
+                <p>Hari Kamis</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="galeri-item"
+            onclick="
+              bukaModal('seragam4.jpg', 'Pramuka', 'Dipakai setiap Hari Jumat.')
+            "
+          >
+            <img src="assets/img/busanamuslim.jpeg" alt="Seragam Pramuka" />
+            <div class="overlay">
+              <div class="overlay-text">
+                <h2>Busana Muslim</h2>
+                <p>Hari Jumat</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="galeri-item"
+            onclick="
+              bukaModal(
+                'seragam5.jpg',
+                'Seragam Rabu',
+                'Seragam sekolah untuk Hari Rabu.',
+              )
+            "
+          >
+            <img src="assets/img/pramuka.jpeg" alt="Seragam Rabu" />
+            <div class="overlay">
+              <div class="overlay-text">
+                <h2>Pramuka</h2>
+                <p>Sabtu</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="galeri-grid-bawah">
-        <div class="galeri-item" onclick="bukaModal('seragam3.jpg','Batik','Dipakai setiap Hari Kamis.')">
-          <img src="assets/img/batik.png" alt="Seragam Batik">
-          <div class="overlay">
-            <div class="overlay-text">
-              <h2>Batik</h2>
-              <p>Hari Kamis</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="galeri-item" onclick="bukaModal('seragam4.jpg','Pramuka','Dipakai setiap Hari Jumat.')">
-          <img src="assets/img/busanamuslim.jpeg" alt="Seragam Pramuka">
-          <div class="overlay">
-            <div class="overlay-text">
-              <h2>Busana Muslim</h2>
-              <p>Hari Jumat</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="galeri-item" onclick="bukaModal('seragam5.jpg','Seragam Rabu','Seragam sekolah untuk Hari Rabu.')">
-          <img src="assets/img/pramuka.jpeg" alt="Seragam Rabu">
-          <div class="overlay">
-            <div class="overlay-text">
-              <h2>Pramuka</h2>
-              <p>Sabtu</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
+  </body>
+</html>
