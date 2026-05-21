@@ -1,0 +1,45 @@
+body {
+  background-color: #004643;
+  font-family: inter;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+.header {
+  display: flex;
+  text-align: center;
+  border-bottom: 2px solid #2e7d6b;
+}
+.sambutan {
+  color: #ffffff;
+  max-width: 600px;
+  display: flex;
+  text-align: center;
+  margin-left: auto;
+}
+.grup_logo {
+  display: flex;
+  gap: 15px;
+}
+.grup_logo img {
+  height: 48px;
+}
+.sosmed {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+.sosmed a {
+  color: white;
+  align-items: center;
+  text-decoration: none;
+}
+.sosmed img {
+  height: 48px;
+  gap: 15px;
+}
