@@ -248,7 +248,7 @@ body {
   background: #f2f2f2;
   border-radius: 16px;
   overflow: visible;
-  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
   margin-bottom: 80px;
   margin-left: 50px;
   margin-right: 50px;
