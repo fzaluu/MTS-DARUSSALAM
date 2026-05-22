@@ -1,1144 +1,1257 @@
 <!doctype html>
 <html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rombel</title>
+  <link rel="icon" type="image/png" href="assets/img/logomts.png">
+</head>
+
+<body>
+  <!doctype html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rombel</title>
-    <link rel="icon" type="image/png" href="assets/img/logomts.png">
   </head>
+  <style>
+    * {
+      text-decoration: none;
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section {
+      scroll-margin-top: 100px;
+    }
+
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 100px;
+      height: 105px;
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      min-width: 180px;
+      padding: 6px;
+      z-index: 200;
+    }
+
+    nav ul li:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 15px;
+      color: #333;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+      background: #eaf5ee;
+      color: #64AC7B;
+    }
+
+    .dropdown-menu li a::after {
+      display: none;
+    }
+
+    .siswa-arrow {
+      font-size: 10px;
+      margin-left: 2px;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+
+    nav ul li:hover .siswa-arrow {
+      transform: rotate(180deg);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 100px;
+    }
+
+    .logotext {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.2;
+    }
+
+    .tulisan1 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #64AC7B;
+      margin: 0;
+    }
+
+    .tulisan2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #c0392b;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      display: block;
+      color: #333;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-family: 'Inter', Arial, sans-serif;
+      font-weight: 400;
+      text-decoration: none;
+      border-radius: 6px;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0%;
+      height: 2px;
+      background-color: #64AC7B;
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
+
+    nav ul li a:hover {
+      color: #64AC7B;
+    }
+
+    nav ul li a:hover::after {
+      width: 50%;
+    }
+
+    nav ul li a.active {
+      color: #64AC7B;
+      font-weight: 600;
+    }
+
+    nav ul li a.active::after {
+      width: 50%;
+    }
+
+    .garis-label {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .garis-label:hover {
+      background: #f0f0f0;
+    }
+
+    .garis-label span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: #333;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    #menu-toggle:checked~nav .garis-label span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    #menu-toggle:checked~nav .garis-label span:nth-child(2) {
+      opacity: 0;
+    }
+
+    #menu-toggle:checked~nav .garis-label span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+      padding: 12px 20px 20px;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 99;
+    }
+
+    #menu-toggle:checked~.mobile-menu {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+
+    .mobile-menu ul li a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 15px;
+      font-family: 'Inter', Arial, sans-serif;
+      color: #333;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .mobile-menu ul li a:hover,
+    .mobile-menu ul li a.active {
+      background: #eaf5ee;
+      color: #64AC7B;
+    }
+
+    .mobile-menu ul li a.active {
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .garis-label {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      nav {
+        padding: 0 20px;
+        height: 70px;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .tulisan1 {
+        font-size: 15px;
+      }
+
+      .tulisan2 {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 14px;
+      }
+    }
+
+    /* ===== DROPDOWN MOBILE (pure CSS) ===== */
+    .has-dropdown input[type="checkbox"] {
+      display: none;
+    }
+
+    .has-dropdown label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      font-size: 15px;
+      font-family: 'Inter', Arial, sans-serif;
+      color: #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .has-dropdown label:hover {
+      background: #eaf5ee;
+      color: #64AC7B;
+    }
+
+    .has-dropdown .arrow {
+      font-size: 10px;
+      transition: transform 0.25s ease;
+      display: inline-block;
+    }
+
+    .has-dropdown input[type="checkbox"]:checked~label .arrow {
+      transform: rotate(180deg);
+    }
+
+    .has-dropdown input[type="checkbox"]:checked~label {
+      background: #eaf5ee;
+      color: #64AC7B;
+    }
+
+    .mobile-dropdown {
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      list-style: none;
+      margin: 0;
+      padding: 4px 0 6px 16px;
+    }
+
+    .has-dropdown input[type="checkbox"]:checked~.mobile-dropdown {
+      display: flex;
+    }
+
+    .mobile-dropdown li a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+      border-radius: 8px;
+      border-left: 2px solid #eee;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .mobile-dropdown li a:hover {
+      background: #eaf5ee;
+      color: #64AC7B;
+      border-left-color: #64AC7B;
+    }
+
+    /* ===== RESPONSIVE TABLET (≤900px) ===== */
+    @media (max-width: 900px) {
+      nav {
+        padding: 0 40px;
+      }
+    }
+
+    /* ===== RESPONSIVE HP & TABLET (≤768px) ===== */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .garis-label {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      nav {
+        padding: 0 20px;
+        height: 70px;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .tulisan1 {
+        font-size: 15px;
+      }
+
+      .tulisan2 {
+        font-size: 13px;
+      }
+
+      section {
+        scroll-margin-top: 70px;
+      }
+    }
+
+    /* ===== RESPONSIVE HP KECIL (≤480px) ===== */
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 14px;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      background-color: #abd1c6;
+      width: 100vw;
+      min-height: 100vh;
+      padding: 40px 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container-hero {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .section-wrapper {
+      width: 100%;
+      padding: 12px 0;
+      margin-bottom: 8px;
+    }
+
+    .judul {
+      width: 100%;
+      height: 49px;
+      background-color: #f2f2f2;
+      text-align: center;
+      border: 3px solid #000;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s;
+    }
+
+    .judul:hover {
+      background-color: #c9c9c9;
+    }
+
+    .judul h2 {
+      font-size: clamp(14px, 3vw, 22px);
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .siswa-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .siswa-kolom-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    .siswa-kolom-link:hover {
+      transform: translateY(-4px);
+    }
+
+    .siswa-kolom-link:hover .card-siswa,
+    .siswa-kolom-link:hover .kotak {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .siswa-kolom {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .kotak {
+      background-color: #f2f2f2;
+      color: #333;
+      text-align: center;
+      font-size: clamp(16px, 3vw, 24px);
+      border-radius: 30px;
+      border: 3px solid #000;
+      padding: 8px 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .kotak:hover {
+      background-color: #c9c9c9;
+      transform: translateY(-2px);
+    }
+
+    .card-siswa {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: clamp(11px, 1.8vw, 14px);
+      color: #333;
+      line-height: 1.7;
+      background-color: #f9bc60;
+      border: 3px solid #000;
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+      min-height: 193px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-siswa:hover {
+      background-color: #c9c9c9;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero {
+        padding: 32px 4vw;
+      }
+
+      .siswa-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .card-siswa {
+        min-height: 160px;
+      }
+    }
+
+    /* HP landscape / tablet kecil */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 24px 4vw;
+        min-height: auto;
+      }
+
+      .siswa-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .card-siswa {
+        min-height: 140px;
+        font-size: 12px;
+      }
+
+      .kotak {
+        font-size: 16px;
+        padding: 6px 0;
+      }
+    }
+
+    /* HP portrait */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 20px 4vw;
+      }
+
+      .siswa-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .card-siswa {
+        min-height: 100px;
+      }
+    }
+
+    /* HP kecil */
+    @media (max-width: 400px) {
+      .hero {
+        padding: 16px 3vw;
+      }
+
+      .card-siswa {
+        width: 100%;
+        height: auto;
+        min-height: 90px;
+      }
+
+      .siswa-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .siswa-kolom {
+        width: 100%;
+      }
+    }
+
+    .footer {
+      background-color: #004b49;
+      width: 100%;
+      padding: 28px 80px;
+    }
+
+    /* ===== TOP: LOGO + VISI ===== */
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      padding-bottom: 24px;
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .logos img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .visi-text {
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      border: none;
+      border-top: 1px solid #888888;
+      margin: 0;
+    }
+
+    /* ===== MIDDLE ROW ===== */
+    .middle-row {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      padding: 28px 0;
+    }
+
+    /* ===== KONTAK ===== */
+    .kontak-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .kontak-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .kontak-item img {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      /* placeholder jika gambar tidak ada */
+    }
+
+    .kontak-item .label {
+      font-size: 12px;
+      color: #aaaaaa;
+      margin: 0;
+    }
+
+    .kontak-item .value {
+      font-size: 13px;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .kontak-divider {
+      border: none;
+      border-top: 1px solid #555555;
+      margin: 12px 0;
+      width: 260px;
+    }
+
+    /* ===== SOSMED ===== */
+    .sosmed {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 220px;
+      justify-content: center;
+      align-self: center;
+    }
+
+    .sosmed-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .sosmed-item .icon-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background-color: #d9d9d9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .sosmed-item .icon-circle img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    /* fallback SVG icon warna */
+    .sosmed-item .icon-circle svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .sosmed-item p {
+      font-size: 14px;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* ===== FORM ===== */
+    .form-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 340px;
+    }
+
+    .form-section input,
+    .form-section textarea {
+      width: 100%;
+      background-color: #ffffff;
+      border: none;
+      border-radius: 20px;
+      padding: 13px 20px;
+      font-size: 13px;
+      color: #333333;
+      outline: none;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .form-section input::placeholder,
+    .form-section textarea::placeholder {
+      color: #aaaaaa;
+    }
+
+    .form-section textarea {
+      height: 130px;
+      resize: none;
+      border-radius: 16px;
+    }
+
+    .btn-submit {
+      width: 160px;
+      height: 44px;
+      background-color: #64ac7b;
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #4e9464;
+    }
+
+    /* ===== FOOTER BAWAH ===== */
+    .footer-akhir {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 0 4px;
+      text-align: center;
+    }
+
+    .footer-akhir img {
+      width: 27px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .footer-akhir p {
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Tablet besar */
+    @media (max-width: 1024px) {
+      .footer {
+        padding: 24px 40px;
+      }
+
+      .form-section {
+        min-width: 280px;
+      }
+
+      .kontak-divider {
+        width: 100%;
+      }
+    }
+
+    /* Tablet / HP landscape */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 20px 24px;
+      }
+
+      .top-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .visi-text {
+        font-size: 13px;
+      }
+
+      .middle-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 20px 0;
+      }
+
+      .kontak {
+        width: auto;
+        display: inline-block;
+      }
+
+      .kontak-item {
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      .kontak-divider {
+        width: 100%;
+      }
+
+      .sosmed {
+        min-width: unset;
+        width: auto;
+        align-items: flex-start;
+      }
+
+      .sosmed-item {
+        justify-content: flex-start;
+      }
+
+      .form-section {
+        min-width: unset;
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+
+    /* HP portrait */
+    @media (max-width: 480px) {
+      .footer {
+        padding: 16px 16px;
+      }
+
+      .logos img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .visi-text {
+        font-size: 12px;
+      }
+
+      .kontak-title {
+        font-size: 18px;
+      }
+
+      .kontak-item .value {
+        font-size: 12px;
+      }
+
+      .kontak-item .label {
+        font-size: 11px;
+      }
+
+      .sosmed-item p {
+        font-size: 13px;
+      }
+
+      .form-section {
+        max-width: 100%;
+      }
+
+      .form-section input,
+      .form-section textarea {
+        font-size: 12px;
+        padding: 10px 16px;
+      }
+
+      .form-section textarea {
+        height: 100px;
+      }
+
+      .btn-submit {
+        width: 100%;
+        font-size: 13px;
+      }
+
+      .footer-akhir p {
+        font-size: 11px;
+      }
+    }
+
+    /* HP sangat kecil */
+    @media (max-width: 360px) {
+      .footer {
+        padding: 12px 12px;
+      }
+
+      .logos img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .visi-text {
+        font-size: 11px;
+      }
+
+      .kontak-title {
+        font-size: 16px;
+      }
+
+      .sosmed-item .icon-circle {
+        width: 38px;
+        height: 38px;
+      }
+
+      .sosmed-item .icon-circle img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
 
   <body>
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rombel</title>
-      </head>
-      <style>
-        * {
-          text-decoration: none;
-          margin: 0px;
-          padding: 0px;
-          box-sizing: border-box;
-        }
-
-        html {
-          scroll-behavior: smooth;
-        }
-
-        section {
-          scroll-margin-top: 100px;
-        }
-
-        body {
-          margin: 0px;
-          padding: 0px;
-          font-family: Arial, Helvetica, sans-serif;
-          overflow-x: hidden;
-        }
-
-        #menu-toggle {
-          display: none;
-        }
-
-        nav {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 100px;
-          height: 105px;
-          position: sticky;
-          top: 0;
-          background: white;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-          z-index: 100;
-        }
-
-        nav ul li {
-          position: relative;
-        }
-
-        .dropdown-menu {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          background: white;
-          border-radius: 8px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-          min-width: 180px;
-          padding: 6px;
-          z-index: 200;
-        }
-
-        nav ul li:hover .dropdown-menu {
-          display: block;
-        }
-
-        .dropdown-menu li a {
-          display: block;
-          padding: 10px 14px;
-          font-size: 15px;
-          color: #333;
-          border-radius: 6px;
-          white-space: nowrap;
-        }
-
-        .dropdown-menu li a:hover {
-          background: #eaf5ee;
-          color: #64ac7b;
-        }
-
-        .dropdown-menu li a::after {
-          display: none;
-        }
-
-        .siswa-arrow {
-          font-size: 10px;
-          margin-left: 2px;
-          display: inline-block;
-          transition: transform 0.25s ease;
-        }
-
-        nav ul li:hover .siswa-arrow {
-          transform: rotate(180deg);
-        }
-
-        .brand {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          text-decoration: none;
-        }
-
-        .brand img {
-          width: 58px;
-          height: 58px;
-          object-fit: contain;
-          border-radius: 100px;
-        }
-
-        .logotext {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          line-height: 1.2;
-        }
-
-        .tulisan1 {
-          font-size: 17px;
-          font-weight: 700;
-          color: #64ac7b;
-          margin: 0;
-        }
-
-        .tulisan2 {
-          font-size: 17px;
-          font-weight: 600;
-          color: #c0392b;
-          margin: 0;
-        }
-
-        nav ul {
-          list-style: none;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          margin: 0;
-          padding: 0;
-        }
-
-        nav ul li a {
-          display: block;
-          color: #333;
-          padding: 8px 16px;
-          font-size: 16px;
-          font-family: "Inter", Arial, sans-serif;
-          font-weight: 400;
-          text-decoration: none;
-          border-radius: 6px;
-          position: relative;
-          transition: color 0.25s ease;
-        }
-
-        nav ul li a::after {
-          content: "";
-          position: absolute;
-          bottom: 2px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 0%;
-          height: 2px;
-          background-color: #64ac7b;
-          border-radius: 2px;
-          transition: width 0.25s ease;
-        }
-
-        nav ul li a:hover {
-          color: #64ac7b;
-        }
-
-        nav ul li a:hover::after {
-          width: 50%;
-        }
-
-        nav ul li a.active {
-          color: #64ac7b;
-          font-weight: 600;
-        }
-
-        nav ul li a.active::after {
-          width: 50%;
-        }
-
-        .garis-label {
-          display: none;
-          flex-direction: column;
-          justify-content: center;
-          gap: 5px;
-          cursor: pointer;
-          padding: 6px;
-          border-radius: 6px;
-          transition: background 0.2s;
-        }
-
-        .garis-label:hover {
-          background: #f0f0f0;
-        }
-
-        .garis-label span {
-          display: block;
-          width: 24px;
-          height: 2.5px;
-          background: #333;
-          border-radius: 2px;
-          transition:
-            transform 0.3s ease,
-            opacity 0.3s ease;
-        }
-
-        #menu-toggle:checked ~ nav .garis-label span:nth-child(1) {
-          transform: translateY(7.5px) rotate(45deg);
-        }
-
-        #menu-toggle:checked ~ nav .garis-label span:nth-child(2) {
-          opacity: 0;
-        }
-
-        #menu-toggle:checked ~ nav .garis-label span:nth-child(3) {
-          transform: translateY(-7.5px) rotate(-45deg);
-        }
-
-        .mobile-menu {
-          display: none;
-          position: fixed;
-          top: 70px;
-          left: 0;
-          right: 0;
-          background: white;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-          padding: 12px 20px 20px;
-          opacity: 0;
-          transform: translateY(-8px);
-          transition:
-            opacity 0.3s ease,
-            transform 0.3s ease;
-          z-index: 99;
-        }
-
-        #menu-toggle:checked ~ .mobile-menu {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .mobile-menu ul {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-          padding: 0;
-          margin: 0;
-          border-top: 1px solid #eee;
-          padding-top: 10px;
-        }
-
-        .mobile-menu ul li a {
-          display: block;
-          padding: 12px 16px;
-          font-size: 15px;
-          font-family: "Inter", Arial, sans-serif;
-          color: #333;
-          text-decoration: none;
-          border-radius: 8px;
-          transition:
-            background 0.2s,
-            color 0.2s;
-        }
-
-        .mobile-menu ul li a:hover,
-        .mobile-menu ul li a.active {
-          background: #eaf5ee;
-          color: #64ac7b;
-        }
-
-        .mobile-menu ul li a.active {
-          font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-          nav ul {
-            display: none;
-          }
-
-          .garis-label {
-            display: flex;
-          }
-
-          .mobile-menu {
-            display: block;
-          }
-
-          nav {
-            padding: 0 20px;
-            height: 70px;
-          }
-
-          .brand img {
-            width: 46px;
-            height: 46px;
-          }
-
-          .tulisan1 {
-            font-size: 15px;
-          }
-
-          .tulisan2 {
-            font-size: 13px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          nav {
-            padding: 0 14px;
-          }
-        }
-
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        body {
-          width: 100%;
-          overflow-x: hidden;
-        }
-
-        .hero {
-          background-color: #abd1c6;
-          width: 100vw;
-          min-height: 100vh;
-          padding: 40px 5vw;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-
-        .container-hero {
-          width: 100%;
-          max-width: 100%;
-          margin: 0 auto;
-        }
-
-        .section-wrapper {
-          width: 100%;
-          padding: 12px 0;
-          margin-bottom: 8px;
-        }
-
-        .judul {
-          width: 100%;
-          height: 49px;
-          background-color: #f2f2f2;
-          text-align: center;
-          border: 3px solid #000;
-          border-radius: 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 14px;
-          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
-          transition: background-color 0.2s;
-        }
-
-        .judul:hover {
-          background-color: #c9c9c9;
-        }
-
-        .judul h2 {
-          font-size: clamp(14px, 3vw, 22px);
-          font-weight: bold;
-          letter-spacing: 2px;
-          color: #333;
-        }
-
-        .siswa-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
-          width: 100%;
-          align-items: stretch;
-        }
-
-        .siswa-kolom-link {
-          text-decoration: none;
-          color: inherit;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.2s ease;
-        }
-
-        .siswa-kolom-link:hover {
-          transform: translateY(-4px);
-        }
-
-        .siswa-kolom-link:hover .card-siswa,
-        .siswa-kolom-link:hover .kotak {
-          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .siswa-kolom {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          width: 100%;
-          flex: 1;
-        }
-
-        .kotak {
-          background-color: #f2f2f2;
-          color: #333;
-          text-align: center;
-          font-size: clamp(16px, 3vw, 24px);
-          border-radius: 30px;
-          border: 3px solid #000;
-          padding: 8px 0;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .kotak:hover {
-          background-color: #c9c9c9;
-          transform: translateY(-2px);
-        }
-
-        .card-siswa {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-          font-size: clamp(11px, 1.8vw, 14px);
-          color: #333;
-          line-height: 1.7;
-          background-color: #f9bc60;
-          border: 3px solid #000;
-          border-radius: 10px;
-          padding: 12px 14px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          flex: 1;
-          min-height: 193px;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-siswa:hover {
-          background-color: #c9c9c9;
-          transform: translateY(-3px);
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Tablet */
-        @media (max-width: 1024px) {
-          .hero {
-            padding: 32px 4vw;
-          }
-
-          .siswa-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-          }
-
-          .card-siswa {
-            min-height: 160px;
-          }
-        }
-
-        /* HP landscape / tablet kecil */
-        @media (max-width: 768px) {
-          .hero {
-            padding: 24px 4vw;
-            min-height: auto;
-          }
-
-          .siswa-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-          }
-
-          .card-siswa {
-            min-height: 140px;
-            font-size: 12px;
-          }
-
-          .kotak {
-            font-size: 16px;
-            padding: 6px 0;
-          }
-        }
-
-        /* HP portrait */
-        @media (max-width: 600px) {
-          .hero {
-            padding: 20px 4vw;
-          }
-
-          .siswa-grid {
-            grid-template-columns: 1fr;
-            gap: 12px;
-          }
-
-          .card-siswa {
-            min-height: 100px;
-          }
-        }
-
-        /* HP kecil */
-        @media (max-width: 400px) {
-          .hero {
-            padding: 16px 3vw;
-          }
-
-          .card-siswa {
-            width: 100%;
-            height: auto;
-            min-height: 90px;
-          }
-
-          .siswa-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .siswa-kolom {
-            width: 100%;
-          }
-        }
-
-        .footer {
-          background-color: #004b49;
-          width: 100%;
-          padding: 28px 80px;
-        }
-
-        /* ===== TOP: LOGO + VISI ===== */
-        .top-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 40px;
-          padding-bottom: 24px;
-        }
-
-        .logos {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          flex-shrink: 0;
-        }
-
-        .logos img {
-          width: 58px;
-          height: 58px;
-          object-fit: contain;
-        }
-
-        .visi-text {
-          font-family: "Poppins", sans-serif;
-          font-size: 14px;
-          color: #ffffff;
-          text-align: center;
-          line-height: 1.7;
-          flex: 1;
-        }
-
-        /* ===== DIVIDER ===== */
-        .divider {
-          border: none;
-          border-top: 1px solid #888888;
-          margin: 0;
-        }
-
-        /* ===== MIDDLE ROW ===== */
-        .middle-row {
-          display: flex;
-          justify-content: space-evenly;
-          flex-wrap: wrap;
-          gap: 3rem;
-          align-items: center;
-          padding: 28px 0;
-        }
-
-        /* ===== KONTAK ===== */
-        .kontak-title {
-          font-size: 22px;
-          font-weight: 600;
-          color: #ffffff;
-          margin-bottom: 16px;
-        }
-
-        .kontak-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-          margin-bottom: 4px;
-        }
-
-        .kontak-item img {
-          width: 24px;
-          height: 24px;
-          flex-shrink: 0;
-          margin-top: 2px;
-          /* placeholder jika gambar tidak ada */
-        }
-
-        .kontak-item .label {
-          font-size: 12px;
-          color: #aaaaaa;
-          margin: 0;
-        }
-
-        .kontak-item .value {
-          font-size: 13px;
-          color: #ffffff;
-          margin: 0;
-        }
-
-        .kontak-divider {
-          border: none;
-          border-top: 1px solid #555555;
-          margin: 12px 0;
-          width: 260px;
-        }
-
-        /* ===== SOSMED ===== */
-        .sosmed {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          min-width: 220px;
-          justify-content: center;
-          align-self: center;
-        }
-
-        .sosmed-item {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-        }
-
-        .sosmed-item .icon-circle {
-          width: 46px;
-          height: 46px;
-          border-radius: 50%;
-          background-color: #d9d9d9;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          overflow: hidden;
-        }
-
-        .sosmed-item .icon-circle img {
-          width: 26px;
-          height: 26px;
-          object-fit: contain;
-        }
-
-        /* fallback SVG icon warna */
-        .sosmed-item .icon-circle svg {
-          width: 22px;
-          height: 22px;
-        }
-
-        .sosmed-item p {
-          font-size: 14px;
-          color: #ffffff;
-          margin: 0;
-        }
-
-        /* ===== FORM ===== */
-        .form-section {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          min-width: 340px;
-        }
-
-        .form-section input,
-        .form-section textarea {
-          width: 100%;
-          background-color: #ffffff;
-          border: none;
-          border-radius: 20px;
-          padding: 13px 20px;
-          font-size: 13px;
-          color: #333333;
-          outline: none;
-          font-family: "Poppins", sans-serif;
-        }
-
-        .form-section input::placeholder,
-        .form-section textarea::placeholder {
-          color: #aaaaaa;
-        }
-
-        .form-section textarea {
-          height: 130px;
-          resize: none;
-          border-radius: 16px;
-        }
-
-        .btn-submit {
-          width: 160px;
-          height: 44px;
-          background-color: #64ac7b;
-          border: none;
-          border-radius: 10px;
-          color: #ffffff;
-          font-family: "Poppins", sans-serif;
-          font-size: 14px;
-          cursor: pointer;
-          transition: background 0.2s;
-        }
-
-        .btn-submit:hover {
-          background-color: #4e9464;
-        }
-
-        /* ===== FOOTER BAWAH ===== */
-        .footer-akhir {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
-          padding: 20px 0 4px;
-          text-align: center;
-        }
-
-        .footer-akhir img {
-          width: 27px;
-          height: 32px;
-          object-fit: contain;
-        }
-
-        .footer-akhir p {
-          color: #ffffff;
-          font-size: 12px;
-          line-height: 1.7;
-          margin: 0;
-        }
-
-        /* Tablet besar */
-        @media (max-width: 1024px) {
-          .footer {
-            padding: 24px 40px;
-          }
-
-          .form-section {
-            min-width: 280px;
-          }
-
-          .kontak-divider {
-            width: 100%;
-          }
-        }
-
-        /* Tablet / HP landscape */
-        @media (max-width: 768px) {
-          .footer {
-            padding: 20px 24px;
-          }
-
-          .top-row {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 16px;
-          }
-
-          .visi-text {
-            font-size: 13px;
-          }
-
-          .middle-row {
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-            padding: 20px 0;
-          }
-
-          .kontak {
-            width: auto;
-            display: inline-block;
-          }
-
-          .kontak-item {
-            justify-content: flex-start;
-            text-align: left;
-          }
-
-          .kontak-divider {
-            width: 100%;
-          }
-
-          .sosmed {
-            min-width: unset;
-            width: auto;
-            align-items: flex-start;
-          }
-
-          .sosmed-item {
-            justify-content: flex-start;
-          }
-
-          .form-section {
-            min-width: unset;
-            width: 100%;
-            max-width: 400px;
-          }
-        }
-
-        /* HP portrait */
-        @media (max-width: 480px) {
-          .footer {
-            padding: 16px 16px;
-          }
-
-          .logos img {
-            width: 44px;
-            height: 44px;
-          }
-
-          .visi-text {
-            font-size: 12px;
-          }
-
-          .kontak-title {
-            font-size: 18px;
-          }
-
-          .kontak-item .value {
-            font-size: 12px;
-          }
-
-          .kontak-item .label {
-            font-size: 11px;
-          }
-
-          .sosmed-item p {
-            font-size: 13px;
-          }
-
-          .form-section {
-            max-width: 100%;
-          }
-
-          .form-section input,
-          .form-section textarea {
-            font-size: 12px;
-            padding: 10px 16px;
-          }
-
-          .form-section textarea {
-            height: 100px;
-          }
-
-          .btn-submit {
-            width: 100%;
-            font-size: 13px;
-          }
-
-          .footer-akhir p {
-            font-size: 11px;
-          }
-        }
-
-        /* HP sangat kecil */
-        @media (max-width: 360px) {
-          .footer {
-            padding: 12px 12px;
-          }
-
-          .logos img {
-            width: 36px;
-            height: 36px;
-          }
-
-          .visi-text {
-            font-size: 11px;
-          }
-
-          .kontak-title {
-            font-size: 16px;
-          }
-
-          .sosmed-item .icon-circle {
-            width: 38px;
-            height: 38px;
-          }
-
-          .sosmed-item .icon-circle img {
-            width: 20px;
-            height: 20px;
-          }
-        }
-      </style>
-
-      <body>
-        <input type="checkbox" id="menu-toggle" />
-
-        <nav>
-          <a href="" class="brand">
-            <img src="assets/img/logo.jpeg" alt="Logo MTS Darussalam" />
-            <div class="logotext">
-              <p class="tulisan1">MTS</p>
-              <p class="tulisan2">Darussalam</p>
-            </div>
-          </a>
-
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="profil.html">Profil</a></li>
-            <li><a href="sdm.html">SDM</a></li>
-            <li>
-              <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
-              <ul class="dropdown-menu">
-                <li><a href="seragam.html">Seragam</a></li>
-                <li><a href="rombel.html" class="active">Rombel</a></li>
-                <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
-                <li><a href="prestasi.html">Prestasi</a></li>
-              </ul>
-            </li>
-            <li><a href="kontak.html">Kontak</a></li>
+    <input type="checkbox" id="menu-toggle" />
+
+    <nav>
+      <a href="" class="brand">
+        <img src="img/logomts.jpeg" alt="Logo MTS Darussalam" />
+        <div class="logotext">
+          <p class="tulisan1">MTS</p>
+          <p class="tulisan2">Darussalam</p>
+        </div>
+      </a>
+
+
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="sdm.html">SDM</a></li>
+        <li>
+          <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="seragam.html">Seragam</a></li>
+            <li><a href="rombel.html" class="active">Rombel</a></li>
+            <li><a href="eskul.html">Ekstrakurikuler</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
           </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
 
-          <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
-            <span></span>
-            <span></span>
-            <span></span>
+      <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </nav>
+
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="sdm.html">Sdm</a></li>
+        <li class="has-dropdown">
+          <input type="checkbox" id="dropdown-toggle" />
+          <label for="dropdown-toggle">
+            Siswa <span class="arrow">▼</span>
           </label>
-        </nav>
-
-        <div class="mobile-menu">
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="profil.html">Profil</a></li>
-            <li><a href="sdm.html">Sdm</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
+          <ul class="mobile-dropdown">
+            <li><a href="seragam.html">Seragam</a></li>
+            <li><a href="rombel.html" class="active">Rombel</a></li>
+            <li><a href="eskul.html">Ekstrakurikuler</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
           </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+
+    <section class="hero">
+      <div class="container-hero">
+        <div class="section-wrapper">
+          <div class="judul">
+            <h2>DATA SISWA</h2>
+          </div>
+          <div class="siswa-grid">
+            <a href="kelas7.html" class="siswa-kolom-link">
+              <div class="siswa-kolom">
+                <div class="kotak">VII</div>
+                <div class="card-siswa">
+                  <h2>Total Siswa : 33</h2>
+                  <span>Laki Laki : 16</span>
+                  <span>Perempuan : 17</span>
+                </div>
+              </div>
+            </a>
+            <a href="kelas8.html" class="siswa-kolom-link">
+              <div class="siswa-kolom">
+                <div class="kotak">VIII</div>
+                <div class="card-siswa">
+                  <h2>Total Siswa : 41</h2>
+                  <span>Laki Laki : 24</span>
+                  <span>Perempuan : 17</span>
+                </div>
+              </div>
+            </a>
+            <a href="kelas9.html" class="siswa-kolom-link">
+              <div class="siswa-kolom">
+                <div class="kotak">IX</div>
+                <div class="card-siswa">
+                  <h2>Total Siswa : 45</h2>
+                  <span>Laki Laki : 28</span>
+                  <span>Perempuan : 17</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <!-- TOP ROW: Logo + Visi -->
+      <div class="top-row">
+        <div class="logos">
+          <img src="kontak/img/yayasan.png" alt="Logo 1" />
+          <img src="kontak/img/kemenag.png" alt="Logo 2" />
+          <img src="kontak/img/mts.png" alt="Logo 3" />
+        </div>
+        <p class="visi-text">
+          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
+          berakhlak, dan penuh empati<br />
+          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- MIDDLE ROW -->
+      <div class="middle-row">
+        <!-- Kontak -->
+        <div class="kontak">
+          <p class="kontak-title">Kontak</p>
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
+            <div>
+              <p class="label">Telepon</p>
+              <p class="value">+62 877-2552-5133</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-email-30.png" alt="Email" />
+            <div>
+              <p class="label">Email</p>
+              <p class="value">mtsmomo@gmail.com</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
+            <div>
+              <p class="label">Alamat</p>
+              <p class="value">
+                RT.04/RW.05, Sukamanah, Kec.<br />
+                Cipedes, Kab. Tasikmalaya, Jawa<br />
+                Barat 46131, Indonesia
+              </p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+            <div>
+              <p class="label">Jam Kerja</p>
+              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
+            </div>
+          </div>
         </div>
 
-        <section class="hero">
-          <div class="container-hero">
-            <div class="section-wrapper">
-              <div class="judul">
-                <h2>DATA SISWA</h2>
+        <!-- Sosmed -->
+        <div class="sosmed">
+          <div class="sosmed-item">
+            <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+              <div class="icon-circle">
+                <img src="kontak/img/ig.png" alt="Instagram" />
               </div>
-              <div class="siswa-grid">
-                <a href="kelas7.html" class="siswa-kolom-link">
-                  <div class="siswa-kolom">
-                    <div class="kotak">VII</div>
-                    <div class="card-siswa">
-                      <h2>Total Siswa : 33</h2>
-                      <span>Laki Laki : 16</span>
-                      <span>Perempuan : 17</span>
-                    </div>
-                  </div>
-                </a>
-                <a href="kelas8.html" class="siswa-kolom-link">
-                  <div class="siswa-kolom">
-                    <div class="kotak">VIII</div>
-                    <div class="card-siswa">
-                      <h2>Total Siswa : 41</h2>
-                      <span>Laki Laki : 24</span>
-                      <span>Perempuan : 17</span>
-                    </div>
-                  </div>
-                </a>
-                <a href="kelas9.html" class="siswa-kolom-link">
-                  <div class="siswa-kolom">
-                    <div class="kotak">IX</div>
-                    <div class="card-siswa">
-                      <h2>Total Siswa : 45</h2>
-                      <span>Laki Laki : 28</span>
-                      <span>Perempuan : 17</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
+            </a>
+            <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+              <p>darussalamleuwianyar</p>
+            </a>
           </div>
-        </section>
-        <footer class="footer">
-          <!-- TOP ROW: Logo + Visi -->
-          <div class="top-row">
-            <div class="logos">
-              <img src="kontak/img/yayasan.png" alt="Logo 1" />
-              <img src="kontak/img/kemenag.png" alt="Logo 2" />
-              <img src="kontak/img/mts.png" alt="Logo 3" />
-            </div>
-            <p class="visi-text">
-              "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
-              berakhlak, dan penuh empati<br />
-              melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
-            </p>
+          <!-- link tiktok -->
+          <div class="sosmed-item">
+            <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+              <div class="icon-circle">
+                <img src="kontak/img/tt.png" alt="TikTok" />
+              </div>
+            </a>
+            <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+              <p>Darussalam</p>
+            </a>
           </div>
-
-          <hr class="divider" />
-
-          <!-- MIDDLE ROW -->
-          <div class="middle-row">
-            <!-- Kontak -->
-            <div class="kontak">
-              <p class="kontak-title">Kontak</p>
-
-              <div class="kontak-item">
-                <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
-                <div>
-                  <p class="label">Telepon</p>
-                  <p class="value">+62 877-2552-5133</p>
-                </div>
+          <!-- link facebook -->
+          <div class="sosmed-item">
+            <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+              <div class="icon-circle">
+                <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
               </div>
-              <hr class="kontak-divider" />
-
-              <div class="kontak-item">
-                <img src="kontak/img/icons8-email-30.png" alt="Email" />
-                <div>
-                  <p class="label">Email</p>
-                  <p class="value">mtsmomo@gmail.com</p>
-                </div>
-              </div>
-              <hr class="kontak-divider" />
-
-              <div class="kontak-item">
-                <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
-                <div>
-                  <p class="label">Alamat</p>
-                  <p class="value">
-                    RT.04/RW.05, Sukamanah, Kec.<br />
-                    Cipedes, Kab. Tasikmalaya, Jawa<br />
-                    Barat 46131, Indonesia
-                  </p>
-                </div>
-              </div>
-              <hr class="kontak-divider" />
-
-              <div class="kontak-item">
-                <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
-                <div>
-                  <p class="label">Jam Kerja</p>
-                  <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Sosmed -->
-            <div class="sosmed">
-              <div class="sosmed-item">
-                <a
-                  href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4"
-                >
-                  <div class="icon-circle">
-                    <img src="kontak/img/ig.png" alt="Instagram" />
-                  </div>
-                </a>
-                <a
-                  href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4"
-                >
-                  <p>darussalamleuwianyar</p>
-                </a>
-              </div>
-              <!-- link tiktok -->
-              <div class="sosmed-item">
-                <a
-                  href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu"
-                >
-                  <div class="icon-circle">
-                    <img src="kontak/img/tt.png" alt="TikTok" />
-                  </div>
-                </a>
-                <a
-                  href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu"
-                >
-                  <p>Darussalam</p>
-                </a>
-              </div>
-              <!-- link facebook -->
-              <div class="sosmed-item">
-                <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-                  <div class="icon-circle">
-                    <img
-                      src="kontak/img/icons8-facebook-30.png"
-                      alt="Facebook"
-                    />
-                  </div>
-                </a>
-                <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-                  <p>Darussalam</p>
-                </a>
-              </div>
-              <!-- link youtube -->
-              <div class="sosmed-item">
-                <a
-                  href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx"
-                >
-                  <div class="icon-circle">
-                    <img src="kontak/img/yt.png" alt="YouTube" />
-                  </div>
-                </a>
-                <a
-                  href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx"
-                  class=""
-                >
-                  <p>Darussalam</p>
-                </a>
-              </div>
-            </div>
-
-            <!-- Form -->
-            <div class="form-section">
-              <input type="text" placeholder="Nama" />
-              <input type="email" placeholder="Email" />
-              <textarea placeholder="Pesan"></textarea>
-              <button class="btn-submit" type="button">Kirim</button>
-            </div>
+            </a>
+            <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+              <p>Darussalam</p>
+            </a>
           </div>
-
-          <hr class="divider" />
-
-          <!-- Footer bawah -->
-          <div class="footer-akhir">
-            <p>
-              &copy;2026.<br />
-              Design By TEFA PPLG SMKN 4 Tasikmalaya.
-            </p>
+          <!-- link youtube -->
+          <div class="sosmed-item">
+            <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
+              <div class="icon-circle">
+                <img src="kontak/img/yt.png" alt="YouTube" />
+              </div>
+            </a>
+            <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
+              <p>Darussalam</p>
+            </a>
           </div>
-        </footer>
-      </body>
-    </html>
+        </div>
+
+        <!-- Form -->
+        <div class="form-section">
+          <input type="text" placeholder="Nama" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Pesan"></textarea>
+          <button class="btn-submit" type="button">Kirim</button>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Footer bawah -->
+      <div class="footer-akhir">
+        <p>
+          &copy;2026.<br />
+          Design By TEFA PPLG SMKN 4 Tasikmalaya.
+        </p>
+      </div>
+    </footer>
   </body>
+
+  </html>
+</body>
+
 </html>

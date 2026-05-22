@@ -1,246 +1,759 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rombel</title>
-<link rel="icon" type="image/png" href="assets/img/logomts.png">
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rombel</title>
+  <link rel="icon" type="image/png" href="assets/img/logomts.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-}
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
 
-.container {
-    width: 100%;
-    min-height: 100vh;
-    background: url('bg.jpg') center/cover no-repeat;
-    background-attachment: fixed;
-    position: relative;
-    color: white;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.container::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-}
+    section {
+      scroll-margin-top: 100px;
+    }
 
-.content {
-    position: relative;
-    z-index: 2;
-    padding: 40px 20px;
-    max-width: 1440px;
-    margin: 0 auto;
-}
+    font #menu-toggle {
+      display: none;
+    }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 100px;
+      height: 105px;
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    nav ul li {
+      position: relative;
+    }
 
-@keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      min-width: 180px;
+      padding: 6px;
+      z-index: 200;
+    }
 
-.title {
-    text-align: center;
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 30px;
-    animation: fadeInDown 0.8s ease-out;
-}
+    nav ul li:hover .dropdown-menu {
+      display: block;
+    }
 
-.btn {
-    width: 137px;
-    height: 52px;
-    background: #64AC7B;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 25px;
-    cursor: pointer;
-    border: none;
-    color: white;
-    text-decoration: none;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
-    transition: all 0.3s ease;
-}
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 15px;
+      color: #333;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
+    .dropdown-menu li a:hover {
+      background: #eaf5ee;
+      color: #64AC7B;
+    }
 
-.btn:active {
-    transform: scale(0.98);
-}
+    .dropdown-menu li a::after {
+      display: none;
+    }
 
-.top {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin-bottom: 20px;
-    align-items: flex-start;
-    width: 100%;
-}
+    .siswa-arrow {
+      font-size: 10px;
+      margin-left: 2px;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
 
-.column {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    flex: 1;
-    min-width: 0;
-}
+    nav ul li:hover .siswa-arrow {
+      transform: rotate(180deg);
+    }
 
-.box {
-    width: 100%;
-    min-height: 49px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 4px 4px 0 #000;
-    color: black;
-    padding: 12px 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    animation: scaleIn 0.6s ease-out 0.3s both;
-    transition: all 0.3s ease;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
 
-.box:hover {
-    transform: translateY(-5px);
-    box-shadow: 6px 6px 0 #000;
-}
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 100px;
+    }
 
-.label {
-    font-size: 15px;
-    font-weight: 600;
-}
+    .logotext {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.2;
+    }
 
-.value {
-    font-size: 15px;
-    font-weight: 300;
-}
+    .tulisan1 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #64AC7B;
+      margin: 0;
+    }
 
-.single {
-    font-size: 20px;
-    font-weight: 600;
-}
+    .tulisan2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #c0392b;
+      margin: 0;
+    }
 
-.section {
-    width: 100%;
-    height: 41px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 4px 4px 0 #000;
-    margin: 35px auto 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 15px;
-    color: black;
-    font-size: 20px;
-    font-weight: 300;
-    animation: fadeInUp 0.6s ease-out 0.5s both;
-    transition: all 0.3s ease;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+    }
 
-.section:hover {
-    box-shadow: 6px 6px 0 #000;
-}
+    nav ul li a {
+      display: block;
+      color: #333;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-family: 'Inter', Arial, sans-serif;
+      font-weight: 400;
+      text-decoration: none;
+      border-radius: 6px;
+      position: relative;
+      transition: color 0.25s ease;
+    }
 
-.students {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-    gap: 16px;
-    justify-items: center;
-}
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0%;
+      height: 2px;
+      background-color: #64AC7B;
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
 
-.card {
-    width: 100%;
-    max-width: 100%;
-    min-height: 68px;
-    height: auto;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 4px 4px 0 #000;
-    padding: 10px 15px;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    opacity: 0;
-    animation: scaleIn 0.5s ease-out forwards;
-    transition: all 0.3s ease;
-}
+    nav ul li a:hover {
+      color: #64AC7B;
+    }
 
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 6px 6px 0 #000;
-}
+    nav ul li a:hover::after {
+      width: 50%;
+    }
 
-.name {
-    font-size: 18px;
-    font-weight: 600;
-}
+    nav ul li a.active {
+      color: #64AC7B;
+      font-weight: 600;
+    }
 
-.nis {
-    font-size: 14px;
-    font-weight: 300;
-}
+    nav ul li a.active::after {
+      width: 50%;
+    }
 
-@media (max-width: 1024px) {
-    .content { padding: 30px 15px; }
-    .title { font-size: 36px; }
-    .students { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 14px; }
-    .top { gap: 15px; }
-}
+    .garis-label {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
 
-@media (max-width: 768px) {
-    .content { padding: 25px 15px; }
-    .title { font-size: 28px; }
-    .btn { width: 120px; height: 45px; font-size: 16px; }
-    .top { gap: 12px; }
-    .students { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .name { font-size: 15px; }
-    .nis { font-size: 12px; }
-    .section { font-size: 15px; height: 38px; margin: 25px auto 15px; }
-    .label, .value { font-size: 12px; }
-}
+    .garis-label:hover {
+      background: #f0f0f0;
+    }
 
-@media (max-width: 480px) {
-    .content { padding: 15px 10px; }
-    .title { font-size: 18px; }
-    .btn { width: 100px; height: 40px; font-size: 14px; }
-    .top { gap: 8px; }
-    .students { grid-template-columns: 1fr; gap: 10px; }
-    .name { font-size: 13px; }
-    .nis { font-size: 11px; }
-    .section { font-size: 13px; height: 35px; padding-left: 12px; margin: 20px auto 15px; }
-    .box { padding: 8px 10px; border-radius: 12px; }
-    .label, .value { font-size: 11px; }
-}
+    .garis-label span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: #333;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
-.footer {
+    #menu-toggle:checked~nav .garis-label span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    #menu-toggle:checked~nav .garis-label span:nth-child(2) {
+      opacity: 0;
+    }
+
+    #menu-toggle:checked~nav .garis-label span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+      padding: 12px 20px 20px;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 99;
+    }
+
+    #menu-toggle:checked~.mobile-menu {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+
+    .mobile-menu ul li a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 15px;
+      font-family: 'Inter', Arial, sans-serif;
+      color: #333;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .mobile-menu ul li a:hover,
+    .mobile-menu ul li a.active {
+      background: #eaf5ee;
+      color: #64AC7B;
+    }
+
+    .mobile-menu ul li a.active {
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .garis-label {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      nav {
+        padding: 0 20px;
+        height: 70px;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .tulisan1 {
+        font-size: 15px;
+      }
+
+      .tulisan2 {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 14px;
+      }
+    }
+
+    /* ===== DROPDOWN MOBILE (pure CSS) ===== */
+    .has-dropdown input[type="checkbox"] {
+      display: none;
+    }
+
+    .has-dropdown label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      font-size: 15px;
+      font-family: 'Inter', Arial, sans-serif;
+      color: #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .has-dropdown label:hover {
+      background: #eaf5ee;
+      color: #64AC7B;
+    }
+
+    .has-dropdown .arrow {
+      font-size: 10px;
+      transition: transform 0.25s ease;
+      display: inline-block;
+    }
+
+    .has-dropdown input[type="checkbox"]:checked~label .arrow {
+      transform: rotate(180deg);
+    }
+
+    .has-dropdown input[type="checkbox"]:checked~label {
+      background: #eaf5ee;
+      color: #64AC7B;
+    }
+
+    .mobile-dropdown {
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      list-style: none;
+      margin: 0;
+      padding: 4px 0 6px 16px;
+    }
+
+    .has-dropdown input[type="checkbox"]:checked~.mobile-dropdown {
+      display: flex;
+    }
+
+    .mobile-dropdown li a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+      border-radius: 8px;
+      border-left: 2px solid #eee;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .mobile-dropdown li a:hover {
+      background: #eaf5ee;
+      color: #64AC7B;
+      border-left-color: #64AC7B;
+    }
+
+    /* ===== RESPONSIVE TABLET (≤900px) ===== */
+    @media (max-width: 900px) {
+      nav {
+        padding: 0 40px;
+      }
+    }
+
+    /* ===== RESPONSIVE HP & TABLET (≤768px) ===== */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .garis-label {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      nav {
+        padding: 0 20px;
+        height: 70px;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .tulisan1 {
+        font-size: 15px;
+      }
+
+      .tulisan2 {
+        font-size: 13px;
+      }
+
+      section {
+        scroll-margin-top: 70px;
+      }
+    }
+
+    /* ===== RESPONSIVE HP KECIL (≤480px) ===== */
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 14px;
+      }
+    }
+
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      background: url('bg.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+      position: relative;
+      color: white;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 40px 20px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .btn {
+      width: 137px;
+      height: 52px;
+      background: #64AC7B;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      cursor: pointer;
+      border: none;
+      color: white;
+      text-decoration: none;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .top {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .box {
+      width: 100%;
+      min-height: 49px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 4px 4px 0 #000;
+      color: black;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: scaleIn 0.6s ease-out 0.3s both;
+      transition: all 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 6px 6px 0 #000;
+    }
+
+    .label {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .value {
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .single {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .section {
+      width: 100%;
+      height: 41px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 4px 4px 0 #000;
+      margin: 35px auto 20px;
+      display: flex;
+      align-items: center;
+      padding-left: 15px;
+      color: black;
+      font-size: 20px;
+      font-weight: 300;
+      animation: fadeInUp 0.6s ease-out 0.5s both;
+      transition: all 0.3s ease;
+    }
+
+    .section:hover {
+      box-shadow: 6px 6px 0 #000;
+    }
+
+    .students {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+      gap: 16px;
+      justify-items: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 100%;
+      min-height: 68px;
+      height: auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 4px 4px 0 #000;
+      padding: 10px 15px;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      animation: scaleIn 0.5s ease-out forwards;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 6px 6px 0 #000;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .nis {
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    @media (max-width: 1024px) {
+      .content {
+        padding: 30px 15px;
+      }
+
+      .title {
+        font-size: 36px;
+      }
+
+      .students {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+        gap: 14px;
+      }
+
+      .top {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 25px 15px;
+      }
+
+      .title {
+        font-size: 28px;
+      }
+
+      .btn {
+        width: 120px;
+        height: 45px;
+        font-size: 16px;
+      }
+
+      .top {
+        gap: 12px;
+      }
+
+      .students {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .name {
+        font-size: 15px;
+      }
+
+      .nis {
+        font-size: 12px;
+      }
+
+      .section {
+        font-size: 15px;
+        height: 38px;
+        margin: 25px auto 15px;
+      }
+
+      .label,
+      .value {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        padding: 15px 10px;
+      }
+
+      .title {
+        font-size: 18px;
+      }
+
+      .btn {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+      }
+
+      .top {
+        gap: 8px;
+      }
+
+      .students {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .name {
+        font-size: 13px;
+      }
+
+      .nis {
+        font-size: 11px;
+      }
+
+      .section {
+        font-size: 13px;
+        height: 35px;
+        padding-left: 12px;
+        margin: 20px auto 15px;
+      }
+
+      .box {
+        padding: 8px 10px;
+        border-radius: 12px;
+      }
+
+      .label,
+      .value {
+        font-size: 11px;
+      }
+    }
+
+    .footer {
       background-color: #004b49;
       width: 100%;
       padding: 28px 80px;
@@ -608,44 +1121,99 @@ body {
         height: 20px;
       }
     }
-</style>
+  </style>
 </head>
 
 <body>
-<div class="container">
+  <input type="checkbox" id="menu-toggle" />
+
+  <nav>
+    <a href="" class="brand">
+      <img src="img/logomts.jpeg" alt="Logo MTS Darussalam" />
+      <div class="logotext">
+        <p class="tulisan1">MTS</p>
+        <p class="tulisan2">Darussalam</p>
+      </div>
+    </a>
+
+
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="sdm.html">SDM</a></li>
+      <li>
+        <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="seragam.html">Seragam</a></li>
+          <li><a href="rombel.html" class="active">Rombel</a></li>
+          <li><a href="eskul.html">Ekstrakurikuler</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+        </ul>
+      </li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+
+    <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </nav>
+
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="sdm.html">Sdm</a></li>
+      <li class="has-dropdown">
+        <input type="checkbox" id="dropdown-toggle" />
+        <label for="dropdown-toggle">
+          Siswa <span class="arrow">▼</span>
+        </label>
+        <ul class="mobile-dropdown">
+          <li><a href="seragam.html">Seragam</a></li>
+          <li><a href="rombel.html" class="active">Rombel</a></li>
+          <li><a href="eskul.html">Ekstrakurikuler</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+        </ul>
+      </li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </div>
+  <div class="container">
     <div class="content">
 
-        <div class="title">ROMBEL MTS DARUSSALAM</div>
+      <div class="title">ROMBEL MTS DARUSSALAM</div>
 
-        <a href="data.html" class="btn">Kembali</a>
+      <a href="data.html" class="btn">Kembali</a>
 
-        <div class="top">
-            <div class="column">
-                <div class="box single">Kelas VII</div>
-                <div class="box">
-                    <div class="label">Jumlah Siswa Laki-Laki</div>
-                    <div class="value">16</div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="box">
-                    <div class="label">Wali Kelas</div>
-                    <div class="value">Nanang M. Nashir S.Pd.I</div>
-                </div>
-                <div class="box">
-                    <div class="label">Jumlah Siswa Perempuan</div>
-                    <div class="value">17</div>
-                </div>
-            </div>
+      <div class="top">
+        <div class="column">
+          <div class="box single">Kelas VII</div>
+          <div class="box">
+            <div class="label">Jumlah Siswa Laki-Laki</div>
+            <div class="value">16</div>
+          </div>
         </div>
+        <div class="column">
+          <div class="box">
+            <div class="label">Wali Kelas</div>
+            <div class="value">Nanang M. Nashir S.Pd.I</div>
+          </div>
+          <div class="box">
+            <div class="label">Jumlah Siswa Perempuan</div>
+            <div class="value">17</div>
+          </div>
+        </div>
+      </div>
 
-        <div class="section">Anggota Rombel (33 Siswa)</div>
+      <div class="section">Anggota Rombel (33 Siswa)</div>
 
-        <div class="students" id="list"></div>
+      <div class="students" id="list"></div>
 
     </div>
-</div>
-<footer class="footer">
+  </div>
+  <footer class="footer">
     <!-- TOP ROW: Logo + Visi -->
     <div class="top-row">
       <div class="logos">
@@ -775,56 +1343,57 @@ body {
     </div>
   </footer>
 
-<script>
-const data = [
-    { name: "Fraza Saka Afgani",            nis: "12301" },
-    { name: "Zaki Nur Faizi",               nis: "12302" },
-    { name: "Taufiq Rohman",                nis: "12303" },
-    { name: "Fahri Israhadi Putra",         nis: "12304" },
-    { name: "Ai Rahmawati",                 nis: "12305" },
-    { name: "Klara Oktaviana",              nis: "12306" },
-    { name: "Sintha Melinda",               nis: "12307" },
-    { name: "Rajil Apriana",                nis: "12308" },
-    { name: "Rezalka Aisha Firjatillah",    nis: "12309" },
-    { name: "Muhammad Nazar Khorulakwan",   nis: "12310" },
-    { name: "Zahra Afifah Hifdillah",       nis: "12311" },
-    { name: "Ahmad Fasha",                  nis: "12312" },
-    { name: "Dimas Prasetyo",               nis: "12313" },
-    { name: "Siti Nurhaliza",               nis: "12314" },
-    { name: "Rizky Maulana",                nis: "12315" },
-    { name: "Nazwa Aulia Putri",            nis: "12316" },
-    { name: "Farhan Hidayat",               nis: "12317" },
-    { name: "Salwa Azzahra",                nis: "12318" },
-    { name: "Arif Rahman",                  nis: "12319" },
-    { name: "Nurul Fadhilah",               nis: "12320" },
-    { name: "Bagas Wicaksono",              nis: "12321" },
-    { name: "Putri Ramadhani",              nis: "12322" },
-    { name: "Ilham Saputra",                nis: "12323" },
-    { name: "Dewi Kartika",                 nis: "12324" },
-    { name: "Andika Pratama",               nis: "12325" },
-    { name: "Reva Aulia Sari",              nis: "12326" },
-    { name: "Hafidz Al Fatih",              nis: "12327" },
-    { name: "Nadia Permata",                nis: "12328" },
-    { name: "Yoga Firmansyah",              nis: "12329" },
-    { name: "Indah Lestari",                nis: "12330" },
-    { name: "Fauzan Aditya",                nis: "12331" },
-    { name: "Rini Anggraeni",               nis: "12332" },
-    { name: "Daffa Ramadhan",               nis: "12333" },
-];
+  <script>
+    const data = [
+      { name: "Fraza Saka Afgani", nis: "12301" },
+      { name: "Zaki Nur Faizi", nis: "12302" },
+      { name: "Taufiq Rohman", nis: "12303" },
+      { name: "Fahri Israhadi Putra", nis: "12304" },
+      { name: "Ai Rahmawati", nis: "12305" },
+      { name: "Klara Oktaviana", nis: "12306" },
+      { name: "Sintha Melinda", nis: "12307" },
+      { name: "Rajil Apriana", nis: "12308" },
+      { name: "Rezalka Aisha Firjatillah", nis: "12309" },
+      { name: "Muhammad Nazar Khorulakwan", nis: "12310" },
+      { name: "Zahra Afifah Hifdillah", nis: "12311" },
+      { name: "Ahmad Fasha", nis: "12312" },
+      { name: "Dimas Prasetyo", nis: "12313" },
+      { name: "Siti Nurhaliza", nis: "12314" },
+      { name: "Rizky Maulana", nis: "12315" },
+      { name: "Nazwa Aulia Putri", nis: "12316" },
+      { name: "Farhan Hidayat", nis: "12317" },
+      { name: "Salwa Azzahra", nis: "12318" },
+      { name: "Arif Rahman", nis: "12319" },
+      { name: "Nurul Fadhilah", nis: "12320" },
+      { name: "Bagas Wicaksono", nis: "12321" },
+      { name: "Putri Ramadhani", nis: "12322" },
+      { name: "Ilham Saputra", nis: "12323" },
+      { name: "Dewi Kartika", nis: "12324" },
+      { name: "Andika Pratama", nis: "12325" },
+      { name: "Reva Aulia Sari", nis: "12326" },
+      { name: "Hafidz Al Fatih", nis: "12327" },
+      { name: "Nadia Permata", nis: "12328" },
+      { name: "Yoga Firmansyah", nis: "12329" },
+      { name: "Indah Lestari", nis: "12330" },
+      { name: "Fauzan Aditya", nis: "12331" },
+      { name: "Rini Anggraeni", nis: "12332" },
+      { name: "Daffa Ramadhan", nis: "12333" },
+    ];
 
-const grid = document.getElementById("list");
+    const grid = document.getElementById("list");
 
-data.forEach((siswa, index) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.style.animationDelay = `${0.05 * index}s`;
-    card.innerHTML = `
+    data.forEach((siswa, index) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.style.animationDelay = `${0.05 * index}s`;
+      card.innerHTML = `
         <div class="name">${siswa.name}</div>
         <div class="nis">NIS: ${siswa.nis}</div>
     `;
-    grid.appendChild(card);
-});
-</script>
+      grid.appendChild(card);
+    });
+  </script>
 
 </body>
+
 </html>
