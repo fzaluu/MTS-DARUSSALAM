@@ -22,9 +22,318 @@
 <body>
     <input type="checkbox" id="menu-toggle" />
 
+<style>
+        * {
+            text-decoration: none;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 100px;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 100px;
+            height: 105px;
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            min-width: 180px;
+            padding: 6px;
+            z-index: 200;
+        }
+
+        nav ul li:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 14px;
+            font-size: 15px;
+            color: #333;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #eaf5ee;
+            color: #64AC7B;
+        }
+
+        .dropdown-menu li a::after {
+            display: none;
+        }
+
+        .siswa-arrow {
+            font-size: 10px;
+            margin-left: 2px;
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        nav ul li:hover .siswa-arrow {
+            transform: rotate(180deg);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            border-radius: 100px;
+        }
+
+        .logotext {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1.2;
+        }
+
+        .tulisan1 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #64AC7B;
+            margin: 0;
+        }
+
+        .tulisan2 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #c0392b;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #333;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-family: 'Inter', Arial, sans-serif;
+            font-weight: 400;
+            text-decoration: none;
+            border-radius: 6px;
+            position: relative;
+            transition: color 0.25s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0%;
+            height: 2px;
+            background-color: #64AC7B;
+            border-radius: 2px;
+            transition: width 0.25s ease;
+        }
+
+        nav ul li a:hover {
+            color: #64AC7B;
+        }
+
+        nav ul li a:hover::after {
+            width: 50%;
+        }
+
+        nav ul li a.active {
+            color: #64AC7B;
+            font-weight: 600;
+        }
+
+        nav ul li a.active::after {
+            width: 50%;
+        }
+
+        .garis-label {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .garis-label:hover {
+            background: #f0f0f0;
+        }
+
+        .garis-label span {
+            display: block;
+            width: 24px;
+            height: 2.5px;
+            background: #333;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #menu-toggle:checked~nav .garis-label span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+
+        #menu-toggle:checked~nav .garis-label span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-toggle:checked~nav .garis-label span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+            padding: 12px 20px 20px;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 99;
+        }
+
+        #menu-toggle:checked~.mobile-menu {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .mobile-menu ul li a {
+            display: block;
+            padding: 12px 16px;
+            font-size: 15px;
+            font-family: 'Inter', Arial, sans-serif;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .mobile-menu ul li a:hover,
+        .mobile-menu ul li a.active {
+            background: #eaf5ee;
+            color: #64AC7B;
+        }
+
+        .mobile-menu ul li a.active {
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .garis-label {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            nav {
+                padding: 0 20px;
+                height: 70px;
+            }
+
+            .brand img {
+                width: 46px;
+                height: 46px;
+            }
+
+            .tulisan1 {
+                font-size: 15px;
+            }
+
+            .tulisan2 {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 0 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle" />
+
     <nav>
         <a href="" class="brand">
-            <img src="img/logomts.jpeg" alt="Logo MTS Darussalam" />
+            <img src="assets/img/logo.jpeg" alt="Logo MTS Darussalam" />
             <div class="logotext">
                 <p class="tulisan1">MTS</p>
                 <p class="tulisan2">Darussalam</p>
@@ -33,10 +342,18 @@
 
 
         <ul>
-           <li><a href="index.html" class="active">Beranda</a></li>
-            <li><a href="profil.html" >Profil</a></li>
-            <li><a href="data.html">Data</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="index.html" class="active">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="sdm.html">SDM</a></li>
+            <li>
+                <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="seragam.html">Seragam</a></li>
+                    <li><a href="rombel.html">Rombel</a></li>
+                    <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
+                    <li><a href="#prestasi.html">Prestasi</a></li>
+                </ul>
+            </li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
 
@@ -50,9 +367,9 @@
     <div class="mobile-menu">
         <ul>
             <li><a href="index.html" class="active">Beranda</a></li>
-            <li><a href="profil.html" >Profil</a></li>
-            <li><a href="data.html">Data</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="sdm.html">Sdm</a></li>
+            <li><a href="#galeri">Galeri</a></li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
     </div>
@@ -61,7 +378,7 @@
         <div class="brnd">
             <div class="Setengahlingkaran">
             <div class="isiberanda">
-                <h1>Selamat Datang<br>MTs Darussalam</h1>
+                <h1>Selamat Datang<br>di<br>MTs Darussalam</h1>
                 <p>MTs Darussalam unggul dalam pembinaan akhlaq yang menanamkan karakter mulia. Didukung pembiasaan
                     ibadah yaumiyah untuk membentuk pribadi yang taat dan beriman, serta kegiatan pramuka yang melatih
                     kedisiplinan, kemandirian, dan jiwa kepemimpinan.</p>
@@ -70,14 +387,13 @@
         </div>
     </section>
     <section id="sambutan">
-        <hr style="border: 00.1px solid black; margin: 0; margin-bottom: 30px;margin-top: 10px;">
         <br><br>
         <div class="sambutan-container">
             <div class="sambutan-foto">
                 <img src="img/sambutan1.jpeg" alt="Foto Kepala Sekolah" />
             </div>
             <div class="sambutan-teks">
-                <h3>SAMBUTAN KEPALA SEKOLAH <span class="nama-kepsek">Mochamad Syahid S.HI</span></h3>
+                <h3>Mochamad Syahid S.HI</h3>
                 <p>Assalamu'alaikum Wr. Wb.</p>
                 <p>Puji syukur ke hadirat Allah SWT atas rahmat dan karunia-Nya sehingga website SMK SMF Indonesia
                     Yogyakarta dapat hadir sebagai sarana informasi dan media pembelajaran. Kami mengharapkan masukan
@@ -93,7 +409,7 @@
     </section>
     <section id="kegiatan">
         <div class="kegiatan-judul">
-            <h2>KEGIATAN</h2>
+            <h2>KEGIATAN KEGIATAN</h2>
         </div>
         <div class="kegiatan-grid">
             <div class="kegiatan-card">
@@ -110,9 +426,6 @@
                     <i class="ti ti-clock"></i> 02/05/2026
                 </div>
                 <p>LKBB adalah latihan baris-berbaris yang melatih disiplin, kekompakan, dan kerja sama tim.</p>
-                <div class="btn-wrapper">
-                    <a href="galeri.html" class="btn-readmore">READ MORE</a>
-                </div>
             </div>
 
             <div class="kegiatan-card">
@@ -145,12 +458,12 @@
             </div>
         </section>
 
-        <hr style="border: 0.1px solid black; margin: 0; margin-top: 55px;">
+        <!-- <hr style="border: 0.1px solid black; margin: 0; margin-top: 55px;"> -->
 
-        <!-- ======================== -->
+        <!-- ========================
         <!--   SECTION GURU-GURU      -->
         <!-- ======================== -->
-        <section class="section-guru">
+        <!-- <section class="section-guru">
     <div class="section-title-box">
         <h2>DATA PENGAJAR</h2>
     </div>
@@ -181,8 +494,8 @@
             </div>
         </a>
 
-    </div>
-</section>
+    </div> -->
+<!-- </section> -->
         <hr style="border: 0.1px solid black; margin: 0; margin-bottom: 45px;">
         <!--   SECTION UCAP ALUMNI    -->
         <section class="section-alumni">
@@ -246,73 +559,70 @@
         
          </section>
           <footer class="footer">
-      <!-- TOP ROW: Logo + Visi -->
-      <div class="top-row">
-        <div class="logos">
-          <img src="kontak/img/yayasan.png" alt="Logo 1" />
-          <img src="kontak/img/kemenag.png" alt="Logo 2" />
-          <img src="kontak/img/mts.png" alt="Logo 3" />
+    <!-- TOP ROW: Logo + Visi -->
+    <div class="top-row">
+      <div class="logos">
+        <img src="kontak/img/yayasan.png" alt="Logo 1" />
+        <img src="kontak/img/kemenag.png" alt="Logo 2" />
+        <img src="kontak/img/mts.png" alt="Logo 3" />
+      </div>
+      <p class="visi-text">
+        "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
+        berakhlak, dan penuh empati<br />
+        melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- MIDDLE ROW -->
+    <div class="middle-row">
+      <!-- Kontak -->
+      <div class="kontak">
+        <p class="kontak-title">Kontak</p>
+
+        <div class="kontak-item">
+          <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
+          <div>
+            <p class="label">Telepon</p>
+            <p class="value">+62 877-2552-5133</p>
+          </div>
         </div>
-        <p class="visi-text">
-          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
-          berakhlak, dan penuh empati<br />
-          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
-        </p>
+        <hr class="kontak-divider" />
+
+        <div class="kontak-item">
+          <img src="kontak/img/icons8-email-30.png" alt="Email" />
+          <div>
+            <p class="label">Email</p>
+            <p class="value">mtsmomo@gmail.com</p>
+          </div>
+        </div>
+        <hr class="kontak-divider" />
+
+        <div class="kontak-item">
+          <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
+          <div>
+            <p class="label">Alamat</p>
+            <p class="value">
+              RT.04/RW.05, Sukamanah, Kec.<br />
+              Cipedes, Kab. Tasikmalaya, Jawa<br />
+              Barat 46131, Indonesia
+            </p>
+          </div>
+        </div>
+        <hr class="kontak-divider" />
+
+        <div class="kontak-item">
+          <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+          <div>
+            <p class="label">Jam Kerja</p>
+            <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
+          </div>
+        </div>
       </div>
 
-      <hr class="divider" />
-
-      <!-- MIDDLE ROW -->
-      <div class="middle-row">
-        <!-- Kontak -->
-        <div class="kontak">
-          <p class="kontak-title">Kontak</p>
-
-          <div class="kontak-item">
-            <img
-              src="kontak/img/icons8-phone-50.png"
-              alt="Telepon"
-            />
-            <div>
-              <p class="lab">Telepon</p>
-              <p class="value">+62 877-2552-5133</p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-email-30.png" alt="Email" />
-            <div>
-              <p class="lab">Email</p>
-              <p class="value">mtsmomo@gmail.com</p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
-            <div>
-              <p class="lab">Alamat</p>
-              <p class="value">
-                RT.04/RW.05, Sukamanah, Kec.<br />
-                Cipedes, Kab. Tasikmalaya, Jawa<br />
-                Barat 46131, Indonesia
-              </p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
-            <div>
-              <p class="lab">Jam Kerja</p>
-              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sosmed -->
-        <div class="sosmed">
+      <!-- Sosmed -->
+      <div class="sosmed">
         <div class="sosmed-item">
           <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
             <div class="icon-circle">
@@ -358,25 +668,25 @@
         </div>
       </div>
 
-        <!-- Form -->
-        <div class="form-section">
-          <input type="text" placeholder="Nama" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Pesan"></textarea>
-          <button class="btn-submit" type="button">Kirim</button>
-        </div>
+      <!-- Form -->
+      <div class="form-section">
+        <input type="text" placeholder="Nama" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Pesan"></textarea>
+        <button class="btn-submit" type="button">Kirim</button>
       </div>
+    </div>
 
-      <hr class="divider" />
+    <hr class="divider" />
 
-      <!-- Footer bawah -->
-      <div class="footer-akhir">
+    <!-- Footer bawah -->
+    <div class="footer-akhir">
       <p>
         &copy;2026.<br />
-       Design By TEFA PPLG SMKN 4 Tasikmalaya.
+        Design By TEFA PPLG SMKN 4 Tasikmalaya.
       </p>
     </div>
-    </footer>
+  </footer>
     <script>
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.menu ul li a');
