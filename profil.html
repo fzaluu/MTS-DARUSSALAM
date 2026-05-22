@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="css/profil.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="icon" type="image/png" href="assets/img/logomts.png">
 </head>
 
 <body>
@@ -25,11 +24,19 @@
 
 
     <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html" class="active">Profil</a></li>
-      <li><a href="data.html">Data</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
-      <li><a href="kontak.html">Kontak</a></li>
+      <li><a href="#beranda" class="active">Beranda</a></li>
+      <li><a href="#sambutan">Profil</a></li>
+      <li><a href="#SDM">SDM</a></li>
+      <li>
+        <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#seragam">Seragam</a></li>
+          <li><a href="#rombel">Rombel</a></li>
+          <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
+          <li><a href="#prestasi">Prestasi</a></li>
+        </ul>
+      </li>
+      <li><a href="#kontak">Kontak</a></li>
     </ul>
 
     <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
@@ -41,13 +48,25 @@
 
   <div class="mobile-menu">
     <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html" class="active">Profil</a></li>
-      <li><a href="data.html">Data</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
-      <li><a href="kontak.html">Kontak</a></li>
+      <li><a href="#beranda" class="active">Beranda</a></li>
+      <li><a href="#sambutan">Profil</a></li>
+      <li><a href="#sdm">Sdm</a></li>
+      <li class="has-dropdown">
+        <input type="checkbox" id="dropdown-toggle" />
+        <label for="dropdown-toggle">
+          Siswa <span class="arrow">▼</span>
+        </label>
+        <ul class="mobile-dropdown">
+          <li><a href="#seragam">Seragam</a></li>
+          <li><a href="#rombel">Rombel</a></li>
+          <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
+          <li><a href="#prestasi">Prestasi</a></li>
+        </ul>
+      </li>
+      <li><a href="#kontak">Kontak</a></li>
     </ul>
   </div>
+
   <div class="container container-1">
     <div class="card">
       <h2>SEJARAH</h2>
@@ -62,9 +81,6 @@
       </div>
     </div>
     <div class="card-wrapper">
-      <div class="card-image">
-        <img src="img/logo.jpeg" alt="Foto Sekolah">
-      </div>
       <div class="card-visimisi">
         <div class="card-content">
           <span class="label">VISI</span>
@@ -87,14 +103,35 @@
   </div>
   <!-- struktur -->
   <div style="padding: 16px;" class="container container-2">
-    <hr style="border: 0.1px solid black; margin-bottom: 100px; ">
     <div class="section-struktur">
       <h2 class="struktur-title">STRUKTUR</h2>
       <div class="struktur-body">
         <img src="img/sturktur.jpeg" alt="Struktur Organisasi">
       </div>
     </div>
-    <hr style="border: 0.1px solid black; margin-top: 100px; ">
+  </div>
+  <div class="section-fasilitas">
+    <div style="margin-top: 15px;" class="section-title">FASILITAS</div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item">
+          <img src="img/fasilitas1.jpeg" alt="Fasilitas 1">
+        </div>
+        <div class="carousel-item">
+          <img src="img/lab.jpeg" alt="Fasilitas 2">
+        </div>
+        <div class="carousel-item">
+          <img src="img/fasilitas2.jpeg" alt="Fasilitas 3">
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="geserCarousel(-1)">&#8592;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" onclick="geserCarousel(1)">&#8594;</button>
+    </div>
   </div>
   <footer class="footer">
     <!-- TOP ROW: Logo + Visi -->
@@ -225,6 +262,46 @@
       </p>
     </div>
   </footer>
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const items = track.querySelectorAll('.carousel-item');
+    const total = items.length;
+    let current = 0;
+    let autoTimer;
+
+    const dotsContainer = document.getElementById('carouselDots');
+    items.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('aktif');
+      dot.addEventListener('click', () => { pindahKe(i); resetAuto(); });
+      dotsContainer.appendChild(dot);
+    });
+
+    function pindahKe(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) =>
+        d.classList.toggle('aktif', i === current)
+      );
+    }
+
+    function geserCarousel(arah) { pindahKe(current + arah); resetAuto(); }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => pindahKe(current + 1), 4000);
+    }
+
+    resetAuto();
+
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) geserCarousel(diff > 0 ? 1 : -1);
+    });
+  </script>
 </body>
 
 </html>
