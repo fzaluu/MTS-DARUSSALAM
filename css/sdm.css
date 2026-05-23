@@ -203,7 +203,7 @@
 .card-last {
     grid-column: 2/4;
     justify-self: center;
-    width: calc(45% - 5px);
+    width: calc(55% - 5px);
 }
 
 /* ===== RESPONSIVE: TABLET (768px) ===== */
