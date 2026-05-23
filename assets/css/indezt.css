@@ -181,7 +181,6 @@ body {
   width: fit-content;
   border-bottom: 2px solid #000000;
   padding-bottom: 8px;
-  font-weight: bold;
 }
 
 .sambutan-teks p {
@@ -265,7 +264,6 @@ body {
 
 .kegiatan-tanggal i {
   font-size: 40px;
-  color: #312e2e;
 }
 
 .kegiatan-card p {
