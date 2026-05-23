@@ -677,6 +677,10 @@ body {
   width: 260px;
 }
 
+ .lab {
+  color: white;
+}
+
 .sosmed {
   display: flex;
   flex-direction: column;
