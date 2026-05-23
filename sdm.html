@@ -5,1283 +5,391 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SDM Sekolah</title>
-  <link rel="stylesheet" href="assets/css/sdm.css">
-  <link rel="stylesheet" href="assets/css/nav.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="icon" type="image/png" href="assets/img/logomts.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/sdm.css">
 </head>
 
 <body>
+
   <input type="checkbox" id="menu-toggle" />
 
-
-  <style>
-    * {
-      text-decoration: none;
-      margin: 0px;
-      padding: 0px;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    section {
-      scroll-margin-top: 100px;
-    }
-
-    body {
-      margin: 0px;
-      padding: 0px;
-      font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-    }
-
-    #menu-toggle {
-      display: none;
-    }
-
-    nav {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 100px;
-      height: 105px;
-      position: sticky;
-      top: 0;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-    }
-
-    nav ul li {
-      position: relative;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      min-width: 180px;
-      padding: 6px;
-      z-index: 200;
-    }
-
-    nav ul li:hover .dropdown-menu {
-      display: block;
-    }
-
-    .dropdown-menu li a {
-      display: block;
-      padding: 10px 14px;
-      font-size: 15px;
-      color: #333;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-
-    .dropdown-menu li a:hover {
-      background: #eaf5ee;
-      color: #64AC7B;
-    }
-
-    .dropdown-menu li a::after {
-      display: none;
-    }
-
-    .siswa-arrow {
-      font-size: 10px;
-      margin-left: 2px;
-      display: inline-block;
-      transition: transform 0.25s ease;
-    }
-
-    nav ul li:hover .siswa-arrow {
-      transform: rotate(180deg);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 58px;
-      height: 58px;
-      object-fit: contain;
-      border-radius: 100px;
-    }
-
-    .logotext {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      line-height: 1.2;
-    }
-
-    .tulisan1 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #64AC7B;
-      margin: 0;
-    }
-
-    .tulisan2 {
-      font-size: 17px;
-      font-weight: 600;
-      color: #c0392b;
-      margin: 0;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      display: block;
-      color: #333;
-      padding: 8px 16px;
-      font-size: 16px;
-      font-family: 'Inter', Arial, sans-serif;
-      font-weight: 400;
-      text-decoration: none;
-      border-radius: 6px;
-      position: relative;
-      transition: color 0.25s ease;
-    }
-
-    nav ul li a::after {
-      content: '';
-      position: absolute;
-      bottom: 2px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0%;
-      height: 2px;
-      background-color: #64AC7B;
-      border-radius: 2px;
-      transition: width 0.25s ease;
-    }
-
-    nav ul li a:hover {
-      color: #64AC7B;
-    }
-
-    nav ul li a:hover::after {
-      width: 50%;
-    }
-
-    nav ul li a.active {
-      color: #64AC7B;
-      font-weight: 600;
-    }
-
-    nav ul li a.active::after {
-      width: 50%;
-    }
-
-    .garis-label {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-
-    .garis-label:hover {
-      background: #f0f0f0;
-    }
-
-    .garis-label span {
-      display: block;
-      width: 24px;
-      height: 2.5px;
-      background: #333;
-      border-radius: 2px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    #menu-toggle:checked~nav .garis-label span:nth-child(1) {
-      transform: translateY(7.5px) rotate(45deg);
-    }
-
-    #menu-toggle:checked~nav .garis-label span:nth-child(2) {
-      opacity: 0;
-    }
-
-    #menu-toggle:checked~nav .garis-label span:nth-child(3) {
-      transform: translateY(-7.5px) rotate(-45deg);
-    }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background: white;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
-      padding: 12px 20px 20px;
-      opacity: 0;
-      transform: translateY(-8px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      z-index: 99;
-    }
-
-    #menu-toggle:checked~.mobile-menu {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .mobile-menu ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      padding: 0;
-      margin: 0;
-      border-top: 1px solid #eee;
-      padding-top: 10px;
-    }
-
-    .mobile-menu ul li a {
-      display: block;
-      padding: 12px 16px;
-      font-size: 15px;
-      font-family: 'Inter', Arial, sans-serif;
-      color: #333;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .mobile-menu ul li a:hover,
-    .mobile-menu ul li a.active {
-      background: #eaf5ee;
-      color: #64AC7B;
-    }
-
-    .mobile-menu ul li a.active {
-      font-weight: 600;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-
-      .garis-label {
-        display: flex;
-      }
-
-      .mobile-menu {
-        display: block;
-      }
-
-      nav {
-        padding: 0 20px;
-        height: 70px;
-      }
-
-      .brand img {
-        width: 46px;
-        height: 46px;
-      }
-
-      .tulisan1 {
-        font-size: 15px;
-      }
-
-      .tulisan2 {
-        font-size: 13px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      nav {
-        padding: 0 14px;
-      }
-    }
-
-    .footer {
-      background-color: #004b49;
-      width: 100%;
-      padding: 28px 80px;
-    }
-
-    /* ===== TOP: LOGO + VISI ===== */
-    .top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 40px;
-      padding-bottom: 24px;
-    }
-
-    .logos {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .logos img {
-      width: 58px;
-      height: 58px;
-      object-fit: contain;
-    }
-
-    .visi-text {
-      font-family: "Poppins", sans-serif;
-      font-size: 14px;
-      color: #ffffff;
-      text-align: center;
-      line-height: 1.7;
-      flex: 1;
-    }
-
-    /* ===== DIVIDER ===== */
-    .divider {
-      border: none;
-      border-top: 1px solid #888888;
-      margin: 0;
-    }
-
-    /* ===== MIDDLE ROW ===== */
-    .middle-row {
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      gap: 3rem;
-      align-items: center;
-      padding: 28px 0;
-    }
-
-    /* ===== KONTAK ===== */
-    .kontak-title {
-      font-size: 22px;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 16px;
-    }
-
-    .kontak-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 4px;
-    }
-
-    .kontak-item img {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      /* placeholder jika gambar tidak ada */
-    }
-
-    .kontak-item .label {
-      font-size: 12px;
-      color: #aaaaaa;
-      margin: 0;
-    }
-
-    .kontak-item .value {
-      font-size: 13px;
-      color: #ffffff;
-      margin: 0;
-    }
-
-    .kontak-divider {
-      border: none;
-      border-top: 1px solid #555555;
-      margin: 12px 0;
-      width: 260px;
-    }
-
-    /* ===== SOSMED ===== */
-    .sosmed {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      min-width: 220px;
-      justify-content: center;
-      align-self: center;
-    }
-
-    .sosmed-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .sosmed-item .icon-circle {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background-color: #d9d9d9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .sosmed-item .icon-circle img {
-      width: 26px;
-      height: 26px;
-      object-fit: contain;
-    }
-
-    /* fallback SVG icon warna */
-    .sosmed-item .icon-circle svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .sosmed-item p {
-      font-size: 14px;
-      color: #ffffff;
-      margin: 0;
-    }
-
-    /* ===== FORM ===== */
-    .form-section {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      min-width: 340px;
-    }
-
-    .form-section input,
-    .form-section textarea {
-      width: 100%;
-      background-color: #ffffff;
-      border: none;
-      border-radius: 20px;
-      padding: 13px 20px;
-      font-size: 13px;
-      color: #333333;
-      outline: none;
-      font-family: "Poppins", sans-serif;
-    }
-
-    .form-section input::placeholder,
-    .form-section textarea::placeholder {
-      color: #aaaaaa;
-    }
-
-    .form-section textarea {
-      height: 130px;
-      resize: none;
-      border-radius: 16px;
-    }
-
-    .btn-submit {
-      width: 160px;
-      height: 44px;
-      background-color: #64ac7b;
-      border: none;
-      border-radius: 10px;
-      color: #ffffff;
-      font-family: "Poppins", sans-serif;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .btn-submit:hover {
-      background-color: #4e9464;
-    }
-
-    /* ===== FOOTER BAWAH ===== */
-    .footer-akhir {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 20px 0 4px;
-      text-align: center;
-    }
-
-    .footer-akhir img {
-      width: 27px;
-      height: 32px;
-      object-fit: contain;
-    }
-
-    .footer-akhir p {
-      color: #ffffff;
-      font-size: 12px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    /* Tablet besar */
-    @media (max-width: 1024px) {
-      .footer {
-        padding: 24px 40px;
-      }
-
-      .form-section {
-        min-width: 280px;
-      }
-
-      .kontak-divider {
-        width: 100%;
-      }
-    }
-
-    /* Tablet / HP landscape */
-    @media (max-width: 768px) {
-      .footer {
-        padding: 20px 24px;
-      }
-
-      .top-row {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 16px;
-      }
-
-      .visi-text {
-        font-size: 13px;
-      }
-
-      .middle-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-        padding: 20px 0;
-      }
-
-      .kontak {
-        width: auto;
-        display: inline-block;
-      }
-
-      .kontak-item {
-        justify-content: flex-start;
-        text-align: left;
-      }
-
-      .kontak-divider {
-        width: 100%;
-      }
-
-      .sosmed {
-        min-width: unset;
-        width: auto;
-        align-items: flex-start;
-      }
-
-      .sosmed-item {
-        justify-content: flex-start;
-      }
-
-      .form-section {
-        min-width: unset;
-        width: 100%;
-        max-width: 400px;
-      }
-    }
-
-    /* HP portrait */
-    @media (max-width: 480px) {
-      .footer {
-        padding: 16px 16px;
-      }
-
-      .logos img {
-        width: 44px;
-        height: 44px;
-      }
-
-      .visi-text {
-        font-size: 12px;
-      }
-
-      .kontak-title {
-        font-size: 18px;
-      }
-
-      .kontak-item .value {
-        font-size: 12px;
-      }
-
-      .kontak-item .label {
-        font-size: 11px;
-      }
-
-      .sosmed-item p {
-        font-size: 13px;
-      }
-
-      .form-section {
-        max-width: 100%;
-      }
-
-      .form-section input,
-      .form-section textarea {
-        font-size: 12px;
-        padding: 10px 16px;
-      }
-
-      .form-section textarea {
-        height: 100px;
-      }
-
-      .btn-submit {
-        width: 100%;
-        font-size: 13px;
-      }
-
-      .footer-akhir p {
-        font-size: 11px;
-      }
-    }
-
-    /* HP sangat kecil */
-    @media (max-width: 360px) {
-      .footer {
-        padding: 12px 12px;
-      }
-
-      .logos img {
-        width: 36px;
-        height: 36px;
-      }
-
-      .visi-text {
-        font-size: 11px;
-      }
-
-      .kontak-title {
-        font-size: 16px;
-      }
-
-      .sosmed-item .icon-circle {
-        width: 38px;
-        height: 38px;
-      }
-
-      .sosmed-item .icon-circle img {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
-    .sdm-section {
-      background-color: #a8d5c2;
-      /* warna background hijau muda */
-      padding: 40px 20px;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sdm-container {
-      background-color: #ffffff;
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 560px;
-      width: 100%;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .sdm-title {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .sdm-title span {
-      border: 2px solid #222;
-      border-radius: 12px;
-      padding: 14px 60px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      /* jarak antar huruf */
-      text-transform: uppercase;
-      /* huruf kapital semua */
-      color: #222;
-      background-color: #f5f5f5;
-      display: inline-block;
-      box-shadow: 4px 4px 0px #000000;
-      font-family: Arial, sans-serif;
-      /* font sans-serif bersih */
-    }
-
-    .sdm-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      justify-items: center;
-    }
-
-    .card-sdm {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 14px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      border: 2px solid #ddd;
-    }
-
-    .card-sdm:hover {
-      border-color: #a8d5c2;
-      /* warna border saat hover */
-      transform: scale(1.1) translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .card-sdm img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .info-sdm {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
-      color: white;
-      padding: 6px;
-      text-align: center;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-    }
-
-    .card-sdm:hover .info-sdm {
-      transform: scale(1.1) translateY(-3px);
-    }
-
-    .nama-sdm {
-      font-size: 10px;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    .jabatan-sdm {
-      font-size: 8px;
-      margin: 0;
-      opacity: 0.85;
-    }
-
-    /* Card terakhir di tengah */
-    .card-last {
-      grid-column: 2 / 4;
-      justify-self: center;
-      width: calc(50% - 6px);
-    }
-  </style>
-  </head>
-
-  <body>
-    <input type="checkbox" id="menu-toggle" />
-
-    <nav>
-      <a href="" class="brand">
-        <img src="assets/img/logomts.jpeg" alt="Logo MTS Darussalam" />
-        <div class="logotext">
-          <p class="tulisan1">MTS</p>
-          <p class="tulisan2">Darussalam</p>
+  <nav>
+    <a href="" class="brand">
+      <img src="img/logomts.jpeg" alt="Logo MTS Darussalam" />
+      <div class="logotext">
+        <p class="tulisan1">MTS</p>
+        <p class="tulisan2">Darussalam</p>
+      </div>
+    </a>
+
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="sdm.html" class="active">SDM</a></li>
+      <li>
+        <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="seragam.html" class="active">Seragam</a></li>
+          <li><a href="rombel.html">Rombel</a></li>
+          <li><a href="eskul.html">Ekstrakurikuler</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+        </ul>
+      </li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+
+    <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </nav>
+
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="sdm.html" class="active">Sdm</a></li>
+      <li class="has-dropdown">
+        <input type="checkbox" id="dropdown-toggle" />
+        <label for="dropdown-toggle">
+          Siswa <span class="arrow">▼</span>
+        </label>
+        <ul class="mobile-dropdown">
+          <li><a href="seragam.html">Seragam</a></li>
+          <li><a href="rombel.html">Rombel</a></li>
+          <li><a href="eskul.html">Ekstrakurikuler</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+        </ul>
+      </li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </div>
+  <!-- STRUKTUR ORGANISASI -->
+  <section class="struktur-section">
+    <div class="struktur-container">
+
+      <div class="section-title">
+        <span>STRUKTUR ORGANISASI</span>
+      </div>
+
+      <!-- Baris 1 - Kepala Sekolah -->
+      <div class="struktur-top">
+        <div class="card-struktur">
+          <img src="assets/img/m.syahid.jpeg" alt="Kepala Sekolah">
+          <div class="info-struktur">
+            <p class="nama-struktur">Muhammad Syahid, S.HI</p>
+            <p class="jabatan-struktur">Kepala Sekolah</p>
+          </div>
         </div>
-      </a>
+      </div>
 
+      <!-- Baris 2 - 4 orang -->
+      <div class="struktur-row">
+        <div class="card-struktur">
+          <img src="assets/img/eris.jpeg" alt="Tata Usaha">
+          <div class="info-struktur">
+            <p class="nama-struktur">Eris Asy'ary, S.Pd</p>
+            <p class="jabatan-struktur">Tata Usaha</p>
+          </div>
+        </div>
+        <div class="card-struktur">
+          <img src="assets/img/anwar.jpeg" alt="Wakabid Kurikulum">
+          <div class="info-struktur">
+            <p class="nama-struktur">Anwar, S.S,S.S.I</p>
+            <p class="jabatan-struktur">Wakabid Kurikulum</p>
+          </div>
+        </div>
+        <div class="card-struktur">
+          <img src="assets/img/dede.jpeg" alt="Wakabid Kesiswaan">
+          <div class="info-struktur">
+            <p class="nama-struktur">Dede Bukhori, S.HI</p>
+            <p class="jabatan-struktur">Wakabid Kesiswaan</p>
+          </div>
+        </div>
+        <div class="card-struktur">
+          <img src="assets/img/eha.jpeg" alt="Bag.Sapras">
+          <div class="info-struktur">
+            <p class="nama-struktur">Eha Juleha, S.Pd</p>
+            <p class="jabatan-struktur">Bag.Sapras</p>
+          </div>
+        </div>
+      </div>
 
-      <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="profil.html">Profil</a></li>
-        <li><a href="sdm.html" class="active">SDM</a></li>
-        <li>
-          <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="seragam.html">Seragam</a></li>
-            <li><a href="rombel.html">Rombel</a></li>
-            <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
-            <li><a href="#prestasi.html">Prestasi</a></li>
-          </ul>
-        </li>
-        <li><a href="kontak.html">Kontak</a></li>
-      </ul>
+      <!-- Baris 3 - 3 orang -->
+      <div class="struktur-row">
+        <div class="card-struktur">
+          <img src="assets/img/aan.jpeg" alt="Perusahaan">
+          <div class="info-struktur">
+            <p class="nama-struktur">Aan Setianah, S.H</p>
+            <p class="jabatan-struktur">Perusahaan</p>
+          </div>
+        </div>
+        <div class="card-struktur">
+          <img src="assets/img/ipan.png" alt="BK dan Humas">
+          <div class="info-struktur">
+            <p class="nama-struktur">Ipan Sopan, S.Pd.I</p>
+            <p class="jabatan-struktur">Bimbingan Konseling & Humas</p>
+          </div>
+        </div>
+        <div class="card-struktur">
+          <img src="assets/img/adisti.jpeg" alt="Pembina Osis">
+          <div class="info-struktur">
+            <p class="nama-struktur">Adisti Nuryani</p>
+            <p class="jabatan-struktur">Pembina Osis</p>
+          </div>
+        </div>
+      </div>
 
-      <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </nav>
-
-    <div class="mobile-menu">
-      <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="profil.html">Profil</a></li>
-        <li><a href="sdm.html" class="active">Sdm</a></li>
-        <li><a href="#galeri">Galeri</a></li>
-        <li><a href="kontak.html">Kontak</a></li>
-      </ul>
     </div>
     <!--Pengajar -->
     <section id="hero">
       <div class="judul-pengajar">
         <h2>PENGAJAR</h2>
+  </section>
+
+  <!-- SDM - TENAGA PENDIDIK -->
+  <section class="sdm-section">
+    <div class="sdm-container">
+
+      <div class="section-title">
+        <span>TENAGA PENDIDIK & STAF TENAGA PENDIDIK</span>
       </div>
-      <div class="container-pengajar">
-        <!-- <div class="grid-pengajar">
-        card kepsek 
-        <div class="card-custom mb-2">  
-          <img src="assets/img/deni.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Deni Purnama, S.Pd</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">PJOK</p>
+
+      <div class="sdm-grid">
+        <div class="card-sdm">
+          <img src="assets/img/eris.jpeg" alt="Guru 1">
+          <div class="info-sdm">
+            <p class="nama-sdm">Eris Asy'ary, S.Pd.I</p>
+            <p class="jabatan-sdm">Akhlak & B.Arab</p>
           </div>
         </div>
-      </div> -->
-        <div class="grid-pengajar">
-          <div class="card-custom">
-            <img src="assets/img/deni.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">Deni Purnama, S.Pd</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">PJOK</p>
-            </div>
+        <div class="card-sdm">
+          <img src="assets/img/anwar.jpeg" alt="Guru 2">
+          <div class="info-sdm">
+            <p class="nama-sdm">Anwar Hidayat, S.S, S.S.I</p>
+            <p class="jabatan-sdm">B.Inggris</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/nissa.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">Khoirunnisa Jovi, S.Pd.I</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Qurdis & BTQ </p>
-            </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/dede.jpeg" alt="Guru 3">
+          <div class="info-sdm">
+            <p class="nama-sdm">Dede Bukhori, S.H.I</p>
+            <p class="jabatan-sdm">Pkn & Sunda</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/eha.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">Eha Juleha, S.Pd</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Matematika & IPA</p>
-            </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/eha.jpeg" alt="Guru 4">
+          <div class="info-sdm">
+            <p class="nama-sdm">Eha Juleha, S.Pd</p>
+            <p class="jabatan-sdm">Mtk & IPA</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/anwar.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">Anwar Hidayat, S.S, S.S.I</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">B Inggris</p>
-            </div>
+        </div>
+
+        <div class="card-sdm">
+          <img src="assets/img/aan.jpeg" alt="Guru 5">
+          <div class="info-sdm">
+            <p class="nama-sdm">Aan Setianah, S.Pd</p>
+            <p class="jabatan-sdm">Mtk & IPA</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/enok.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">B Indonesia</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Dra Enok Ebah</p>
-            </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/ipan.png" alt="Guru 6">
+          <div class="info-sdm">
+            <p class="nama-sdm">Ipan Sopan, S.Pd.I</p>
+            <p class="jabatan-sdm">SKI & Akhlakul Banin</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/adisti.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">Pembina Osis</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Adisti Nuryani</p>
-            </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/adisti.jpeg" alt="Guru 7">
+          <div class="info-sdm">
+            <p class="nama-sdm">Adisti Nuryani</p>
+            <p class="jabatan-sdm">Pembina Osis</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/dede.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">PKN & B Sunda</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Dede Bukhori, S.H.I</p>
-            </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/yulia.jpeg" alt="Guru 8">
+          <div class="info-sdm">
+            <p class="nama-sdm">Yulia Nursaadah Asri</p>
+            <p class="jabatan-sdm">Fiqih & Prakarya</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/Jili.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">TIK</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Jili Munfariz, S.Pd</p>
-            </div>
+        </div>
+
+        <div class="card-sdm">
+          <img src="assets/img/nissa.jpeg" alt="Guru 9">
+          <div class="info-sdm">
+            <p class="nama-sdm">Khoirunnisa Jovi, S.Pd.I</p>
+            <p class="jabatan-sdm">Alquran Hadist & BTQ</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/eris.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">Akhlak & B Arab</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Eris Asy'ary, S.Pd.I</p>
-            </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/lela.jpeg" alt="Guru 10">
+          <div class="info-sdm">
+            <p class="nama-sdm">Lela Nurlela</p>
+            <p class="jabatan-sdm">IPS</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/yulia.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">Fiqih & Prakarya</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Yulia Nursaadah Asri, S.Pd.I</p>
-            </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/enok.jpeg" alt="Guru 11">
+          <div class="info-sdm">
+            <p class="nama-sdm">Dra. Enok Ebah</p>
+            <p class="jabatan-sdm">B.Indonesia</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/aan.jpeg" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">Matematika & IPA</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Aan Setianah, S.H</p>
-            </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/Jili.jpeg" alt="Guru 12">
+          <div class="info-sdm">
+            <p class="nama-sdm">Jili Munfariz, S.Pd</p>
+            <p class="jabatan-sdm">TIK</p>
           </div>
-          <div class="card-custom">
-            <img src="assets/img/ipan.png" alt="Foto Guru">
-            <div class="info-guru">
-              <p class="nama-guru">SKI & Akhlakul Banin</p>
-              <p class="jabatan">Jabatan</p>
-              <p class="mapel">Ipan Sopan, S.Pd.I</p>
-            </div>
+        </div>
+
+        <div class="card-sdm card-last">
+          <img src="assets/img/deni.jpeg" alt="Guru 13">
+          <div class="info-sdm">
+            <p class="nama-sdm">Deni Purnama, S.Pd</p>
+            <p class="jabatan-sdm">PJOK</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="sdm-section">
-      <div class="sdm-container">
+    </div>
+  </section>
 
-        <div class="sdm-title">
-          <span>TENAGA PENDIDIK & STAF TENAGA PENDIDIK</span>
+  <footer class="footer">
+    <!-- TOP ROW: Logo + Visi -->
+    <div class="top-row">
+      <div class="logos">
+        <img src="assets/kontak/img/yayasan.png" alt="Logo 1" />
+        <img src="assets/kontak/img/kemenag.png" alt="Logo 2" />
+        <img src="assets/kontak/img/mts.png" alt="Logo 3" />
+      </div>
+      <p class="visi-text">
+        "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
+        berakhlak, dan penuh empati<br />
+        melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- MIDDLE ROW -->
+    <div class="middle-row">
+      <!-- Kontak -->
+      <div class="kontak">
+        <p class="kontak-title">Kontak</p>
+
+        <div class="kontak-item">
+          <img src="assets/kontak/img/icons8-phone-50.png" alt="Telepon" />
+          <div>
+            <p class="label">Telepon</p>
+            <p class="value">+62 877-2552-5133</p>
+          </div>
         </div>
+        <hr class="kontak-divider" />
 
-        <div class="sdm-grid">
-          <!-- Baris 1 -->
-          <div class="card-sdm">
-            <img src="assets/img/eris.jpeg" alt="Guru 1">
-            <div class="info-sdm">
-              <p class="nama-sdm">Eris Asy'ary, S.Pd.I </p>
-              <p class="jabatan-sdm">Akhlak & B.Arab</p>
-            </div>
+        <div class="kontak-item">
+          <img src="assets/kontak/img/icons8-email-30.png" alt="Email" />
+          <div>
+            <p class="label">Email</p>
+            <p class="value">mtsmomo@gmail.com</p>
           </div>
-          <div class="card-sdm">
-            <img src="assets/img/anwar.jpeg" alt="Guru 2">
-            <div class="info-sdm">
-              <p class="nama-sdm">Anwar Hidayat,S.S,S.S.I</p>
-              <p class="jabatan-sdm">B.Inggris</p>
-            </div>
-          </div>
-          <div class="card-sdm">
-            <img src="assets/img/dede.jpeg" alt="Guru 3">
-            <div class="info-sdm">
-              <p class="nama-sdm">Dede Bukhori,S.H.I</p>
-              <p class="jabatan-sdm">Pkn & Sunda</p>
-            </div>
-          </div>
-          <div class="card-sdm">
-            <img src="assets/img/eha.jpeg" alt="Guru 4">
-            <div class="info-sdm">
-              <p class="nama-sdm">eha Juleha, S.Pd</p>
-              <p class="jabatan-sdm">Mtk & IPA</p>
-            </div>
-          </div>
+        </div>
+        <hr class="kontak-divider" />
 
-          <!-- Baris 2 -->
-          <div class="card-sdm">
-            <img src="assets/img/aan.jpeg" alt="Guru 5">
-            <div class="info-sdm">
-              <p class="nama-sdm">Aan Setianah, S.Pd</p>
-              <p class="jabatan-sdm">Mtk & IPA</p>
-            </div>
+        <div class="kontak-item">
+          <img src="assets/kontak/img/icons8-location-50.png" alt="Alamat" />
+          <div>
+            <p class="label">Alamat</p>
+            <p class="value">
+              RT.04/RW.05, Sukamanah, Kec.<br />
+              Cipedes, Kab. Tasikmalaya, Jawa<br />
+              Barat 46131, Indonesia
+            </p>
           </div>
-          <div class="card-sdm">
-            <img src="assets/img/ipan.png" alt="Guru 6">
-            <div class="info-sdm">
-              <p class="nama-sdm">Ipan sopan</p>
-              <p class="jabatan-sdm">SKI & Akhlakul Banin</p>
-            </div>
-          </div>
-          <div class="card-sdm">
-            <img src="assets/img/adisti.jpeg" alt="Guru 7">
-            <div class="info-sdm">
-              <p class="nama-sdm">Adisti Nuryani</p>
-              <p class="jabatan-sdm">Pembina Osis</p>
-            </div>
-          </div>
-          <div class="card-sdm">
-            <img src="assets/img/yulia.jpeg" alt="Guru 8">
-            <div class="info-sdm">
-              <p class="nama-sdm">Yulia Nursaadah Asri, </p>
-              <p class="jabatan-sdm">Jabatan</p>
-            </div>
-          </div>
+        </div>
+        <hr class="kontak-divider" />
 
-          <!-- Baris 3 -->
-          <div class="card-sdm">
-            <img src="assets/img/nissa.jpeg" alt="Guru 9">
-            <div class="info-sdm">
-              <p class="nama-sdm">Khoirunnisa Jovi, S.Pd.I</p>
-              <p class="jabatan-sdm">Alquran hadist & BTQ</p>
-            </div>
+        <div class="kontak-item">
+          <img src="assets/kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+          <div>
+            <p class="label">Jam Kerja</p>
+            <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
           </div>
-          <div class="card-sdm">
-            <img src="assets/img/lela.jpeg" alt="Guru 10">
-            <div class="info-sdm">
-              <p class="nama-sdm">Lela Nurlela</p>
-              <p class="jabatan-sdm">IPS</p>
-            </div>
-          </div>
-          <div class="card-sdm">
-            <img src="assets/img/enok.jpeg" alt="Guru 11">
-            <div class="info-sdm">
-              <p class="nama-sdm">Dra. Enok ebah</p>
-              <p class="jabatan-sdm">B Indonesia</p>
-            </div>
-          </div>
-          <div class="card-sdm">
-            <img src="assets/img/Jili.jpeg" alt="Guru 12">
-            <div class="info-sdm">
-              <p class="nama-sdm">Jili Munfariz, S.Pd</p>
-              <p class="jabatan-sdm">TIK</p>
-            </div>
-          </div>
-
-          <!-- Baris 4 - 1 card terakhir di tengah -->
-          <div class="card-sdm card-last">
-            <img src="assets/img/deni.jpeg" alt="Guru 13">
-            <div class="info-sdm">
-              <p class="nama-sdm">Deni Purnama, S.pd</p>
-              <p class="jabatan-sdm">PJOK</p>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
-    <!-- data siswa -->
-    <!-- <section class="hero">
-    <div class="container-hero">
-      <hr>
-      <div class="section-wrapper">
-        <div class="judul"><h2>DATA SISWA</h2></div>
-        <div class="siswa-grid">
-          <a href="kelas7.html" class="siswa-kolom-link">
-            <div class="siswa-kolom" >
-              <div class="kotak">VII</div>
-              <div class="card-siswa" >
-                <span>Total Siswa : 33</span>
-                <span>Laki Laki : 16</span>
-                <span>Perempuan : 17</span>
-              </div>
+
+      <!-- Sosmed -->
+      <div class="sosmed">
+        <div class="sosmed-item">
+          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+            <div class="icon-circle">
+              <img src="assets/kontak/img/ig.png" alt="Instagram" />
             </div>
           </a>
-          <a href="kelas8.html" class="siswa-kolom-link">
-            <div class="siswa-kolom">
-              <div class="kotak">VIII</div>
-              <div class="card-siswa">
-                <span>Total Siswa : 41</span>
-                <span>Laki Laki : 24</span>
-                <span>Perempuan : 17</span>
-              </div>
+          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+            <p>darussalamleuwianyar</p>
+          </a>
+        </div>
+        <!-- link tiktok -->
+        <div class="sosmed-item">
+          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+            <div class="icon-circle">
+              <img src="assets/kontak/img/tt.png" alt="TikTok" />
             </div>
           </a>
-          <a href="kelas9.html" class="siswa-kolom-link">
-            <div class="siswa-kolom">
-              <div class="kotak">IX</div>
-              <div class="card-siswa">
-                <span>Total Siswa : 45</span>
-                <span>Laki Laki : 28</span>
-                <span>Perempuan : 17</span>
-              </div>
+          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+            <p>Darussalam</p>
+          </a>
+        </div>
+        <!-- link facebook -->
+        <div class="sosmed-item">
+          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+            <div class="icon-circle">
+              <img src="assets/kontak/img/icons8-facebook-30.png" alt="Facebook" />
             </div>
+          </a>
+          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+            <p>Darussalam</p>
+          </a>
+        </div>
+        <!-- link youtube -->
+        <div class="sosmed-item">
+          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
+            <div class="icon-circle">
+              <img src="assets/kontak/img/yt.png" alt="YouTube" />
+            </div>
+          </a>
+          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
+            <p>Darussalam</p>
           </a>
         </div>
       </div>
-    -->
-    <!-- bagian ekstrakulikuler -->
-    <!-- <div class="section-wrapper">
-        <div class="judul"><h2>EKSTRAKURIKULER</h2></div>
-        <div class="eskul-row">
-          <div class="card-eskul">
-            <div class="eskul-kiri">
-              <img src="assets/img/pramuka2.jpeg" class="img-eskul" alt="Pramuka">
-              <div class="eskul-nama">Pramuka</div>
-            </div>
-            <p class="eskul-desc">Pramuka adalah kegiatan pendidikan di luar sekolah yang bertujuan membentuk karakter, kedisiplinan, kemandirian, dan kerja sama. Kegiatan ini mengajarkan keterampilan, kepemimpinan, serta rasa cinta tanah air melalui latihan, perkemahan, dan kegiatan sosial. Pramuka juga melatih anggota untuk bertanggung jawab, berani, dan saling membantu sesama.</p>
-          </div>
-          <div class="card-eskul">
-            <div class="eskul-kiri">
-              <img src="assets/img/futsal.jpeg" class="img-eskul" alt="Futsal">
-              <div class="eskul-nama">Futsal</div>
-            </div>
-            <p class="eskul-desc">Futsal adalah permainan bola dalam ruangan yang dimainkan oleh dua tim, masing-masing beranggotakan lima orang, dengan tujuan mencetak gol ke gawang lawan menggunakan teknik kaki. Olahraga ini berfokus pada kecepatan, passing cepat, dan kontrol bola.</p>
-          </div>
-        </div>
-      </div> -->
 
-    <!-- prestasi -->
-    <!-- <div class="section-wrapper">
-        <div class="judul"><h2>PRESTASI</h2></div>
-        <div class="prestasi-center">
-          <div class="card-prestasi">
-            <img src="assets/img/prestasi.jpeg" alt="Prestasi">
-            <p class="prestasi-nama">Story telling</p>
-          </div>
-        </div>
-      </div> -->
-
-    <!-- </div>
-    
-  </section> -->
-    <!-- jika dibutuhkan pakai hr disini saja aktif kan -->
-    <!-- <hr style="margin-top: 15px; margin-bottom: 15px;"> -->
-    <!-- Dev: Rezalka -->
-    <footer class="footer">
-      <!-- TOP ROW: Logo + Visi -->
-      <div class="top-row">
-        <div class="logos">
-          <img src="kontak/img/yayasan.png" alt="Logo 1" />
-          <img src="kontak/img/kemenag.png" alt="Logo 2" />
-          <img src="kontak/img/mts.png" alt="Logo 3" />
-        </div>
-        <p class="visi-text">
-          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
-          berakhlak, dan penuh empati<br />
-          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
-        </p>
+      <!-- Form -->
+      <div class="form-section">
+        <input type="text" placeholder="Nama" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Pesan"></textarea>
+        <button class="btn-submit" type="button">Kirim</button>
       </div>
+    </div>
 
-      <hr class="divider" />
+    <hr class="divider" />
 
-      <!-- MIDDLE ROW -->
-      <div class="middle-row">
-        <!-- Kontak -->
-        <div class="kontak">
-          <p class="kontak-title">Kontak</p>
+    <!-- Footer bawah -->
+    <div class="footer-akhir">
+      <p>
+        &copy;2026.<br />
+        Design By TEFA PPLG SMKN 4 Tasikmalaya.
+      </p>
+    </div>
+  </footer>
 
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
-            <div>
-              <p class="label">Telepon</p>
-              <p class="value">+62 877-2552-5133</p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-email-30.png" alt="Email" />
-            <div>
-              <p class="label">Email</p>
-              <p class="value">mtsmomo@gmail.com</p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
-            <div>
-              <p class="label">Alamat</p>
-              <p class="value">
-                RT.04/RW.05, Sukamanah, Kec.<br />
-                Cipedes, Kab. Tasikmalaya, Jawa<br />
-                Barat 46131, Indonesia
-              </p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
-            <div>
-              <p class="label">Jam Kerja</p>
-              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sosmed -->
-        <div class="sosmed">
-          <div class="sosmed-item">
-            <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
-              <div class="icon-circle">
-                <img src="kontak/img/ig.png" alt="Instagram" />
-              </div>
-            </a>
-            <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
-              <p>darussalamleuwianyar</p>
-            </a>
-          </div>
-          <!-- link tiktok -->
-          <div class="sosmed-item">
-            <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
-              <div class="icon-circle">
-                <img src="kontak/img/tt.png" alt="TikTok" />
-              </div>
-            </a>
-            <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
-              <p>Darussalam</p>
-            </a>
-          </div>
-          <!-- link facebook -->
-          <div class="sosmed-item">
-            <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-              <div class="icon-circle">
-                <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
-              </div>
-            </a>
-            <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-              <p>Darussalam</p>
-            </a>
-          </div>
-          <!-- link youtube -->
-          <div class="sosmed-item">
-            <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
-              <div class="icon-circle">
-                <img src="kontak/img/yt.png" alt="YouTube" />
-              </div>
-            </a>
-            <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
-              <p>Darussalam</p>
-            </a>
-          </div>
-        </div>
-
-        <!-- Form -->
-        <div class="form-section">
-          <input type="text" placeholder="Nama" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Pesan"></textarea>
-          <button class="btn-submit" type="button">Kirim</button>
-        </div>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- Footer bawah -->
-      <div class="footer-akhir">
-        <p>
-          &copy;2026.<br />
-          Design By TEFA PPLG SMKN 4 Tasikmalaya.
-        </p>
-      </div>
-    </footer>
-
-  </body>
+</body>
 
 </html>

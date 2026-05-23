@@ -1,10 +1,22 @@
 <!doctype html>
 <html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rombel</title>
+  <link rel="icon" type="image/png" href="assets/img/logomts.png">
+</head>
+
+<body>
+  <!doctype html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rombel</title>
-    <link rel="icon" type="image/png" href="assets/img/logomts.png">
+    <link rel="stylesheet" href="css/rombel.css">
   </head>
 
   <body>
@@ -934,212 +946,237 @@
               </ul>
             </li>
             <li><a href="kontak.html">Kontak</a></li>
-          </ul>
+=======
+    <input type="checkbox" id="menu-toggle" />
 
-          <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav>
+      <a href="" class="brand">
+        <img src="img/logomts.jpeg" alt="Logo MTS Darussalam" />
+        <div class="logotext">
+          <p class="tulisan1">MTS</p>
+          <p class="tulisan2">Darussalam</p>
+        </div>
+      </a>
+
+
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="sdm.html">SDM</a></li>
+        <li>
+          <a href="#siswa" class="active">Siswa <span class="siswa-arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="seragam.html">Seragam</a></li>
+            <li><a href="rombel.html" class="active">Rombel</a></li>
+            <li><a href="eskul.html">Ekstrakurikuler</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+>>>>>>> 300a7c6ed972344a4850a3ad89f59c26ec315080
+          </ul>
+        </li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+
+      <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </nav>
+
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="sdm.html">Sdm</a></li>
+        <li class="has-dropdown">
+          <input type="checkbox" id="dropdown-toggle" />
+          <label for="dropdown-toggle">
+            Siswa <span class="arrow">▼</span>
           </label>
-        </nav>
-
-        <div class="mobile-menu">
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="profil.html">Profil</a></li>
-            <li><a href="sdm.html">Sdm</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
+          <ul class="mobile-dropdown">
+            <li><a href="seragam.html">Seragam</a></li>
+            <li><a href="rombel.html" class="active">Rombel</a></li>
+            <li><a href="eskul.html">Ekstrakurikuler</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
           </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+
+    <section class="hero">
+      <div class="container-hero">
+        <div class="section-wrapper">
+          <div class="judul">
+            <h2>PESERTA DIDIK</h2>
+          </div>
+          <div class="siswa-grid">
+            <a href="kelas7.html" class="siswa-kolom-link">
+              <div class="siswa-kolom">
+                <div class="kotak">VII</div>
+                <div class="card-siswa">
+                  <h2>Total Siswa : 33</h2>
+                  <span>Laki Laki : 16</span>
+                  <span>Perempuan : 17</span>
+                </div>
+              </div>
+            </a>
+            <a href="kelas8.html" class="siswa-kolom-link">
+              <div class="siswa-kolom">
+                <div class="kotak">VIII</div>
+                <div class="card-siswa">
+                  <h2>Total Siswa : 41</h2>
+                  <span>Laki Laki : 24</span>
+                  <span>Perempuan : 17</span>
+                </div>
+              </div>
+            </a>
+            <a href="kelas9.html" class="siswa-kolom-link">
+              <div class="siswa-kolom">
+                <div class="kotak">IX</div>
+                <div class="card-siswa">
+                  <h2>Total Siswa : 45</h2>
+                  <span>Laki Laki : 28</span>
+                  <span>Perempuan : 17</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <!-- TOP ROW: Logo + Visi -->
+      <div class="top-row">
+        <div class="logos">
+          <img src="kontak/img/yayasan.png" alt="Logo 1" />
+          <img src="kontak/img/kemenag.png" alt="Logo 2" />
+          <img src="kontak/img/mts.png" alt="Logo 3" />
+        </div>
+        <p class="visi-text">
+          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
+          berakhlak, dan penuh empati<br />
+          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- MIDDLE ROW -->
+      <div class="middle-row">
+        <!-- Kontak -->
+        <div class="kontak">
+          <p class="kontak-title">Kontak</p>
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
+            <div>
+              <p class="label">Telepon</p>
+              <p class="value">+62 877-2552-5133</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-email-30.png" alt="Email" />
+            <div>
+              <p class="label">Email</p>
+              <p class="value">mtsmomo@gmail.com</p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
+            <div>
+              <p class="label">Alamat</p>
+              <p class="value">
+                RT.04/RW.05, Sukamanah, Kec.<br />
+                Cipedes, Kab. Tasikmalaya, Jawa<br />
+                Barat 46131, Indonesia
+              </p>
+            </div>
+          </div>
+          <hr class="kontak-divider" />
+
+          <div class="kontak-item">
+            <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+            <div>
+              <p class="label">Jam Kerja</p>
+              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
+            </div>
+          </div>
         </div>
 
-        <section class="hero">
-          <div class="container-hero">
-            <div class="section-wrapper">
-              <div class="judul">
-                <h2>DATA SISWA</h2>
+        <!-- Sosmed -->
+        <div class="sosmed">
+          <div class="sosmed-item">
+            <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+              <div class="icon-circle">
+                <img src="kontak/img/ig.png" alt="Instagram" />
               </div>
-              <div class="siswa-grid">
-                <a href="kelas7.html" class="siswa-kolom-link">
-                  <div class="siswa-kolom">
-                    <div class="kotak">VII</div>
-                    <div class="card-siswa">
-                      <h2>Total Siswa : 33</h2>
-                      <span>Laki Laki : 16</span>
-                      <span>Perempuan : 17</span>
-                    </div>
-                  </div>
-                </a>
-                <a href="kelas8.html" class="siswa-kolom-link">
-                  <div class="siswa-kolom">
-                    <div class="kotak">VIII</div>
-                    <div class="card-siswa">
-                      <h2>Total Siswa : 41</h2>
-                      <span>Laki Laki : 24</span>
-                      <span>Perempuan : 17</span>
-                    </div>
-                  </div>
-                </a>
-                <a href="kelas9.html" class="siswa-kolom-link">
-                  <div class="siswa-kolom">
-                    <div class="kotak">IX</div>
-                    <div class="card-siswa">
-                      <h2>Total Siswa : 45</h2>
-                      <span>Laki Laki : 28</span>
-                      <span>Perempuan : 17</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
+            </a>
+            <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+              <p>darussalamleuwianyar</p>
+            </a>
           </div>
-        </section>
-        <footer class="footer">
-          <!-- TOP ROW: Logo + Visi -->
-          <div class="top-row">
-            <div class="logos">
-              <img src="kontak/img/yayasan.png" alt="Logo 1" />
-              <img src="kontak/img/kemenag.png" alt="Logo 2" />
-              <img src="kontak/img/mts.png" alt="Logo 3" />
-            </div>
-            <p class="visi-text">
-              "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
-              berakhlak, dan penuh empati<br />
-              melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
-            </p>
+          <!-- link tiktok -->
+          <div class="sosmed-item">
+            <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+              <div class="icon-circle">
+                <img src="kontak/img/tt.png" alt="TikTok" />
+              </div>
+            </a>
+            <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+              <p>Darussalam</p>
+            </a>
           </div>
-
-          <hr class="divider" />
-
-          <!-- MIDDLE ROW -->
-          <div class="middle-row">
-            <!-- Kontak -->
-            <div class="kontak">
-              <p class="kontak-title">Kontak</p>
-
-              <div class="kontak-item">
-                <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
-                <div>
-                  <p class="label">Telepon</p>
-                  <p class="value">+62 877-2552-5133</p>
-                </div>
+          <!-- link facebook -->
+          <div class="sosmed-item">
+            <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+              <div class="icon-circle">
+                <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
               </div>
-              <hr class="kontak-divider" />
-
-              <div class="kontak-item">
-                <img src="kontak/img/icons8-email-30.png" alt="Email" />
-                <div>
-                  <p class="label">Email</p>
-                  <p class="value">mtsmomo@gmail.com</p>
-                </div>
-              </div>
-              <hr class="kontak-divider" />
-
-              <div class="kontak-item">
-                <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
-                <div>
-                  <p class="label">Alamat</p>
-                  <p class="value">
-                    RT.04/RW.05, Sukamanah, Kec.<br />
-                    Cipedes, Kab. Tasikmalaya, Jawa<br />
-                    Barat 46131, Indonesia
-                  </p>
-                </div>
-              </div>
-              <hr class="kontak-divider" />
-
-              <div class="kontak-item">
-                <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
-                <div>
-                  <p class="label">Jam Kerja</p>
-                  <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Sosmed -->
-            <div class="sosmed">
-              <div class="sosmed-item">
-                <a
-                  href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4"
-                >
-                  <div class="icon-circle">
-                    <img src="kontak/img/ig.png" alt="Instagram" />
-                  </div>
-                </a>
-                <a
-                  href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4"
-                >
-                  <p>darussalamleuwianyar</p>
-                </a>
-              </div>
-              <!-- link tiktok -->
-              <div class="sosmed-item">
-                <a
-                  href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu"
-                >
-                  <div class="icon-circle">
-                    <img src="kontak/img/tt.png" alt="TikTok" />
-                  </div>
-                </a>
-                <a
-                  href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu"
-                >
-                  <p>Darussalam</p>
-                </a>
-              </div>
-              <!-- link facebook -->
-              <div class="sosmed-item">
-                <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-                  <div class="icon-circle">
-                    <img
-                      src="kontak/img/icons8-facebook-30.png"
-                      alt="Facebook"
-                    />
-                  </div>
-                </a>
-                <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-                  <p>Darussalam</p>
-                </a>
-              </div>
-              <!-- link youtube -->
-              <div class="sosmed-item">
-                <a
-                  href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx"
-                >
-                  <div class="icon-circle">
-                    <img src="kontak/img/yt.png" alt="YouTube" />
-                  </div>
-                </a>
-                <a
-                  href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx"
-                  class=""
-                >
-                  <p>Darussalam</p>
-                </a>
-              </div>
-            </div>
-
-            <!-- Form -->
-            <div class="form-section">
-              <input type="text" placeholder="Nama" />
-              <input type="email" placeholder="Email" />
-              <textarea placeholder="Pesan"></textarea>
-              <button class="btn-submit" type="button">Kirim</button>
-            </div>
+            </a>
+            <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+              <p>Darussalam</p>
+            </a>
           </div>
-
-          <hr class="divider" />
-
-          <!-- Footer bawah -->
-          <div class="footer-akhir">
-            <p>
-              &copy;2026.<br />
-              Design By TEFA PPLG SMKN 4 Tasikmalaya.
-            </p>
+          <!-- link youtube -->
+          <div class="sosmed-item">
+            <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
+              <div class="icon-circle">
+                <img src="kontak/img/yt.png" alt="YouTube" />
+              </div>
+            </a>
+            <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
+              <p>Darussalam</p>
+            </a>
           </div>
-        </footer>
-      </body>
-    </html>
+        </div>
+
+        <!-- Form -->
+        <div class="form-section">
+          <input type="text" placeholder="Nama" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Pesan"></textarea>
+          <button class="btn-submit" type="button">Kirim</button>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Footer bawah -->
+      <div class="footer-akhir">
+        <p>
+          &copy;2026.<br />
+          Design By TEFA PPLG SMKN 4 Tasikmalaya.
+        </p>
+      </div>
+    </footer>
   </body>
+
+  </html>
+</body>
+
 </html>
