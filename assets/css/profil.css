@@ -141,7 +141,7 @@ body {
     gap: 10px;
 }
 
-.label {
+.label-visimisi {
     font-size: 1rem;
     text-align: center;
     background: #eee;
@@ -152,12 +152,15 @@ body {
     border-bottom: 5px solid black;
     border-radius: 16px;
     width: 273px;
+    margin: 0 auto;
 }
 
 .visi-tex {
+    text-align: center;
     font-size: 15px;
     line-height: 1.7;
     color: #1a1a1a;
+    margin-bottom: 5px;
 }
 
 .misi-list {
