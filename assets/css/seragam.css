@@ -18,7 +18,7 @@ body {
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-  background-color: #b7d1c8;
+  background-color: white;
 }
 .logotext {
   display: flex;
@@ -27,22 +27,17 @@ body {
 }
 
 .tulisan1 {
-  display: block;
-  font-size: 30px;
-  font-weight: 700;
-  color: #64AC7B;
-  letter-spacing: 0.002em;
-  text-transform: uppercase;
-  line-height: 1.2;
+    font-size: 17px;
+    font-weight: 700;
+    color: #64AC7B;
+    margin: 0;
 }
 
 .tulisan2 {
-  display: block;
-  font-size: 30px;
-  color: #C45050;
-  line-height: 1.2;
-  letter-spacing: 0.10em;
-  font-weight: 600;
+    font-size: 17px;
+    font-weight: 600;
+    color: #c0392b;
+    margin: 0;
 }
 
 .section-title {
