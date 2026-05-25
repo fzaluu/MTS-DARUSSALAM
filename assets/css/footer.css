@@ -65,6 +65,10 @@
       padding: 28px 0;
     }
 
+    .lab, .value {
+      color: #ffffff;
+    }
+
     /* ===== KONTAK ===== */
     .kontak-title {
       font-size: 22px;
@@ -115,6 +119,11 @@
       min-width: 220px;
       justify-content: center;
       align-self: center;
+    }
+
+    .sosmed-item a {
+      text-decoration: none !important;
+      color: #ffffff !important;
     }
 
     .sosmed-item {
