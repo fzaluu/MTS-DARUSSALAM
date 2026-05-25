@@ -1,37 +1,47 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #b7d1c8;
+    font-family: 'Inter', sans-serif;
 }
 
-section {
-  padding: 50px 20px;
+.section-wrapper {
+    width: 100%;
+    padding: 24px 20px 32px;
+    background-color: #b7d1c8;
 }
 
 .judul {
-  width: 1200px;
-  max-width: 100%;
-  margin: 0 auto 40px;
-  background-color: #ececec;
-  border: 3px solid black;
-  border-radius: 20px;
-  text-align: center;
-  padding: 15px;
-  box-shadow: 6px 6px 0px black;
+    width: 1150px;
+    height: 50px;
+    background-color: #F2F2F2;
+    text-align: center;
+    border: 3px solid #000;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0px #000000;
+    transition: background-color 0.2s;
+    margin: 0 auto 40px;
+    margin-bottom: 50px;
+}
+
+.judul:hover {
+    background-color: #C9C9C9;
 }
 
 .judul h2 {
-  font-size: 28px;
-  letter-spacing: 3px;
-  color: #000;
-  font-weight: normal;
+    font-size: 27px;
+    font-weight: 450;
+    letter-spacing: 1px;
+    color: #111;
 }
+
 
 .prestasi-wrapper {
   display: flex;
