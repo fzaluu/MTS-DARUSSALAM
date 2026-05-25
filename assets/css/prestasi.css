@@ -1,47 +1,42 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .section-wrapper {
-    width: 100%;
-    padding: 24px 20px 32px;
-    background-color: #b7d1c8;
+  width: 100%;
+  padding: 24px 20px 32px;
+  background-color: #b7d1c8;
 }
 
 .judul {
-    width: 1150px;
-    height: 50px;
-    background-color: #F2F2F2;
-    text-align: center;
-    border: 3px solid #000;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 4px 4px 0px #000000;
-    transition: background-color 0.2s;
-    margin: 0 auto 40px;
-    margin-bottom: 50px;
-}
-
-.judul:hover {
-    background-color: #C9C9C9;
+  width: 1150px;
+  height: 50px;
+  background-color: #f2f2f2;
+  text-align: center;
+  border: 3px solid #000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0px #000000;
+  transition: background-color 0.2s;
+  margin: 0 auto 40px;
+  margin-bottom: 50px;
 }
 
 .judul h2 {
-    font-size: 27px;
-    font-weight: 450;
-    letter-spacing: 1px;
-    color: #111;
+  font-size: 27px;
+  font-weight: 450;
+  letter-spacing: 1px;
+  color: #111;
 }
-
 
 .prestasi-wrapper {
   display: flex;
