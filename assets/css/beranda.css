@@ -21,6 +21,10 @@ body {
   overflow-x: hidden;
   background-color: #ABD1C6;
 }
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 .logotext {
   display: flex;
@@ -842,11 +846,10 @@ body {
   }
 
   .section-hero {
-    width: calc(100% + 80px);
-    margin-left: -40px;
-    margin-right: -40px;
-    height: auto;
-    padding: 40px 20px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  
   }
 
   .cards-wrapper {
@@ -894,8 +897,6 @@ body {
 
 /* Mobile (max 768px) */
 @media (max-width: 768px) {
-
-
   .tulisan1,
   .tulisan2 {
     font-size: 20px;
@@ -963,11 +964,10 @@ body {
   }
 
   .section-hero {
-    width: calc(100% + 32px);
-    margin-left: -16px;
-    margin-right: -16px;
-    height: auto;
-    padding: 30px 16px;
+    width: 100%;        /* ubah dari calc(100% + 32px) */
+    margin-left: 0;     /* hapus margin negatif */
+    margin-right: 0;
+  
   }
 
   .cards-wrapper {
