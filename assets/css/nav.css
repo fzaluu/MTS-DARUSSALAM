@@ -307,7 +307,7 @@ nav ul li a.active::after {
 }
 
 .mobile-dropdown {
-    display: none;
+    display: none !important;
     flex-direction: column;
     gap: 2px;
     list-style: none;
@@ -316,7 +316,7 @@ nav ul li a.active::after {
 }
 
 .has-dropdown input[type="checkbox"]:checked~.mobile-dropdown {
-    display: flex;
+    display: flex !important;
 }
 
 .mobile-dropdown li a {
