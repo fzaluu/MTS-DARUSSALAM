@@ -372,7 +372,7 @@ body {
 }
 
 .stat-card:hover {
-  background-color: #7B7B7B;
+  background-color: #F0F8FF;
   transform: scale(1.05) translateY(-2px);
 }
 
@@ -512,7 +512,7 @@ body {
 .alumni-card {
   border: 2px solid #000;
   border-radius: 14px;
-  background-color: #fff;
+  background-color: #FFFFFF;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -522,7 +522,7 @@ body {
 }
 
 .alumni-card:hover {
-  background-color: #C9C9C9;
+  background-color: #F0F8FF;
   transform: translateY(-5px);
 }
 
@@ -530,7 +530,7 @@ body {
   border: 2px solid #000;
   border-radius: 50px;
   padding: 5px 14px;
-  font-size: 11px;
+  font-size: 11px;  
   font-weight: 600;
   color: #000;
   display: inline-block;
