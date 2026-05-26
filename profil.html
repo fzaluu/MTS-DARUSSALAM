@@ -57,7 +57,7 @@
       <li><a href="profil.html" class="active">Profil</a></li>
       <li><a href="sdm.html">Sdm</a></li>
       <li class="has-dropdown">
-        <input type="checkbox" id="dropdown-toggle" />
+        <input type="checkbox" id="dropdown-toggle" autocomplete="off" />
         <label for="dropdown-toggle">
           Siswa <span class="arrow">▼</span>
         </label>
@@ -305,6 +305,13 @@
       const diff = startX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 50) geserCarousel(diff > 0 ? 1 : -1);
     });
+
+    <!-- Reset dropdown saat halaman dibuka -->
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdown = document.getElementById('dropdown-toggle');
+      if (dropdown) dropdown.checked = false;
+    });
+  </script>
   </script>
 </body>
 

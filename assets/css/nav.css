@@ -211,6 +211,7 @@ nav ul li a.active::after {
     transform: translateY(-7.5px) rotate(-45deg);
 }
 
+/* ===== MOBILE MENU — DEFAULT TERSEMBUNYI ===== */
 .mobile-menu {
     display: none;
     position: fixed;
@@ -224,11 +225,15 @@ nav ul li a.active::after {
     transform: translateY(-8px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 99;
+    pointer-events: none; /* ← PENTING: link tidak bisa diklik saat menu tertutup */
 }
 
+/* ===== MOBILE MENU — SAAT DIBUKA ===== */
 #menu-toggle:checked~.mobile-menu {
+    display: block;
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto; /* ← link bisa diklik saat menu terbuka */
 }
 
 .mobile-menu ul {
@@ -261,44 +266,6 @@ nav ul li a.active::after {
 
 .mobile-menu ul li a.active {
     font-weight: 600;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        display: none;
-    }
-
-    .garis-label {
-        display: flex;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-
-    nav {
-        padding: 0 20px;
-        height: 70px;
-    }
-
-    .brand img {
-        width: 46px;
-        height: 46px;
-    }
-
-    .tulisan1 {
-        font-size: 15px;
-    }
-
-    .tulisan2 {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        padding: 0 14px;
-    }
 }
 
 /* ===== DROPDOWN MOBILE (pure CSS) ===== */
@@ -384,10 +351,6 @@ nav ul li a.active::after {
 
     .garis-label {
         display: flex;
-    }
-
-    .mobile-menu {
-        display: block;
     }
 
     nav {
