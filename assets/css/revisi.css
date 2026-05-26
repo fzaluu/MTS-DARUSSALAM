@@ -30,11 +30,6 @@ body {
     margin: 0 auto 40px;
     margin-bottom: 50px;
 }
-
-.judul:hover {
-    background-color: #C9C9C9;
-}
-
 .judul h2 {
     font-size: 27px;
     font-weight: 450;
