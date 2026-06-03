@@ -21,39 +21,11 @@ body {
   overflow-x: hidden;
   background-color: #ABD1C6;
 }
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-.logotext {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4px;
-}
-
-.tulisan1 {
-  display: block;
-  font-size: 30px;
-  font-weight: 700;
-  color: #64AC7B;
-  letter-spacing: 0.002em;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
-
-.tulisan2 {
-  display: block;
-  font-size: 30px;
-  color: #C45050;
-  line-height: 1.2;
-  font-weight: 600;
-}
-
 #beranda {
   background-image: url("../img/bg2.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   height: 100vh;
 }
 /* ================================ */
@@ -846,10 +818,11 @@ html, body {
   }
 
   .section-hero {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  
+    width: calc(100% + 80px);
+    margin-left: -40px;
+    margin-right: -40px;
+    height: auto;
+    padding: 40px 20px;
   }
 
   .cards-wrapper {
@@ -897,6 +870,8 @@ html, body {
 
 /* Mobile (max 768px) */
 @media (max-width: 768px) {
+
+
   .tulisan1,
   .tulisan2 {
     font-size: 20px;
@@ -964,10 +939,11 @@ html, body {
   }
 
   .section-hero {
-    width: 100%;        /* ubah dari calc(100% + 32px) */
-    margin-left: 0;     /* hapus margin negatif */
-    margin-right: 0;
-  
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+    height: auto;
+    padding: 30px 16px;
   }
 
   .cards-wrapper {
