@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar - MTS Darussalam</title>
+    <link rel="icon" type="image/png" href="assets/img/logomts.png">
     <style>
         * {
             text-decoration: none;
@@ -270,7 +271,7 @@
         .mobile-menu ul li a.active {
             font-weight: 600;
         }
-
+        
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -308,6 +309,125 @@
                 padding: 0 14px;
             }
         }
+
+        /* ===== DROPDOWN MOBILE (pure CSS) ===== */
+        .has-dropdown input[type="checkbox"] {
+            display: none;
+        }
+
+        .has-dropdown label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            font-size: 15px;
+            font-family: 'Inter', Arial, sans-serif;
+            color: #333;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .has-dropdown label:hover {
+            background: #eaf5ee;
+            color: #64AC7B;
+        }
+
+        .has-dropdown .arrow {
+            font-size: 10px;
+            transition: transform 0.25s ease;
+            display: inline-block;
+        }
+
+        .has-dropdown input[type="checkbox"]:checked~label .arrow {
+            transform: rotate(180deg);
+        }
+
+        .has-dropdown input[type="checkbox"]:checked~label {
+            background: #eaf5ee;
+            color: #64AC7B;
+        }
+
+        .mobile-dropdown {
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            list-style: none;
+            margin: 0;
+            padding: 4px 0 6px 16px;
+        }
+
+        .has-dropdown input[type="checkbox"]:checked~.mobile-dropdown {
+            display: flex;
+        }
+
+        .mobile-dropdown li a {
+            display: block;
+            padding: 10px 16px;
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 8px;
+            border-left: 2px solid #eee;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .mobile-dropdown li a:hover {
+            background: #eaf5ee;
+            color: #64AC7B;
+            border-left-color: #64AC7B;
+        }
+
+        /* ===== RESPONSIVE TABLET (≤900px) ===== */
+        @media (max-width: 900px) {
+            nav {
+                padding: 0 40px;
+            }
+        }
+
+        /* ===== RESPONSIVE HP & TABLET (≤768px) ===== */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .garis-label {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            nav {
+                padding: 0 20px;
+                height: 70px;
+            }
+
+            .brand img {
+                width: 46px;
+                height: 46px;
+            }
+
+            .tulisan1 {
+                font-size: 15px;
+            }
+
+            .tulisan2 {
+                font-size: 13px;
+            }
+
+            section {
+                scroll-margin-top: 70px;
+            }
+        }
+
+        /* ===== RESPONSIVE HP KECIL (≤480px) ===== */
+        @media (max-width: 480px) {
+            nav {
+                padding: 0 14px;
+            }
+        }
     </style>
 </head>
 
@@ -331,6 +451,7 @@
             <li>
                 <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
                 <ul class="dropdown-menu">
+                    <li><a href="#seragam">Seragam</a></li>
                     <li><a href="#rombel">Rombel</a></li>
                     <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
                     <li><a href="#prestasi">Prestasi</a></li>
@@ -351,7 +472,18 @@
             <li><a href="#beranda" class="active">Beranda</a></li>
             <li><a href="#sambutan">Profil</a></li>
             <li><a href="#sdm">Sdm</a></li>
-            <li><a href="#galeri">Galeri</a></li>
+            <li class="has-dropdown">
+                <input type="checkbox" id="dropdown-toggle" />
+                <label for="dropdown-toggle">
+                    Siswa <span class="arrow">▼</span>
+                </label>
+                <ul class="mobile-dropdown">
+                    <li><a href="#seragam">Seragam</a></li>
+                    <li><a href="#rombel">Rombel</a></li>
+                    <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
+                    <li><a href="#prestasi">Prestasi</a></li>
+                </ul>
+            </li>
             <li><a href="#kontak">Kontak</a></li>
         </ul>
     </div>

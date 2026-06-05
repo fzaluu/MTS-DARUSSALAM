@@ -1,51 +1,15 @@
 * {
-  text-decoration: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-section {
-  scroll-margin-top: 100px;
+  text-decoration: none;
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  background: #0d4f4a;
+  font-family: Arial, sans-serif;
   color: white;
-  background-color: #0d4f4a;
 }
-.logotext {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4px;
-}
-
-.tulisan1 {
-  display: block;
-  font-size: 30px;
-  font-weight: 700;
-  color: #64AC7B;
-  letter-spacing: 0.002em;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
-
-.tulisan2 {
-  display: block;
-  font-size: 30px;
-  color: #C45050;
-  line-height: 1.2;
-  letter-spacing: 0.10em;
-  font-weight: 600;
-}
-
 /* TITLE */
 .title {
   width: 1200px;
@@ -53,8 +17,8 @@ body {
   margin: 30px auto;
   background: #f2f2f2;
   border-radius: 16px;
-  border: 3px solid rgba(0, 0, 0, 0.8);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.9);
+  border: 3px solid rgba(0, 0, 0, 1);
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
   color: black;
   font-size: 24px;
  font-family: 'Inter', 'Segoe UI', sans-serif;
@@ -198,11 +162,8 @@ hr {
 .logo {
   width: 1200px;
   margin: auto;
-
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-
   list-style: none;
-
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -216,13 +177,13 @@ hr {
 }
 /* Title */
 .title {
-  box-shadow: 0 4 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
 }
 
 /* Input & Textarea */
 .contact input,
 .contact textarea {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 10);
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
 }
 
 /* RESPONSIVE */

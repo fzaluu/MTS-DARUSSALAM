@@ -1,16 +1,207 @@
  * {
-      margin: 0;
-      padding: 0;
       text-decoration: none;
+      margin: 0px;
+      padding: 0px;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
+      width: 100%;
+      overflow-x: hidden;
     }
 
-    /* ===== FOOTER WRAPPER ===== */
+    .hero {
+      background-color: #abd1c6;
+      width: 100vw;
+      min-height: 100vh;
+      padding: 40px 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container-hero {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .section-wrapper {
+      width: 100%;
+      padding: 12px 0;
+      margin-bottom: 8px;
+    }
+
+    .judul {
+      width: 100%;
+      height: 49px;
+      background-color: #f2f2f2;
+      text-align: center;
+      border: 3px solid #000;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s;
+    }
+
+    .judul h2 {
+      font-size: clamp(14px, 3vw, 22px);
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .siswa-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .siswa-kolom-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    .siswa-kolom-link:hover {
+      transform: translateY(-4px);
+    }
+
+    .siswa-kolom-link:hover .card-siswa,
+    .siswa-kolom-link:hover .kotak {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .siswa-kolom {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .kotak {
+      background-color: #f2f2f2;
+      color: #333;
+      text-align: center;
+      font-size: clamp(16px, 3vw, 24px);
+      border-radius: 30px;
+      border: 3px solid #000;
+      padding: 8px 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .card-siswa {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: clamp(11px, 1.8vw, 14px);
+      color: #333;
+      line-height: 1.7;
+      background-color: #f9bc60;
+      border: 3px solid #000;
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+      min-height: 193px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-siswa:hover {
+      background-color: #c9c9c9;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero {
+        padding: 32px 4vw;
+      }
+
+      .siswa-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .card-siswa {
+        min-height: 160px;
+      }
+    }
+
+    /* HP landscape / tablet kecil */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 24px 4vw;
+        min-height: auto;
+      }
+
+      .siswa-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .card-siswa {
+        min-height: 140px;
+        font-size: 12px;
+      }
+
+      .kotak {
+        font-size: 16px;
+        padding: 6px 0;
+      }
+    }
+
+    /* HP portrait */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 20px 4vw;
+      }
+
+      .siswa-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .card-siswa {
+        min-height: 100px;
+      }
+    }
+
+    /* HP kecil */
+    @media (max-width: 400px) {
+      .hero {
+        padding: 16px 3vw;
+      }
+
+      .card-siswa {
+        width: 100%;
+        height: auto;
+        min-height: 90px;
+      }
+
+      .siswa-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .siswa-kolom {
+        width: 100%;
+      }
+    }
+
     .footer {
       background-color: #004b49;
       width: 100%;
@@ -115,11 +306,6 @@
       min-width: 220px;
       justify-content: center;
       align-self: center;
-    }
-
-    .sosmed-item a {
-      text-decoration: none !important;
-      color: #ffffff !important;
     }
 
     .sosmed-item {

@@ -5,17 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profil</title>
-  <link rel="stylesheet" href="css/profil.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/profil.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="icon" type="image/png" href="assets/img/logomts.png">
 </head>
+<style>
+  .footer {
+    font-weight: normal;
+  }
+</style>
 
 <body>
   <input type="checkbox" id="menu-toggle" />
 
   <nav>
     <a href="" class="brand">
-      <img src="img/logomts.jpeg" alt="Logo MTS Darussalam" />
+      <img src="assets/img/logomts.jpeg" alt="Logo MTS Darussalam" />
       <div class="logotext">
         <p class="tulisan1">MTS</p>
         <p class="tulisan2">Darussalam</p>
@@ -26,8 +32,16 @@
     <ul>
       <li><a href="index.html">Beranda</a></li>
       <li><a href="profil.html" class="active">Profil</a></li>
-      <li><a href="data.html">Data</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="sdm.html">SDM</a></li>
+      <li>
+        <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="seragam.html">Seragam</a></li>
+          <li><a href="rombel.html">Rombel</a></li>
+          <li><a href="eskul.html">Ekstrakurikuler</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+        </ul>
+      </li>
       <li><a href="kontak.html">Kontak</a></li>
     </ul>
 
@@ -42,16 +56,27 @@
     <ul>
       <li><a href="index.html">Beranda</a></li>
       <li><a href="profil.html" class="active">Profil</a></li>
-      <li><a href="data.html">Data</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="sdm.html">SDM</a></li>
+      <li class="has-dropdown">
+        <input type="checkbox" id="dropdown-toggle" autocomplete="off" />
+        <label for="dropdown-toggle">
+          Siswa <span class="arrow">▼</span>
+        </label>
+        <ul class="mobile-dropdown">
+          <li><a href="seragam.html">Seragam</a></li>
+          <li><a href="rombel.html">Rombel</a></li>
+          <li><a href="eskul.html">Ekstrakurikuler</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+        </ul>
+      </li>
       <li><a href="kontak.html">Kontak</a></li>
     </ul>
   </div>
+
   <div class="container container-1">
     <div class="card">
-      <h2>SEJARAH</h2>
+      <h2>SELAYANG PANDANG</h2>
       <div class="card-body">
-        <p>Sejarah MTs. Darussalam Leuwianyar.</p>
         <p>Darussalam Leuwianyar berdiri pada bulan Juni 2009, dilandasi dengan masih rendahnya minat belajar masyarakat
           sekitar, sehingga diharapkan dengan adanya MTs. Darussalam, masyarakat akan lebih peduli dengan pendidikan.
           Murid angkatan pertama 1 siswa.</p>
@@ -61,14 +86,11 @@
       </div>
     </div>
     <div class="card-wrapper">
-      <div class="card-image">
-        <img src="img/logo.jpeg" alt="Foto Sekolah">
-      </div>
       <div class="card-visimisi">
         <div class="card-content">
-          <span class="label">VISI</span>
+          <span class="label-visimisi">VISI</span>
           <p class="visi-tex">"Terbentuknya generasi Islami, unggul dalam IPTEK, serta kreatif berkarya."</p>
-          <span class="label">MISI</span>
+          <span class="label-visimisi">MISI</span>
           <ul class="misi-list">
             <li>A. Mengembangkan kompetensi keagamaan (ilmu, akhlak, dan keterampilan) untuk meningkatkan ketakwaan.
             </li>
@@ -86,14 +108,35 @@
   </div>
   <!-- struktur -->
   <div style="padding: 16px;" class="container container-2">
-    <hr style="border: 0.1px solid black; margin-bottom: 100px; ">
     <div class="section-struktur">
       <h2 class="struktur-title">STRUKTUR</h2>
       <div class="struktur-body">
-        <img src="img/sturktur.jpeg" alt="Struktur Organisasi">
+        <img src="assets/img/sturktur.jpeg" alt="Struktur Organisasi">
       </div>
     </div>
-    <hr style="border: 0.1px solid black; margin-top: 100px; ">
+  </div>
+  <div class="section-fasilitas">
+    <div style="margin-top: 15px;" class="section-title">FASILITAS</div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item">
+          <img src="assets/img/fasilitas1.jpeg" alt="Fasilitas 1">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/lab.jpeg" alt="Fasilitas 2">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/fasilitas2.jpeg" alt="Fasilitas 3">
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="geserCarousel(-1)">&#8592;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" onclick="geserCarousel(1)">&#8594;</button>
+    </div>
   </div>
   <footer class="footer">
     <!-- TOP ROW: Logo + Visi -->
@@ -121,7 +164,7 @@
         <div class="kontak-item">
           <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
           <div>
-            <p class="lab">Telepon</p>
+            <p class="label">Telepon</p>
             <p class="value">+62 877-2552-5133</p>
           </div>
         </div>
@@ -130,7 +173,7 @@
         <div class="kontak-item">
           <img src="kontak/img/icons8-email-30.png" alt="Email" />
           <div>
-            <p class="lab">Email</p>
+            <p class="label">Email</p>
             <p class="value">mtsmomo@gmail.com</p>
           </div>
         </div>
@@ -139,7 +182,7 @@
         <div class="kontak-item">
           <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
           <div>
-            <p class="lab">Alamat</p>
+            <p class="label">Alamat</p>
             <p class="value">
               RT.04/RW.05, Sukamanah, Kec.<br />
               Cipedes, Kab. Tasikmalaya, Jawa<br />
@@ -152,7 +195,7 @@
         <div class="kontak-item">
           <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
           <div>
-            <p class="lab">Jam Kerja</p>
+            <p class="label">Jam Kerja</p>
             <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
           </div>
         </div>
@@ -224,6 +267,53 @@
       </p>
     </div>
   </footer>
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const items = track.querySelectorAll('.carousel-item');
+    const total = items.length;
+    let current = 0;
+    let autoTimer;
+
+    const dotsContainer = document.getElementById('carouselDots');
+    items.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('aktif');
+      dot.addEventListener('click', () => { pindahKe(i); resetAuto(); });
+      dotsContainer.appendChild(dot);
+    });
+
+    function pindahKe(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) =>
+        d.classList.toggle('aktif', i === current)
+      );
+    }
+
+    function geserCarousel(arah) { pindahKe(current + arah); resetAuto(); }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => pindahKe(current + 1), 4000);
+    }
+
+    resetAuto();
+
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) geserCarousel(diff > 0 ? 1 : -1);
+    });
+
+    <!-- Reset dropdown saat halaman dibuka -->
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdown = document.getElementById('dropdown-toggle');
+      if (dropdown) dropdown.checked = false;
+    });
+  </script>
+  </script>
 </body>
 
 </html>

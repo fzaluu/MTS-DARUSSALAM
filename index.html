@@ -1,404 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTs Darussalam</title>
-    <link rel="stylesheet" href="css/beranda.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="assets/css/beranda.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="icon" type="image/png" href="assets/img/logomts.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700;900&display=swap"
-        rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700;900&family=Poppins:wght@400;600;700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700&family=Montserrat:wght@100;200;300;400;700;900&family=Poppins:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700;900&family=Inter:wght@100;200;300;400;600;700&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
     <input type="checkbox" id="menu-toggle" />
-
     <nav>
         <a href="" class="brand">
-            <img src="img/logomts.jpeg" alt="Logo MTS Darussalam" />
+            <img src="assets/img/logomts.jpeg" alt="Logo MTS Darussalam" />
             <div class="logotext">
                 <p class="tulisan1">MTS</p>
                 <p class="tulisan2">Darussalam</p>
             </div>
         </a>
-
-
         <ul>
-           <li><a href="index.html" class="active">Beranda</a></li>
-            <li><a href="profil.html" >Profil</a></li>
-            <li><a href="data.html">Data</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="index.html" class="active">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="sdm.html">SDM</a></li>
+            <li>
+                <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="seragam.html">Seragam</a></li>
+                    <li><a href="rombel.html">Rombel</a></li>
+                    <li><a href="eskul.html">Ekstrakurikuler</a></li>
+                    <li><a href="prestasi.html">Prestasi</a></li>
+                </ul>
+            </li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
-
         <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
             <span></span>
             <span></span>
             <span></span>
         </label>
     </nav>
-
     <div class="mobile-menu">
         <ul>
             <li><a href="index.html" class="active">Beranda</a></li>
-            <li><a href="profil.html" >Profil</a></li>
-            <li><a href="data.html">Data</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="sdm.html">SDM</a></li>
+            <li class="has-dropdown">
+                <input type="checkbox" id="dropdown-toggle" />
+                <label for="dropdown-toggle">
+                    Siswa <span class="arrow">▼</span>
+                </label>
+                <ul class="mobile-dropdown">
+                    <li><a href="seragam.html">Seragam</a></li>
+                    <li><a href="rombel.html">Rombel</a></li>
+                    <li><a href="eskul.html">Ekstrakurikuler</a></li>
+                    <li><a href="prestasi.html">Prestasi</a></li>
+                </ul>
+            </li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
     </div>
-    <!-- dev:taufiq -->
+
+    <!-- ===== SECTION BERANDA ===== -->
     <section id="beranda">
         <div class="brnd">
-            <div class="Setengahlingkaran">
+            <div class="Setengahlingkaran"></div>
             <div class="isiberanda">
-                <h1>Selamat Datang<br>MTs Darussalam</h1>
-                <p>MTs Darussalam unggul dalam pembinaan akhlaq yang menanamkan karakter mulia. Didukung pembiasaan
+                <h1>Selamat Datang<br>di<br>MTs Darussalam</h1>
+                <p>MTs Darussalam unggul dalam pembinaan akhlak yang menanamkan karakter mulia. Didukung pembiasaan
                     ibadah yaumiyah untuk membentuk pribadi yang taat dan beriman, serta kegiatan pramuka yang melatih
                     kedisiplinan, kemandirian, dan jiwa kepemimpinan.</p>
             </div>
         </div>
-        </div>
     </section>
+
+    <!-- ===== SECTION SAMBUTAN ===== -->
     <section id="sambutan">
-        <hr style="border: 00.1px solid black; margin: 0; margin-bottom: 30px;margin-top: 10px;">
-        <br><br>
         <div class="sambutan-container">
             <div class="sambutan-foto">
-                <img src="img/sambutan1.jpeg" alt="Foto Kepala Sekolah" />
+                <img src="assets/img/sambutan1.jpeg" alt="Foto Kepala Sekolah" />
             </div>
             <div class="sambutan-teks">
-                <h3>SAMBUTAN KEPALA SEKOLAH <span class="nama-kepsek">Mochamad Syahid S.HI</span></h3>
+                <h3>Mochamad Syahid S.HI</h3>
+                <p class="kepalasekolah">Kepala Sekolah</p>
                 <p>Assalamu'alaikum Wr. Wb.</p>
-                <p>Puji syukur ke hadirat Allah SWT atas rahmat dan karunia-Nya sehingga website SMK SMF Indonesia
-                    Yogyakarta dapat hadir sebagai sarana informasi dan media pembelajaran. Kami mengharapkan masukan
-                    dan saran yang membangun dari berbagai pihak demi peningkatan kualitas website ini ke depannya. Atas
-                    perhatian dan kerja sama yang diberikan, kami ucapkan terima kasih.</p>
+                <p>Puji syukur ke hadirat Allah SWT atas rahmat dan karunia-Nya sehingga website MTs Darussalam
+                    dapat hadir sebagai sarana informasi dan media pembelajaran. Kami mengharapkan masukan
+                    dan saran yang membangun dari berbagai pihak demi peningkatan kualitas website ini ke depannya.
+                    Atas perhatian dan kerja sama yang diberikan, kami ucapkan terima kasih.</p>
                 <p>Wassalamu'alaikum Wr. Wb.</p>
             </div>
         </div>
         <div class="btn-wrapper">
             <a href="profil.html" class="btn-hero">Lihat Profil Sekolah</a>
         </div>
-        <hr style="border: 0.1px solid black; margin: 0;margin-top: 60px;">
+        <hr style="border: 0.1px solid black; margin: 0; margin-top: 70px; opacity: 0.5;">
     </section>
+
+    <!-- ===== SECTION KEGIATAN ===== -->
     <section id="kegiatan">
         <div class="kegiatan-judul">
-            <h2>KEGIATAN</h2>
+            <h2>KEGIATAN-KEGIATAN</h2>
         </div>
         <div class="kegiatan-grid">
             <div class="kegiatan-card">
-                <img src="img/muhadoroh.jpeg" alt="Kegiatan 1">
-                <div class="kegiatan-tanggal">
-                    <i class="ti ti-clock"></i> 02/05/2026
-                </div>
-                <p>Muhadoroh adalah kegiatan latihan pidato untuk melatih keberanian, percaya diri, dan kemampuan berbicara di depan umum</p>
+                <img src="assets/img/muhadoroh.jpeg" alt="Kegiatan Muhadoroh">
+                
+                <p>Muhadoroh adalah kegiatan latihan pidato untuk melatih keberanian, percaya diri, dan kemampuan
+                    berbicara di depan umum.</p>
             </div>
 
             <div class="kegiatan-card aktif">
-                <img src="img/lkbb.jpeg" alt="Kegiatan 2">
-                <div class="kegiatan-tanggal">
-                    <i class="ti ti-clock"></i> 02/05/2026
-                </div>
+                <img src="assets/img/lkbb.jpeg" alt="Kegiatan LKBB">
+                
                 <p>LKBB adalah latihan baris-berbaris yang melatih disiplin, kekompakan, dan kerja sama tim.</p>
-                <div class="btn-wrapper">
-                    <a href="galeri.html" class="btn-readmore">READ MORE</a>
-                </div>
             </div>
 
             <div class="kegiatan-card">
-                <img src="img/pramuka2.jpeg" alt="Kegiatan 3">
-                <div class="kegiatan-tanggal">
-                    <i class="ti ti-clock"></i> 02/05/2026
-                </div>
-                <p>Pramuka adalah kegiatan yang melatih disiplin, kemandirian, dan kepemimpinan melalui kegiatan positif.</p>
+                <img src="assets/img/pramuka2.jpeg" alt="Kegiatan Pramuka">
+                
+                <p>Pramuka adalah kegiatan yang melatih disiplin, kemandirian, dan kepemimpinan melalui kegiatan
+                    positif.</p>
             </div>
         </div>
-        <hr style="border: 0.1px solid black; margin: 0; margin-top: 150px;">
-        <!--   SECTION HERO / STAT    -->
-        <section class="section-hero">
-            <div class="cards-wrapper">
-                <div class="stat-card">
-                    <img src="img/students.png" alt="Total Siswa">
-                    <p class="stat-number">119</p>
-                    <p class="stat-label">Total Siswa</p>
+    </section>
+
+    <!-- ===== SECTION HERO / STATISTIK ===== -->
+    <section class="section-hero">
+        <div class="cards-wrapper">
+            <div class="stat-card">
+                <img src="assets/img/murid.png" alt="Total Siswa">
+                <p class="stat-number">119</p>
+                <p class="stat-label">Total Siswa</p>
+            </div>
+            <div class="stat-card">
+                <img src="assets/img/guru.png" alt="Total Guru">
+                <p class="stat-number">13</p>
+                <p class="stat-label">Total Guru</p>
+            </div>
+            <div class="stat-card">
+                <img src="assets/img/fasilitas.png" alt="Total Fasilitas">
+                <p class="stat-number">9</p>
+                <p class="stat-label">Total Fasilitas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION UCAP ALUMNI ===== -->
+    <section class="section-alumni">
+        <div class="section-title-box">
+            <h2>UCAP ALUMNI</h2>
+        </div>
+        <div class="alumni-grid">
+
+            <!-- Alumni 1 -->
+            <div class="alumni-item">
+                <div class="alumni-card">
+                    <span class="alumni-badge">Sekolah Terbagus</span>
+                    <p class="alumni-text">Sekolah ini memberikan banyak pengalaman berharga, bukan hanya dalam
+                        pelajaran tetapi juga dalam membentuk karakter, kedisiplinan, dan rasa tanggung jawab
+                        saya. Saya bangga pernah menjadi bagian dari sekolah ini.</p>
                 </div>
-                <div class="stat-card">
-                    <img src="img/teacher.png" alt="Total Guru">
-                    <p class="stat-number">13</p>
-                    <p class="stat-label">Total Guru</p>
-                </div>
-                <div class="stat-card">
-                    <img src="img/fasilitas.png" alt="Total Fasilitas">
-                    <p class="stat-number">9</p>
-                    <p class="stat-label">Total Fasilitas</p>
-                </div>
-            </div>
-        </section>
-
-        <hr style="border: 0.1px solid black; margin: 0; margin-top: 55px;">
-
-        <!-- ======================== -->
-        <!--   SECTION GURU-GURU      -->
-        <!-- ======================== -->
-        <section class="section-guru">
-    <div class="section-title-box">
-        <h2>DATA PENGAJAR</h2>
-    </div>
-
-    <div class="guru-grid">
-
-        <a href="data.html" class="guru-card">
-            <img src="img/anwar.jpeg" alt="Guru 1">
-            <div class="guru-info">
-                <h4>APRILIANSYAH</h4>
-                <p>Principal/Aman</p>
-            </div>
-        </a>
-
-        <a href="data.html" class="guru-card">
-            <img src="img/m.syahid.jpeg" alt="Guru 2">
-            <div class="guru-info">
-                <h4>APRILIANSYAH</h4>
-                <p>Principal/Aman</p>
-            </div>
-        </a>
-
-        <a href="data.html" class="guru-card">
-            <img src="img/eris.jpeg" alt="Guru 3">
-            <div class="guru-info">
-                <h4>APRILIANSYAH</h4>
-                <p>Principal/Aman</p>
-            </div>
-        </a>
-
-    </div>
-</section>
-        <hr style="border: 0.1px solid black; margin: 0; margin-bottom: 45px;">
-        <!--   SECTION UCAP ALUMNI    -->
-        <section class="section-alumni">
-            <div class="section-title-box">
-                <h2>UCAP ALUMNI</h2>
-            </div>
-
-            <div class="alumni-grid">
-
-                <!-- Alumni 1 -->
-                <div class="alumni-item">
-                    <div class="alumni-card">
-                        <span class="alumni-badge">Sekolah Terbagus</span>
-                        <p class="alumni-text">Sekolah ini memberikan banyak pengalaman berharga, bukan hanya dalam pelajaran tetapi juga dalam membentuk karakter, kedisiplinan, dan rasa tanggung jawab saya. Saya bangga pernah menjadi bagian dari sekolah ini.</p>
+                <div class="alumni-profile">
+                    <img src="assets/img/rajil.jpeg" alt="Rajil">
+                    <div>
+                        <p class="alumni-name">Rajil</p>
+                        <p class="alumni-desc">Alumni Darussalam, sekolah di SMKN 4</p>
                     </div>
-                    <div class="alumni-profile">
-                        <img src="img/rajil.jpeg" alt="Rajil">
-                        <div>
-                            <p class="alumni-name">Rajil</p>
-                            <p class="alumni-desc">Alumni darusalam, sekolah di SMKN 4</p>
+                </div>
+            </div>
+
+            <!-- Alumni 2 -->
+            <div class="alumni-item">
+                <div class="alumni-card">
+                    <span class="alumni-badge">Sekolah Terbagus</span>
+                    <p class="alumni-text">Selama belajar di sekolah ini, saya mendapatkan banyak ilmu, teman,
+                        dan kenangan indah yang tidak akan terlupakan. Guru-gurunya juga sangat sabar dan selalu
+                        mendukung siswa untuk berkembang lebih baik.</p>
+                </div>
+                <div class="alumni-profile">
+                    <img src="assets/img/gyar.jpeg" alt="M Gyar">
+                    <div>
+                        <p class="alumni-name">M Gyar</p>
+                        <p class="alumni-desc">Alumni Darussalam, sekolah di SMKN 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alumni 3 -->
+            <div class="alumni-item">
+                <div class="alumni-card">
+                    <span class="alumni-badge">Sekolah Terbagus</span>
+                    <p class="alumni-text">Sekolah ini menjadi tempat yang sangat berarti bagi saya karena di sinilah
+                        saya belajar, berkembang, dan meraih banyak pengalaman baru. Semoga sekolah ini terus maju dan
+                        melahirkan siswa-siswi yang berprestasi.</p>
+                </div>
+                <div class="alumni-profile">
+                    <img src="assets/img/gilang.jpeg" alt="Gilang">
+                    <div>
+                        <p class="alumni-name">Gilang</p>
+                        <p class="alumni-desc">Alumni Darussalam, sekolah di SMKN 4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="border: 0.1px solid black; margin: 0; margin-top: 70px; opacity: 0.5;">
+    </section>
+
+    <footer class="footer">
+        <!-- TOP ROW: Logo + Visi -->
+        <div class="top-row">
+            <div class="logos">
+                <img src="kontak/img/yayasan.png" alt="Logo 1" />
+                <img src="kontak/img/kemenag.png" alt="Logo 2" />
+                <img src="kontak/img/mts.png" alt="Logo 3" />
+            </div>
+            <p class="visi-text">
+                "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
+                berakhlak, dan penuh empati<br />
+                melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
+            </p>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- MIDDLE ROW -->
+        <div class="middle-row">
+            <!-- Kontak -->
+            <div class="kontak">
+                <p class="kontak-title">Kontak</p>
+
+                <div class="kontak-item">
+                    <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
+                    <div>
+                        <p class="label">Telepon</p>
+                        <p class="value">+62 877-2552-5133</p>
+                    </div>
+                </div>
+                <hr class="kontak-divider" />
+
+                <div class="kontak-item">
+                    <img src="kontak/img/icons8-email-30.png" alt="Email" />
+                    <div>
+                        <p class="label">Email</p>
+                        <p class="value">mtsmomo@gmail.com</p>
+                    </div>
+                </div>
+                <hr class="kontak-divider" />
+
+                <div class="kontak-item">
+                    <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
+                    <div>
+                        <p class="label">Alamat</p>
+                        <p class="value">
+                            RT.04/RW.05, Sukamanah, Kec.<br />
+                            Cipedes, Kab. Tasikmalaya, Jawa<br />
+                            Barat 46131, Indonesia
+                        </p>
+                    </div>
+                </div>
+                <hr class="kontak-divider" />
+
+                <div class="kontak-item">
+                    <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+                    <div>
+                        <p class="label">Jam Kerja</p>
+                        <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sosmed -->
+            <div class="sosmed">
+                <div class="sosmed-item">
+                    <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+                        <div class="icon-circle">
+                            <img src="kontak/img/ig.png" alt="Instagram" />
                         </div>
-                    </div>
+                    </a>
+                    <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
+                        <p>darussalamleuwianyar</p>
+                    </a>
                 </div>
-
-                <!-- Alumni 2 (geser bawah) -->
-                <div class="alumni-item">
-                    <div class="alumni-card">
-                        <span class="alumni-badge">Sekolah Terbagus</span>
-                        <p class="alumni-text">Selama belajar di sekolah ini, saya mendapatkan banyak ilmu, teman, dan kenangan indah yang tidak akan terlupakan. Guru-gurunya juga sangat sabar dan selalu mendukung siswa untuk berkembang lebih baik.</p>
-                    </div>
-                    <div class="alumni-profile">
-                        <img src="img/gyar.jpeg" alt="M Gyar">
-                        <div>
-                            <p class="alumni-name">M Gyar</p>
-                            <p class="alumni-desc">Alumni darusalam, sekolah di SMKN 4</p>
+                <!-- link tiktok -->
+                <div class="sosmed-item">
+                    <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+                        <div class="icon-circle">
+                            <img src="kontak/img/tt.png" alt="TikTok" />
                         </div>
-                    </div>
+                    </a>
+                    <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
+                        <p>Darussalam</p>
+                    </a>
                 </div>
-
-                <!-- Alumni 3 -->
-                <div class="alumni-item">
-                    <div class="alumni-card">
-                        <span class="alumni-badge">Sekolah Terbagus</span>
-                        <p class="alumni-text">Sekolah ini menjadi tempat yang sangat berarti bagi saya karena di sinilah saya belajar, berkembang, dan meraih banyak pengalaman baru. Semoga sekolah ini terus maju dan melahirkan siswa-siswi yang berprestasi.</p>
-                    </div>
-                    <div class="alumni-profile">
-                        <img src="img/gilang.jpeg" alt="Gilang">
-                        <div>
-                            <p class="alumni-name">Gilang</p>
-                            <p class="alumni-desc">Alumni darusalam, sekolah di SMKN 4</p>
+                <!-- link facebook -->
+                <div class="sosmed-item">
+                    <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+                        <div class="icon-circle">
+                            <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
                         </div>
-                    </div>
+                    </a>
+                    <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
+                        <p>Darussalam</p>
+                    </a>
                 </div>
-
+                <!-- link youtube -->
+                <div class="sosmed-item">
+                    <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
+                        <div class="icon-circle">
+                            <img src="kontak/img/yt.png" alt="YouTube" />
+                        </div>
+                    </a>
+                    <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
+                        <p>Darussalam</p>
+                    </a>
+                </div>
             </div>
-
-            
-        </section>
-
-        <hr style="border: 0.1px solid black; margin: 0; margin-bottom: 10px;">
-        
-         </section>
-          <footer class="footer">
-      <!-- TOP ROW: Logo + Visi -->
-      <div class="top-row">
-        <div class="logos">
-          <img src="kontak/img/yayasan.png" alt="Logo 1" />
-          <img src="kontak/img/kemenag.png" alt="Logo 2" />
-          <img src="kontak/img/mts.png" alt="Logo 3" />
-        </div>
-        <p class="visi-text">
-          "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
-          berakhlak, dan penuh empati<br />
-          melalui lingkungan belajar yang nyaman, harmonis, dan humanis."
-        </p>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- MIDDLE ROW -->
-      <div class="middle-row">
-        <!-- Kontak -->
-        <div class="kontak">
-          <p class="kontak-title">Kontak</p>
-
-          <div class="kontak-item">
-            <img
-              src="kontak/img/icons8-phone-50.png"
-              alt="Telepon"
-            />
-            <div>
-              <p class="lab">Telepon</p>
-              <p class="value">+62 877-2552-5133</p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-email-30.png" alt="Email" />
-            <div>
-              <p class="lab">Email</p>
-              <p class="value">mtsmomo@gmail.com</p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
-            <div>
-              <p class="lab">Alamat</p>
-              <p class="value">
-                RT.04/RW.05, Sukamanah, Kec.<br />
-                Cipedes, Kab. Tasikmalaya, Jawa<br />
-                Barat 46131, Indonesia
-              </p>
-            </div>
-          </div>
-          <hr class="kontak-divider" />
-
-          <div class="kontak-item">
-            <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
-            <div>
-              <p class="lab">Jam Kerja</p>
-              <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
-            </div>
-          </div>
+                <div class="form-section">
+                    <input type="text" placeholder="Nama" />
+                    <input type="email" placeholder="Email" />
+                    <textarea placeholder="Pesan"></textarea>
+                    <button class="btn-submit" type="button">Kirim</button>
+                </div>
+            </form>
         </div>
 
-        <!-- Sosmed -->
-        <div class="sosmed">
-        <div class="sosmed-item">
-          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
-            <div class="icon-circle">
-              <img src="kontak/img/ig.png" alt="Instagram" />
-            </div>
-          </a>
-          <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
-            <p>darussalamleuwianyar</p>
-          </a>
-        </div>
-        <!-- link tiktok -->
-        <div class="sosmed-item">
-          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
-            <div class="icon-circle">
-              <img src="kontak/img/tt.png" alt="TikTok" />
-            </div>
-          </a>
-          <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
-            <p>Darussalam</p>
-          </a>
-        </div>
-        <!-- link facebook -->
-        <div class="sosmed-item">
-          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-            <div class="icon-circle">
-              <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
-            </div>
-          </a>
-          <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
-            <p>Darussalam</p>
-          </a>
-        </div>
-        <!-- link youtube -->
-        <div class="sosmed-item">
-          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
-            <div class="icon-circle">
-              <img src="kontak/img/yt.png" alt="YouTube" />
-            </div>
-          </a>
-          <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
-            <p>Darussalam</p>
-          </a>
-        </div>
-      </div>
+        <hr class="divider" />
 
-        <!-- Form -->
-        <div class="form-section">
-          <input type="text" placeholder="Nama" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Pesan"></textarea>
-          <button class="btn-submit" type="button">Kirim</button>
+        <!-- Footer bawah -->
+        <div class="footer-akhir">
+            <p>
+                &copy;2026.<br />
+                Design By TEFA PPLG SMKN 4 Tasikmalaya.
+            </p>
         </div>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- Footer bawah -->
-      <div class="footer-akhir">
-      <p>
-        &copy;2026.<br />
-       Design By TEFA PPLG SMKN 4 Tasikmalaya.
-      </p>
-    </div>
     </footer>
-    <script>
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.menu ul li a');
-
-
-        document.querySelector('a[href="#beranda"]').classList.add('active');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    const activeLink = document.querySelector(`a[href="#${entry.target.id}"]`);
-                    if (activeLink) activeLink.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.4,
-            rootMargin: '-80px 0px 0px 0px'
-        });
-
-        sections.forEach(section => observer.observe(section));
-    </script>
 </body>
 
 </html>

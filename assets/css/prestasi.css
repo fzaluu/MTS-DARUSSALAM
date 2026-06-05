@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.section-wrapper {
+  width: 100%;
+  padding: 24px 20px 32px;
+  background-color: #b7d1c8;
+}
+
+section {
+  width: 100%;
+  background-color: #b7d1c8; /* sama dengan section-wrapper */
+  padding: 0;
+}
+
+
+.judul {
+  width: 1150px;
+  height: 50px;
+  background-color: #f2f2f2;
+  text-align: center;
+  border: 3px solid #000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0px #000000;
+  transition: background-color 0.2s;
+  margin: 0 auto 40px;
+  margin-bottom: 50px;
+}
+
+.judul h2 {
+  font-size: 27px;
+  font-weight: 450;
+  letter-spacing: 1px;
+  color: #111;
+}
+
+.prestasi-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+
+}
+
+/* CARD ATAS */
+
+.prestasi-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* CARD BAWAH */
+
+.prestasi-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card-prestasi {
+  width: 100%;
+  max-width: 430px;
+
+  background-color: #f9bc60;
+
+  border: 3px solid black;
+  border-radius: 20px;
+
+  padding: 24px;
+
+  text-align: center;
+
+  transition: 0.3s;
+
+  box-shadow: 6px 6px 0px black;
+
+  overflow: hidden;
+}
+
+.card-prestasi:hover {
+  transform: translateY(-5px);
+}
+
+.card-prestasi img {
+  width: 100%;
+
+  aspect-ratio: 4/3;
+
+  object-fit: cover;
+
+  border-radius: 14px;
+
+  border: 3px solid black;
+
+  margin-bottom: 20px;
+
+  display: block;
+}
+
+.text-prestasi h3 {
+  font-size: clamp(20px, 3vw, 26px);
+  color: #2d1b00;
+  margin-bottom: 5px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.text-prestasi h4 {
+  font-size: clamp(18px, 2.5vw, 22px);
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.text-prestasi p {
+  font-size: clamp(15px, 2vw, 19px);
+
+  color: #333;
+
+  line-height: 1.5;
+}
+
+/* TABLET */
+
+@media screen and (max-width: 992px) {
+  section {
+    padding: 40px 18px;
+  }
+
+  .judul {
+        width: 90%;
+        margin-bottom: 28px;
+    }
+
+  .judul h2 {
+    font-size: 24px;
+  }
+
+  .prestasi-bottom {
+    gap: 25px;
+  }
+
+  .card-prestasi {
+    max-width: 350px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+  }
+
+  .card-prestasi img {
+    border-radius: 12px;
+  }
+}
+
+/* HP */
+
+@media screen and (max-width: 768px) {
+  section {
+    padding: 30px 14px;
+  }
+
+  .judul {
+    margin-bottom: 25px;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    border: 2px solid black;
+
+    box-shadow: 4px 4px 0px black;
+  }
+
+  .judul h2 {
+    font-size: 20px;
+
+    letter-spacing: 2px;
+  }
+
+  .prestasi-wrapper {
+    gap: 25px;
+  }
+
+  .prestasi-bottom {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+  }
+
+  .card-prestasi {
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    border: 2px solid black;
+
+    box-shadow: 4px 4px 0px black;
+  }
+
+  .card-prestasi img {
+    border-radius: 10px;
+
+    border: 2px solid black;
+
+    margin-bottom: 15px;
+  }
+
+  .text-prestasi h3 {
+    font-size: 24px;
+  }
+
+  .text-prestasi h4 {
+    font-size: 20px;
+  }
+
+  .text-prestasi p {
+    font-size: 17px;
+  }
+}
+
+/* HP KECIL */
+
+@media screen and (max-width: 480px) {
+  section {
+    padding: 20px 10px;
+  }
+
+  .judul {
+    border-radius: 10px;
+
+    padding: 10px;
+
+    box-shadow: 3px 3px 0px black;
+  }
+
+  .judul h2 {
+    font-size: 17px;
+
+    letter-spacing: 1px;
+  }
+
+  .card-prestasi {
+    padding: 12px;
+
+    border-radius: 10px;
+
+    box-shadow: 3px 3px 0px black;
+  }
+
+  .card-prestasi img {
+    border-radius: 8px;
+
+    margin-bottom: 12px;
+  }
+
+  .text-prestasi h3 {
+    font-size: 18px;
+  }
+
+  .text-prestasi h4 {
+    font-size: 16px;
+  }
+
+  .text-prestasi p {
+    font-size: 14px;
+  }
+}

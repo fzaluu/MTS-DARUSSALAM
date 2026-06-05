@@ -4,16 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Sekolah</title>
-  <link rel="stylesheet" href="assets/css/sdm.css">
-  <link rel="stylesheet" href="assets/css/nav.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
+  <title>SDM Sekolah</title>
   <link rel="icon" type="image/png" href="assets/img/logomts.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/sdm.css">
 </head>
 
 <body>
+
   <input type="checkbox" id="menu-toggle" />
 
   <nav>
@@ -25,13 +26,25 @@
       </div>
     </a>
 
-
     <ul>
       <li><a href="index.html">Beranda</a></li>
       <li><a href="profil.html">Profil</a></li>
+<<<<<<< HEAD
       <li><a href="data.html" class="active">SDM
       </a></li>
       <li><a href="galeri.html">Galeri</a></li>
+=======
+      <li><a href="sdm.html" class="active">SDM</a></li>
+      <li>
+        <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="seragam.html">Seragam</a></li>
+          <li><a href="rombel.html">Rombel</a></li>
+          <li><a href="eskul.html">Ekstrakurikuler</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+        </ul>
+      </li>
+>>>>>>> a4546afad6c0e3a966f3b45b9aae67bbf1b71256
       <li><a href="kontak.html">Kontak</a></li>
     </ul>
 
@@ -46,213 +59,215 @@
     <ul>
       <li><a href="index.html">Beranda</a></li>
       <li><a href="profil.html">Profil</a></li>
-      <li><a href="data.html" class="active">Data</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="sdm.html" class="active">SDM</a></li>
+      <li class="has-dropdown">
+        <input type="checkbox" id="dropdown-toggle" />
+        <label for="dropdown-toggle">
+          Siswa <span class="arrow">▼</span>
+        </label>
+        <ul class="mobile-dropdown">
+          <li><a href="seragam.html">Seragam</a></li>
+          <li><a href="rombel.html">Rombel</a></li>
+          <li><a href="eskul.html">Ekstrakurikuler</a></li>
+          <li><a href="prestasi.html">Prestasi</a></li>
+        </ul>
+      </li>
       <li><a href="kontak.html">Kontak</a></li>
     </ul>
   </div>
-  <!--data staf pengajar -->
-  <section id="hero">
-    <div class="judul-pengajar">
-      <h2>PENGAJAR</h2>
-    </div>
-    <div class="container-pengajar">
-      <!-- <div class="grid-pengajar">
-        card kepsek 
-        <div class="card-custom mb-2">  
-          <img src="assets/img/deni.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Deni Purnama, S.Pd</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">PJOK</p>
+  <section class="struktur-section">
+    <div class="struktur-container">
+
+      <div class="section1-title">
+        <span>STRUKTUR ORGANISASI</span>
+      </div>
+
+      <div class="sdm-container">
+        <div class="grid-pengajar">
+          <div class="card-custom">
+            <img src="assets/img/m.syahid.jpeg" alt="Kepala Sekolah">
+            <div class="info-struktur">
+              <p class="nama-struktur">Muhammad Syahid, S.HI</p>
+              <p class="jabatan-struktur">Kepala Sekolah</p>
+            </div>
           </div>
         </div>
-      </div> -->
-      <div class="grid-pengajar">
-        <div class="card-custom">
-          <img src="assets/img/deni.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Deni Purnama, S.Pd</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">PJOK</p>
+
+        <div class="struktur-row">
+          <div class="card-custom">
+            <img src="assets/img/eris.jpeg" alt="Tata Usaha">
+            <div class="info-struktur">
+              <p class="nama-struktur">Eris Asy'ary, S.Pd</p>
+              <p class="jabatan-struktur">Tata Usaha</p>
+            </div>
+          </div>
+          <div class="card-custom">
+            <img src="assets/img/anwar.jpeg" alt="Wakabid Kurikulum">
+            <div class="info-struktur">
+              <p class="nama-struktur">Anwar, S.S,S.S.I</p>
+              <p class="jabatan-struktur">Wakabid Kurikulum</p>
+            </div>
+          </div>
+          <div class="card-custom">
+            <img src="assets/img/dede.jpeg" alt="Wakabid Kesiswaan">
+            <div class="info-struktur">
+              <p class="nama-struktur">Dede Bukhori, S.HI</p>
+              <p class="jabatan-struktur">Wakabid Kesiswaan</p>
+            </div>
+          </div>
+          <div class="card-custom">
+            <img src="assets/img/eha.jpeg" alt="Bag.Sapras">
+            <div class="info-struktur">
+              <p class="nama-struktur">Eha Juleha, S.Pd</p>
+              <p class="jabatan-struktur">Bag.Sapras</p>
+            </div>
           </div>
         </div>
-        <div class="card-custom">
-          <img src="assets/img/nissa.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Khoirunnisa Jovi, S.Pd.I</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Qurdis & BTQ </p>
+
+        <div class="struktur-row">
+          <div class="card-custom">
+            <img src="assets/img/aan.jpeg" alt="Perusahaan">
+            <div class="info-struktur">
+              <p class="nama-struktur">Aan Setianah, S.H</p>
+              <p class="jabatan-struktur">Perusahaan</p>
+            </div>
           </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/eha.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Eha Juleha, S.Pd</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Matematika & IPA</p>
+          <div class="card-custom">
+            <img src="assets/img/ipan.png" alt="BK dan Humas">
+            <div class="info-struktur">
+              <p class="nama-struktur">Ipan Sopan, S.Pd.I</p>
+              <p class="jabatan-struktur">Bimbingan Konseling & Humas</p>
+            </div>
           </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/anwar.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Anwar Hidayat, S.S, S.S.I</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">B Inggris</p>
-          </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/enok.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">B Indonesia</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Dra Enok Ebah</p>
-          </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/adisti.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Pembina Osis</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Adisti Nuryani</p>
-          </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/dede.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">PKN & B Sunda</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Dede Bukhori, S.H.I</p>
-          </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/Jili.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">TIK</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Jili Munfariz, S.Pd</p>
-          </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/eris.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Akhlak & B Arab</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Eris Asy'ary, S.Pd.I</p>
-          </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/yulia.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Fiqih & Prakarya</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Yulia Nursaadah Asri, S.Pd.I</p>
-          </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/aan.jpeg" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">Matematika & IPA</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Aan Setianah, S.H</p>
-          </div>
-        </div>
-        <div class="card-custom">
-          <img src="assets/img/ipan.png" alt="Foto Guru">
-          <div class="info-guru">
-            <p class="nama-guru">SKI & Akhlakul Banin</p>
-            <p class="jabatan">Jabatan</p>
-            <p class="mapel">Ipan Sopan, S.Pd.I</p>
+          <div class="card-custom">
+            <img src="assets/img/adisti.jpeg" alt="Pembina Osis">
+            <div class="info-struktur">
+              <p class="nama-struktur">Adisti Nuryani</p>
+              <p class="jabatan-struktur">Pembina Osis</p>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
-  <!-- data siswa -->
-  <!-- <section class="hero">
-    <div class="container-hero">
-      <hr>
-      <div class="section-wrapper">
-        <div class="judul"><h2>DATA SISWA</h2></div>
-        <div class="siswa-grid">
-          <a href="kelas7.html" class="siswa-kolom-link">
-            <div class="siswa-kolom" >
-              <div class="kotak">VII</div>
-              <div class="card-siswa" >
-                <span>Total Siswa : 33</span>
-                <span>Laki Laki : 16</span>
-                <span>Perempuan : 17</span>
-              </div>
-            </div>
-          </a>
-          <a href="kelas8.html" class="siswa-kolom-link">
-            <div class="siswa-kolom">
-              <div class="kotak">VIII</div>
-              <div class="card-siswa">
-                <span>Total Siswa : 41</span>
-                <span>Laki Laki : 24</span>
-                <span>Perempuan : 17</span>
-              </div>
-            </div>
-          </a>
-          <a href="kelas9.html" class="siswa-kolom-link">
-            <div class="siswa-kolom">
-              <div class="kotak">IX</div>
-              <div class="card-siswa">
-                <span>Total Siswa : 45</span>
-                <span>Laki Laki : 28</span>
-                <span>Perempuan : 17</span>
-              </div>
-            </div>
-          </a>
+  
+  <section class="sdm-section">
+
+<div class="section2-title">
+        <span>TENAGA PENDIDIK & STAF TENAGA PENDIDIK</span>
+      </div>
+
+
+
+    <div class="sdm-container">
+
+      <div class="sdm-grid">
+        <div class="card-sdm">
+          <img src="assets/img/eris.jpeg" alt="Guru 1">
+          <div class="info-sdm">
+            <p class="nama-sdm">Eris Asy'ary, S.Pd.I</p>
+            <p class="jabatan-sdm">Akhlak & B.Arab</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/anwar.jpeg" alt="Guru 2">
+          <div class="info-sdm">
+            <p class="nama-sdm">Anwar Hidayat, S.S, S.S.I</p>
+            <p class="jabatan-sdm">B.Inggris</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/dede.jpeg" alt="Guru 3">
+          <div class="info-sdm">
+            <p class="nama-sdm">Dede Bukhori, S.H.I</p>
+            <p class="jabatan-sdm">Pkn & Sunda</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/eha.jpeg" alt="Guru 4">
+          <div class="info-sdm">
+            <p class="nama-sdm">Eha Juleha, S.Pd</p>
+            <p class="jabatan-sdm">Mtk & IPA</p>
+          </div>
+        </div>
+
+        <div class="card-sdm">
+          <img src="assets/img/aan.jpeg" alt="Guru 5">
+          <div class="info-sdm">
+            <p class="nama-sdm">Aan Setianah, S.Pd</p>
+            <p class="jabatan-sdm">Mtk & IPA</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/ipan.png" alt="Guru 6">
+          <div class="info-sdm">
+            <p class="nama-sdm">Ipan Sopan, S.Pd.I</p>
+            <p class="jabatan-sdm">SKI & Akhlakul Banin</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/adisti.jpeg" alt="Guru 7">
+          <div class="info-sdm">
+            <p class="nama-sdm">Adisti Nuryani</p>
+            <p class="jabatan-sdm">Pembina Osis</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/yulia.jpeg" alt="Guru 8">
+          <div class="info-sdm">
+            <p class="nama-sdm">Yulia Nursaadah Asri</p>
+            <p class="jabatan-sdm">Fiqih & Prakarya</p>
+          </div>
+        </div>
+
+        <div class="card-sdm">
+          <img src="assets/img/nissa.jpeg" alt="Guru 9">
+          <div class="info-sdm">
+            <p class="nama-sdm">Khoirunnisa Jovi, S.Pd.I</p>
+            <p class="jabatan-sdm">Alquran Hadist & BTQ</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/lela.jpeg" alt="Guru 10">
+          <div class="info-sdm">
+            <p class="nama-sdm">Lela Nurlela</p>
+            <p class="jabatan-sdm">IPS</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/enok.jpeg" alt="Guru 11">
+          <div class="info-sdm">
+            <p class="nama-sdm">Dra. Enok Ebah</p>
+            <p class="jabatan-sdm">B.Indonesia</p>
+          </div>
+        </div>
+        <div class="card-sdm">
+          <img src="assets/img/Jili.jpeg" alt="Guru 12">
+          <div class="info-sdm">
+            <p class="nama-sdm">Jili Munfariz, S.Pd</p>
+            <p class="jabatan-sdm">TIK</p>
+          </div>
+        </div>
+
+        <div class="card-sdm card-last">
+          <img src="assets/img/deni.jpeg" alt="Guru 13">
+          <div class="info-sdm">
+            <p class="nama-sdm">Deni Purnama, S.Pd</p>
+            <p class="jabatan-sdm">PJOK</p>
+          </div>
         </div>
       </div>
-    -->
-  <!-- bagian ekstrakulikuler -->
-  <!-- <div class="section-wrapper">
-        <div class="judul"><h2>EKSTRAKURIKULER</h2></div>
-        <div class="eskul-row">
-          <div class="card-eskul">
-            <div class="eskul-kiri">
-              <img src="assets/img/pramuka2.jpeg" class="img-eskul" alt="Pramuka">
-              <div class="eskul-nama">Pramuka</div>
-            </div>
-            <p class="eskul-desc">Pramuka adalah kegiatan pendidikan di luar sekolah yang bertujuan membentuk karakter, kedisiplinan, kemandirian, dan kerja sama. Kegiatan ini mengajarkan keterampilan, kepemimpinan, serta rasa cinta tanah air melalui latihan, perkemahan, dan kegiatan sosial. Pramuka juga melatih anggota untuk bertanggung jawab, berani, dan saling membantu sesama.</p>
-          </div>
-          <div class="card-eskul">
-            <div class="eskul-kiri">
-              <img src="assets/img/futsal.jpeg" class="img-eskul" alt="Futsal">
-              <div class="eskul-nama">Futsal</div>
-            </div>
-            <p class="eskul-desc">Futsal adalah permainan bola dalam ruangan yang dimainkan oleh dua tim, masing-masing beranggotakan lima orang, dengan tujuan mencetak gol ke gawang lawan menggunakan teknik kaki. Olahraga ini berfokus pada kecepatan, passing cepat, dan kontrol bola.</p>
-          </div>
-        </div>
-      </div> -->
 
-  <!-- prestasi -->
-  <!-- <div class="section-wrapper">
-        <div class="judul"><h2>PRESTASI</h2></div>
-        <div class="prestasi-center">
-          <div class="card-prestasi">
-            <img src="assets/img/prestasi.jpeg" alt="Prestasi">
-            <p class="prestasi-nama">Story telling</p>
-          </div>
-        </div>
-      </div> -->
+    </div>
+  </section>
 
-  <!-- </div>
-    
-  </section> -->
-  <!-- jika dibutuhkan pakai hr disini saja aktif kan -->
-  <!-- <hr style="margin-top: 15px; margin-bottom: 15px;"> -->
-  <!-- Dev: Rezalka -->
   <footer class="footer">
-    <!-- TOP ROW: Logo + Visi -->
     <div class="top-row">
       <div class="logos">
-        <img src="assets/kontak/img/yayasan.png" alt="Logo 1" />
-        <img src="assets/kontak/img/kemenag.png" alt="Logo 2" />
-        <img src="assets/kontak/img/mts.png" alt="Logo 3" />
+        <img src="kontak/img/yayasan.png" alt="Logo 1" />
+        <img src="kontak/img/kemenag.png" alt="Logo 2" />
+        <img src="kontak/img/mts.png" alt="Logo 3" />
       </div>
       <p class="visi-text">
         "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
@@ -261,36 +276,34 @@
       </p>
     </div>
 
-    <hr class="divider" />
+    <hr class="divider" style="border-top: 2px solid #ffffff;" />
 
-    <!-- MIDDLE ROW -->
     <div class="middle-row">
-      <!-- Kontak -->
       <div class="kontak">
         <p class="kontak-title">Kontak</p>
 
         <div class="kontak-item">
-          <img src="assets/kontak/img/icons8-phone-50.png" alt="Telepon" />
+          <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
           <div>
-            <p class="lab">Telepon</p>
+            <p class="label">Telepon</p>
             <p class="value">+62 877-2552-5133</p>
           </div>
         </div>
         <hr class="kontak-divider" />
 
         <div class="kontak-item">
-          <img src="assets/kontak/img/icons8-email-30.png" alt="Email" />
+          <img src="kontak/img/icons8-email-30.png" alt="Email" />
           <div>
-            <p class="lab">Email</p>
+            <p class="label">Email</p>
             <p class="value">mtsmomo@gmail.com</p>
           </div>
         </div>
         <hr class="kontak-divider" />
 
         <div class="kontak-item">
-          <img src="assets/kontak/img/icons8-location-50.png" alt="Alamat" />
+          <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
           <div>
-            <p class="lab">Alamat</p>
+            <p class="label">Alamat</p>
             <p class="value">
               RT.04/RW.05, Sukamanah, Kec.<br />
               Cipedes, Kab. Tasikmalaya, Jawa<br />
@@ -301,53 +314,49 @@
         <hr class="kontak-divider" />
 
         <div class="kontak-item">
-          <img src="assets/kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+          <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
           <div>
-            <p class="lab">Jam Kerja</p>
+            <p class="label">Jam Kerja</p>
             <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
           </div>
         </div>
       </div>
 
-      <!-- Sosmed -->
       <div class="sosmed">
         <div class="sosmed-item">
           <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
             <div class="icon-circle">
-              <img src="assets/kontak/img/ig.png" alt="Instagram" />
+              <img src="kontak/img/ig.png" alt="Instagram" />
             </div>
           </a>
           <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
             <p>darussalamleuwianyar</p>
           </a>
         </div>
-        <!-- link tiktok -->
         <div class="sosmed-item">
           <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
             <div class="icon-circle">
-              <img src="assets/kontak/img/tt.png  " alt="TikTok" />
+              <img src="kontak/img/tt.png" alt="TikTok" />
             </div>
           </a>
           <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
             <p>Darussalam</p>
           </a>
         </div>
-        <!-- link facebook -->
         <div class="sosmed-item">
           <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
             <div class="icon-circle">
-              <img src="assets/kontak/img/icons8-facebook-30.png" alt="Facebook" />
+              <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
             </div>
           </a>
           <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
             <p>Darussalam</p>
           </a>
         </div>
-        <!-- link youtube -->
         <div class="sosmed-item">
           <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
             <div class="icon-circle">
-              <img src="assets/kontak/img/yt.png" alt="YouTube" />
+              <img src="kontak/img/yt.png" alt="YouTube" />
             </div>
           </a>
           <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
@@ -356,18 +365,18 @@
         </div>
       </div>
 
-      <!-- Form -->
-      <div class="form-section">
-        <input type="text" placeholder="Nama" />
-        <input type="email" placeholder="Email" />
-        <textarea placeholder="Pesan"></textarea>
-        <button class="btn-submit" type="button">Kirim</button>
-      </div>
+>
+        <div class="form-section">
+          <input type="text" placeholder="Nama" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Pesan"></textarea>
+          <button class="btn-submit" type="button">Kirim</button>
+        </div>
+      </form>
     </div>
 
-    <hr class="divider" />
+    <hr class="divider" style="border-top: 2px solid #ffffff;" />
 
-    <!-- Footer bawah -->
     <div class="footer-akhir">
       <p>
         &copy;2026.<br />

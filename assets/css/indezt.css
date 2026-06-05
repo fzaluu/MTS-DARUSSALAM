@@ -243,28 +243,6 @@ body {
   border-radius: 16px 16px 0 0;
 }
 
-.kegiatan-tanggal {
-  font-family: 'inter', sans-serif;
-  font-size: 18px;
-  color: #000;
-  background: #f2f2f2;
-  padding: 8px 75px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  border-radius: 18px;
-  border: 2px solid #64AC7B;
-  width: fit-content;
-  margin: 0 auto;
-  transform: translateY(-50%);
-  position: relative;
-  font-weight: 800;
-  margin-bottom: -10px;
-}
-
-.kegiatan-tanggal i {
-  font-size: 40px;
-}
 
 .kegiatan-card p {
   font-family: 'inter', sans-serif;

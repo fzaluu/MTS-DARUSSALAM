@@ -4,6 +4,7 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -17,7 +18,26 @@ body {
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-  background-color: #6fa8a4;
+  background-color: white;
+}
+.logotext {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4px;
+}
+
+.tulisan1 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #64AC7B;
+    margin: 0;
+}
+
+.tulisan2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #c0392b;
+    margin: 0;
 }
 
 .section-title {
@@ -40,7 +60,7 @@ body {
 }
 
 .section-galeri {
-  background: #006364;
+  background: #b7d1c8;
   min-height: 100vh;
   padding: 2.5rem 1rem;
   display: flex;
@@ -140,4 +160,193 @@ body {
 .overlay-text p {
   font-size: 0.78rem;
   opacity: 0.85;
+}
+
+.section-fasilitas {
+  background: #ABD1C6;
+  padding: 2.5rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-item {
+  min-width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #1a3a3a;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.carousel-btn {
+  background: #eee;
+  border: 2px solid #111;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.carousel-btn:hover {
+  background: #006364;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(238, 238, 238, 0.4);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.dot.aktif {
+  background: #eee;
+  transform: scale(1.35);
+}
+
+.section-kegiatan {
+  background: #ABD1C6;
+  padding: 2.5rem 1rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.card {
+  cursor: pointer;
+  background: #F9BC60;
+  border: 2.5px solid #111;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  gap: 18px;
+  box-shadow: 4px 4px 0px #111;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #111;
+}
+
+.card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1.5px solid #333;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-desc {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.55;
+}
+
+.card-schedule {
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .galeri-grid-bawah {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .galeri-grid .galeri-item {
+    width: calc((100% - 16px) / 2);
+    max-width: none;
+  }
+
+  .carousel-item {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .galeri-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .galeri-grid .galeri-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .galeri-grid-bawah {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+  }
 }

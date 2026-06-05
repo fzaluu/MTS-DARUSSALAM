@@ -3,18 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seragam</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/nav.css" />
-    <link rel="stylesheet" href="assets/css/footer.css" />
+    <title>Ekstrakurikuler</title>
     <link rel="icon" type="image/png" href="assets/img/logomts.png" />
-    <link rel="stylesheet" href="assets/css/seragam.css" />
+    <link rel="stylesheet" href="assets/css/revisi.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/nav.css" />
   </head>
+
   <body>
     <input type="checkbox" id="menu-toggle" />
+
     <nav>
       <a href="" class="brand">
         <img src="assets/img/logomts.jpeg" alt="Logo MTS Darussalam" />
@@ -23,6 +21,7 @@
           <p class="tulisan2">Darussalam</p>
         </div>
       </a>
+
       <ul>
         <li><a href="index.html">Beranda</a></li>
         <li><a href="profil.html">Profil</a></li>
@@ -32,20 +31,22 @@
             >Siswa <span class="siswa-arrow">▼</span></a
           >
           <ul class="dropdown-menu">
-            <li><a href="seragam.html" class="active">Seragam</a></li>
+            <li><a href="seragam.html">Seragam</a></li>
             <li><a href="rombel.html">Rombel</a></li>
-            <li><a href="eskul.html">Ekstrakurikuler</a></li>
+            <li><a href="eskul.html" class="active">Ekstrakurikuler</a></li>
             <li><a href="prestasi.html">Prestasi</a></li>
           </ul>
         </li>
         <li><a href="kontak.html">Kontak</a></li>
       </ul>
+
       <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
         <span></span>
         <span></span>
         <span></span>
       </label>
     </nav>
+
     <div class="mobile-menu">
       <ul>
         <li><a href="index.html">Beranda</a></li>
@@ -57,102 +58,51 @@
             Siswa <span class="arrow">▼</span>
           </label>
           <ul class="mobile-dropdown">
-            <li><a href="seragam.html" class="active">Seragam</a></li>
+            <li><a href="seragam.html">Seragam</a></li>
             <li><a href="rombel.html">Rombel</a></li>
-            <li><a href="eskul.html">Ekstrakurikuler</a></li>
+            <li><a href="eskul.html" class="active">Ekstrakurikuler</a></li>
             <li><a href="prestasi.html">Prestasi</a></li>
           </ul>
         </li>
         <li><a href="kontak.html">Kontak</a></li>
       </ul>
     </div>
-    <div class="section-galeri">
-      <h2 class="section-title">SERAGAM</h2>
-      <div class="galeri-body">
-        <div class="galeri-grid">
-          <div
-            class="galeri-item"
-            onclick="
-              bukaModal(
-                'seragam1.jpg',
-                'Seragam Senin & Selasa',
-                'Baju PSAS adalah seragam sekolah yang digunakan sebagai pakaian resmi siswa pada hari-hari tertentu sesuai aturan sekolah. Seragam ini mencerminkan kerapian dan identitas siswa di lingkungan sekolah.',
-              )
-            "
-          >
-            <img src="assets/img/putihbiru.png" alt="Seragam Senin" />
-            <div class="overlay">
-              <div class="overlay-text">
-                <h2>PSAS</h2>
-                <p>Senin &amp; Selasa</p>
-              </div>
-            </div>
-          </div>
+    <!-- bagian ekstrakulikuler -->
+    <div class="section-wrapper">
+      <div class="judul">
+        <h2>EKSTRAKURIKULER</h2>
+      </div>
 
-          <div
-            class="galeri-item"
-            onclick="
-              bukaModal('seragam2.jpg', 'Olahraga', 'Dipakai saat jam PJOK.')
-            "
-          >
-            <img src="assets/img/olga.png" alt="Seragam Olahraga" />
-            <div class="overlay">
-              <div class="overlay-text">
-                <h2>Olahraga</h2>
-                <p>Rabu</p>
-              </div>
-            </div>
+      <div class="eskul-container">
+        <!-- Baris atas: Pramuka (besar, tengah) -->
+        <div class="eskul-top">
+          <div class="card-eskul card-besar">
+            <div class="eskul-nama">Pramuka</div>
+            <img
+              src="assets/img/pramuka2.jpeg"
+              class="img-eskul"
+              alt="Pramuka"
+            />
           </div>
         </div>
 
-        <div class="galeri-grid-bawah">
-          <div
-            class="galeri-item"
-            onclick="
-              bukaModal('seragam3.jpg', 'Batik', 'Dipakai setiap Hari Kamis.')
-            "
-          >
-            <img src="assets/img/batik.png" alt="Seragam Batik" />
-            <div class="overlay">
-              <div class="overlay-text">
-                <h2>Batik</h2>
-                <p>Hari Kamis</p>
-              </div>
-            </div>
+        <!-- Baris bawah: 3 card kecil -->
+        <div class="eskul-bottom">
+          <div class="card-eskul card-kecil">
+            <div class="eskul-nama">Futsal</div>
+            <img src="assets/img/futsal.jpeg" class="img-eskul" alt="Futsal" />
           </div>
-
-          <div
-            class="galeri-item"
-            onclick="
-              bukaModal('seragam4.jpg', 'Pramuka', 'Dipakai setiap Hari Jumat.')
-            "
-          >
-            <img src="assets/img/busanamuslim.jpeg" alt="Seragam Pramuka" />
-            <div class="overlay">
-              <div class="overlay-text">
-                <h2>Busana Muslim</h2>
-                <p>Hari Jumat</p>
-              </div>
-            </div>
+          <div class="card-eskul card-kecil">
+            <div class="eskul-nama">Tahfidz</div>
+            <img
+              src="assets/img/tahfidz.jpeg"
+              class="img-eskul"
+              alt="Tahfidz"
+            />
           </div>
-
-          <div
-            class="galeri-item"
-            onclick="
-              bukaModal(
-                'seragam5.jpg',
-                'Seragam Rabu',
-                'Seragam sekolah untuk Hari Rabu.',
-              )
-            "
-          >
-            <img src="assets/img/pramuka.jpeg" alt="Seragam Rabu" />
-            <div class="overlay">
-              <div class="overlay-text">
-                <h2>Pramuka</h2>
-                <p>Sabtu</p>
-              </div>
-            </div>
+          <div class="card-eskul card-kecil">
+            <div class="eskul-nama">Paskibra</div>
+            <img src="assets/img/lkbb.jpeg" class="img-eskul" alt="Paskibra" />
           </div>
         </div>
       </div>
@@ -279,7 +229,6 @@
             </a>
           </div>
         </div>
-
         <!-- Form -->
         <div class="form-section">
           <input type="text" placeholder="Nama" />
