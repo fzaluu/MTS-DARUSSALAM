@@ -333,6 +333,25 @@ body {
 }
 
 @media (max-width: 768px) {
+    .container-2,
+    .section-struktur {
+        height: auto !important;
+        min-height: unset !important;
+        padding-bottom: 0 !important;
+    }
+    .struktur-body img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+    .section-fasilitas {
+        margin-top: 0 !important;
+    }
+    .section-fasilitas .section-title {
+        margin-top: 10px !important;
+    }
     .card-body {
         padding: 36px 14px 16px;
     }
@@ -363,13 +382,36 @@ body {
 }
 
 @media (max-width: 400px) {
+
+    .container-2,
+    .section-struktur {
+        height: auto !important;
+        min-height: unset !important;
+        padding-bottom: 0 !important;
+    }
+    .struktur-body img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+    .section-fasilitas {
+        margin-top: 0 !important;
+    }
+    .section-fasilitas .section-title {
+        margin-top: 10px !important;
+    }
     .card-wrapper {
         padding: 0 8px;
     }
 
     .card-image {
-        width: 170px;
-        height: 140px;
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 0;
     }
 
     .card-visimisi {
@@ -383,6 +425,26 @@ body {
 
 /* Tablet besar */
 @media (max-width: 1024px) {
+
+    .container-2,
+    .section-struktur {
+        height: auto !important;
+        min-height: unset !important;
+        padding-bottom: 0 !important;
+    }
+    .struktur-body img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+    .section-fasilitas {
+        margin-top: 0 !important;
+    }
+    .section-fasilitas .section-title {
+        margin-top: 10px !important;
+    }
     .footer {
         padding: 24px 40px;
     }
@@ -398,6 +460,26 @@ body {
 
 /* Tablet / HP landscape */
 @media (max-width: 768px) {
+
+    .container-2,
+    .section-struktur {
+        height: auto !important;
+        min-height: unset !important;
+        padding-bottom: 0 !important;
+    }
+    .struktur-body img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+    .section-fasilitas {
+        margin-top: 0 !important;
+    }
+    .section-fasilitas .section-title {
+        margin-top: 10px !important;
+    }
     .footer {
         padding: 20px 24px;
     }
@@ -453,6 +535,26 @@ body {
 
 /* HP portrait */
 @media (max-width: 480px) {
+
+    .container-2,
+    .section-struktur {
+        height: auto !important;
+        min-height: unset !important;
+        padding-bottom: 0 !important;
+    }
+    .struktur-body img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+    .section-fasilitas {
+        margin-top: 0 !important;
+    }
+    .section-fasilitas .section-title {
+        margin-top: 10px !important;
+    }
     .footer {
         padding: 16px 16px;
     }
@@ -508,6 +610,26 @@ body {
 
 /* HP sangat kecil */
 @media (max-width: 360px) {
+
+    .container-2,
+    .section-struktur {
+        height: auto !important;
+        min-height: unset !important;
+        padding-bottom: 0 !important;
+    }
+    .struktur-body img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+    .section-fasilitas {
+        margin-top: 0 !important;
+    }
+    .section-fasilitas .section-title {
+        margin-top: 10px !important;
+    }
     .footer {
         padding: 12px 12px;
     }

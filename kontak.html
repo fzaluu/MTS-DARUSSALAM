@@ -138,12 +138,23 @@
 
       <!-- FORM -->
       <div class="col-12 col-lg-4">
-        <form action="" method="post" class="contact">
-          <input type="text" placeholder="Nama" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Pesan"></textarea>
-          <button type="submit">Kirim</button>
-        </form>
+        <!-- Toast Notification -->
+          <div class="toast" id="toast">
+            <div class="toast-icon" id="toastIcon"></div>
+            <div class="toast-body">
+              <div class="toast-title" id="toastTitle"></div>
+              <div class="toast-msg" id="toastMsg"></div>
+            </div>
+            <button class="toast-close" onclick="tutupToast()">✕</button>
+            <div class="toast-progress" id="toastProgress"></div>
+          </div>
+          <form action="" method="post" class="contact">
+            <div class="status" id="status"></div>
+            <input type="text" id="nama" placeholder="Nama" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <textarea id="pesan" placeholder="Pesan"></textarea>
+            <button type="submit" id="submitBtn" onclick="kirimData()">Kirim</button>
+          </form>
       </div>
     </div>
   </div>
@@ -206,5 +217,6 @@
     </li>
   </ul>
 </body>
+<script src="assets/js/kontak.js"></script>
 
 </html>
