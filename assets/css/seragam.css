@@ -24,21 +24,8 @@ body {
 .logotext {
   display: flex;
   flex-direction: column;
-  gap: 0.4px;
-}
-
-.tulisan1 {
-    font-size: 17px;
-    font-weight: 700;
-    color: #64AC7B;
-    margin: 0;
-}
-
-.tulisan2 {
-    font-size: 17px;
-    font-weight: 600;
-    color: #c0392b;
-    margin: 0;
+  justify-content: center;
+  line-height: 1.2;
 }
 
 .section-title {
