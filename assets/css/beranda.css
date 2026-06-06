@@ -8,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 section {
@@ -920,6 +921,11 @@ body {
     height: 100%;
   }
 
+  .kegiatan-card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .isiberanda {
     padding: 10px;
   }
@@ -1083,6 +1089,11 @@ body {
 @media (max-width: 480px) {
   .Setengahlingkaran {
     height: 100%;
+  }
+
+  .kegiatan-card {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .isiberanda {
