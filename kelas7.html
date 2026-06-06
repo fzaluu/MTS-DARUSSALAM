@@ -233,39 +233,39 @@
 
   <script>
     const data = [
-      { name: "AINI NUR LATIFAH", nis: "0127844626" },
-      { name: "ANA SYAHRA ATHOFUL NISA", nis: "250024" },
-      { name: "AZKY AZILA MUHARAM", nis: "250004" },
-      { name: "DENISA ANJANI", nis: "250005" },
-      { name: "DIERA KHOIRUNNISA HERDIANA", nis: "" },
-      { name: "FAUZAN MUBAROK", nis: "" },
-      { name: "FAZRIN MUHAZIR", nis: "250006" },
-      { name: "FITRI RAHMAWATI", nis: "250027" },
-      { name: "HANADZA KHALIFA ASY SYAHID", nis: "190018" },
-      { name: "HANIPAH ITSNA FADILLAH", nis: "250008" },
-      { name: "HILMI ASHIDIQ", nis: "250025" },
-      { name: "LUTFIA KHOERUL HAQIQI", nis: "250009" },
-      { name: "MILA HAYATUL KAMILAH", nis: "250011" },
-      { name: "MUHAMAD DAFFA IBNI SAKHIY", nis: "250026" },
-      { name: "MUHAMAD DIKI FARDANI", nis: "250010" },
-      { name: "MUHAMAD GILANG PERMANA", nis: "190025" },
-      { name: "MUHAMMAD FAJAR RAMDANI", nis: "250003" },
-      { name: "MUHAMMAD RAFID AWWALI", nis: "250007" },
-      { name: "NAILA NUR AFIFAH", nis: "250012" },
-      { name: "NAYRA OKTAVIANI", nis: "250013" },
-      { name: "NESA NOVITA NUR AZKIA", nis: "250014" },
-      { name: "PAHRA NUR RAHMATUN NISA", nis: "250015" },
-      { name: "RADIT ALFIRDAUS", nis: "" },
-      { name: "RAIHAN SAFWAN YANUAR", nis: "250016" },
-      { name: "SALMA MUSSALAMAH", nis: "" },
-      { name: "SALMA NUR ALIAH", nis: "250023" },
-      { name: "SALSA ZALZAH IBANAH", nis: "250022" },
-      { name: "SYAHRIL NAOFAL BAGUS RAMDANI", nis: "250017" },
-      { name: "SYEILA NAHDARUTHON NAFISYA", nis: "250018" },
-      { name: "SYIFA AROFATU SYARIFA", nis: "250019" },
-      { name: "YASEEN AUSHOF RAHMANI", nis: "" },
-      { name: "ZIDAN YULIZAR DHIYA`UL HAQ", nis: "250020" },
-      { name: "ZIHDAN MUHAMAD AL-PARISI", nis: "250021" },
+      { name: "AINI NUR LATIFAH" },
+      { name: "ANA SYAHRA ATHOFUL NISA" },
+      { name: "AZKY AZILA MUHARAM" },
+      { name: "DENISA ANJANI" },
+      { name: "DIERA KHOIRUNNISA HERDIANA" },
+      { name: "FAUZAN MUBAROK" },
+      { name: "FAZRIN MUHAZIR" },
+      { name: "FITRI RAHMAWATI" },
+      { name: "HANADZA KHALIFA ASY SYAHID" },
+      { name: "HANIPAH ITSNA FADILLAH" },
+      { name: "HILMI ASHIDIQ" },
+      { name: "LUTFIA KHOERUL HAQIQI" },
+      { name: "MILA HAYATUL KAMILAH" },
+      { name: "MUHAMAD DAFFA IBNI SAKHIY" },
+      { name: "MUHAMAD DIKI FARDANI" },
+      { name: "MUHAMAD GILANG PERMANA" },
+      { name: "MUHAMMAD FAJAR RAMDANI" },
+      { name: "MUHAMMAD RAFID AWWALI" },
+      { name: "NAILA NUR AFIFAH" },
+      { name: "NAYRA OKTAVIANI" },
+      { name: "NESA NOVITA NUR AZKIA" },
+      { name: "PAHRA NUR RAHMATUN NISA" },
+      { name: "RADIT ALFIRDAUS" },
+      { name: "RAIHAN SAFWAN YANUAR" },
+      { name: "SALMA MUSSALAMAH" },
+      { name: "SALMA NUR ALIAH" },
+      { name: "SALSA ZALZAH IBANAH" },
+      { name: "SYAHRIL NAOFAL BAGUS RAMDANI" },
+      { name: "SYEILA NAHDARUTHON NAFISYA" },
+      { name: "SYIFA AROFATU SYARIFA" },
+      { name: "YASEEN AUSHOF RAHMANI" },
+      { name: "ZIDAN YULIZAR DHIYA`UL HAQ" },
+      { name: "ZIHDAN MUHAMAD AL-PARISI" },
     ];
 
     const grid = document.getElementById("list");
@@ -276,7 +276,7 @@
       card.style.animationDelay = `${0.05 * index}s`;
       card.innerHTML = `
         <div class="name">${siswa.name}</div>
-        <div class="nis">NIS: ${siswa.nis}</div>
+       <!-- <div class="nis">NIS: ${siswa.nis}</div> -->
     `;
       grid.appendChild(card);
     });
