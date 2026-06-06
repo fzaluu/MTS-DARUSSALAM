@@ -22,79 +22,118 @@ body {
   background-color: #ABD1C6;
 }
 #beranda {
-  background-image: url("../img/bg2.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100vh;
-}
-/* ================================ */
-/*   SECTION BERANDA                */
-/* ================================ */
-.brnd {
-    width: 100%;
-    min-height: 100vh;
-    background-image: url('foto/backround1.jpeg');
-    background-size: cover;      
-    background-position: center;
+    background-image: url("../img/bg2.jpeg");
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center; /* Pastikan gambar terkunci di tengah */
+    width: 100%;
+    min-height: 75vh; /* Tinggi ideal untuk desktop */
+    display: flex;
+    align-items: stretch;
+}
+
+/* ================================ */
+/* SECTION BERANDA                */
+/* ================================ */
+.beranda {
+    width: 100%;
+}
+
+.brnd {
+    position: relative;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    position: relative;
-    scroll-margin-top: 0px;
-    margin-top: 0; 
-}
-.brnd::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.20);
-}
-.isiberanda {
-  display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-    color: white;
-    padding: 20px;
-    font-family: 'Montserrat', sans-serif;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
     overflow: hidden;
+    padding: 60px 20px;
+    box-sizing: border-box;
 }
-.isiberanda h1 {
-    font-size: 96px;
-    font-weight: 900;
-    margin-top: 100px;
-    font-family: 'Montserrat', sans-serif;
-}
-.isiberanda p {
-    font-size: 24px;
-    max-width: 950px;
-    margin: 0 auto; 
-    text-align: center; 
-    margin-top: 40px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-}
-.beranda {
-    color: turquoise;
-    width: 100%;
-}
+
 .Setengahlingkaran {
     position: absolute;
     width: 100%;        
-    height: 735px;
+    height: 100%; 
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    background: rgba(0, 61, 57, 0.50);
-    bottom: 0;
+    background: rgba(0, 61, 57, 0.75); 
+    top: 0;
     left: 0;            
-    z-index: 0;
+    z-index: 1;
 }
 
+.isiberanda {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2; 
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+.isiberanda h1 {
+    font-size: 5.5vw; 
+    font-weight: 900;
+    margin: 0;
+    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.isiberanda p {
+    font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+    max-width: 80%; 
+    margin: 20px auto 0 auto; 
+    font-weight: 300;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+/* --- BENTENG LIMIT DESKTOP & MOBILE --- */
+@media (min-width: 1200px) {
+    .isiberanda h1 { font-size: 4.5rem; }
+    .isiberanda p { font-size: 1.35rem; }
+}
+
+/* KUNCI PERBAIKAN UNTUK MOBILE */
+@media (max-width: 78px) {
+    #beranda {
+        /* KUNCI: Kurangi tinggi area beranda di mobile agar proporsinya 
+           pas dengan aspek rasio foto saat tegak (portrait) */
+        min-height: 790px; 
+    }
+    
+    .brnd {
+        /* Berikan padding bawah sedikit lebih longgar di mobile 
+           agar teks tidak memaksa lingkaran melar ke bawah */
+        padding: 50px 15px 19px 15px; 
+    }
+
+    .isiberanda h1 {
+        font-size: 7.5vw; /* Font h1 menyesuaikan lebar HP */
+    }
+
+    .isiberanda p {
+        font-size: 0.9rem;
+        max-width: 85%;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    #beranda {
+        /* Untuk HP yang layarnya sangat kecil/sempit */
+        min-height: 420px; 
+    }
+    
+    .isiberanda h1 {
+        font-size: 8.5vw;
+    }
+}
 /* ================================ */
 /*   BUTTONS                        */
 /* ================================ */
@@ -782,7 +821,7 @@ body {
 @media (max-width: 1024px) {
 
   .Setengahlingkaran {
-    height: 550px;
+    height: 100%;
   }
 
   .isiberanda {
@@ -878,7 +917,7 @@ body {
   }
 
   .Setengahlingkaran {
-    height: 380px;
+    height: 100%;
   }
 
   .isiberanda {
@@ -1043,7 +1082,7 @@ body {
 /* Small mobile (max 480px) */
 @media (max-width: 480px) {
   .Setengahlingkaran {
-    height: 320px;
+    height: 100%;
   }
 
   .isiberanda {
