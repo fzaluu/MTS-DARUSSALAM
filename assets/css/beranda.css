@@ -386,6 +386,16 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 4px 4px 0px rgb(0, 0, 0, 2);
+  text-decoration: none;
+  color: inherit;
+}
+
+.stat-card:visited {
+  color: inherit;
+}
+
+.stat-card:active {
+  color: inherit;
 }
 
 .stat-card:hover {
