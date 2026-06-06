@@ -111,20 +111,20 @@
         <div class="kegiatan-grid">
             <div class="kegiatan-card">
                 <img src="assets/img/muhadoroh.jpeg" alt="Kegiatan Muhadoroh">
-                
+
                 <p>Muhadoroh adalah kegiatan latihan pidato untuk melatih keberanian, percaya diri, dan kemampuan
                     berbicara di depan umum.</p>
             </div>
 
             <div class="kegiatan-card aktif">
                 <img src="assets/img/lkbb.jpeg" alt="Kegiatan LKBB">
-                
+
                 <p>LKBB adalah latihan baris-berbaris yang melatih disiplin, kekompakan, dan kerja sama tim.</p>
             </div>
 
             <div class="kegiatan-card">
                 <img src="assets/img/pramuka2.jpeg" alt="Kegiatan Pramuka">
-                
+
                 <p>Pramuka adalah kegiatan yang melatih disiplin, kemandirian, dan kepemimpinan melalui kegiatan
                     positif.</p>
             </div>
@@ -322,11 +322,13 @@
                     </a>
                 </div>
             </div>
+            <!-- form -->
+            <form action="" method="post" onsubmit="return false">
                 <div class="form-section">
-                    <input type="text" placeholder="Nama" />
-                    <input type="email" placeholder="Email" />
-                    <textarea placeholder="Pesan"></textarea>
-                    <button class="btn-submit" type="button">Kirim</button>
+                    <input type="text" id="nama" placeholder="Nama" />
+                    <input type="email" id="email" placeholder="Email" />
+                    <textarea placeholder="Pesan" id="pesan"></textarea>
+                    <button class="btn-submit" type="button" id="submitBtn" onclick="kirimData()">Kirim</button>
                 </div>
             </form>
         </div>
@@ -341,6 +343,7 @@
             </p>
         </div>
     </footer>
+    <script src="assets/js/kontak.js"></script>
 </body>
 
 </html>

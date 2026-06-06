@@ -147,12 +147,12 @@
 
     </div>
   </section>
-  
+
   <section class="sdm-section">
 
-<div class="section2-title">
-        <span>TENAGA PENDIDIK & STAF TENAGA PENDIDIK</span>
-      </div>
+    <div class="section2-title">
+      <span>TENAGA PENDIDIK & STAF TENAGA PENDIDIK</span>
+    </div>
 
 
 
@@ -361,13 +361,14 @@
         </div>
       </div>
 
->
+      <form action="" method="post" onsubmit="return false">
         <div class="form-section">
-          <input type="text" placeholder="Nama" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Pesan"></textarea>
-          <button class="btn-submit" type="button">Kirim</button>
+          <input type="text" id="nama" placeholder="Nama" />
+          <input type="email" id="email" placeholder="Email" />
+          <textarea id="pesan" placeholder="Pesan"></textarea>
+          <button class="btn-submit" id="submitBtn" type="button" onclick="kirimData()">Kirim</button>
         </div>
+      </form>
       </form>
     </div>
 
@@ -380,7 +381,7 @@
       </p>
     </div>
   </footer>
-
+<script src="assets/js/kontak.js"></script>
 </body>
 
 </html>

@@ -249,12 +249,15 @@
       </div>
 
       <!-- Form -->
-      <div class="form-section">
-        <input type="text" placeholder="Nama" />
-        <input type="email" placeholder="Email" />
-        <textarea placeholder="Pesan"></textarea>
-        <button class="btn-submit" type="button">Kirim</button>
-      </div>
+      <form action="" method="post" onsubmit="return false;">
+        <div class="status" id="status"></div>
+        <div class="form-section">
+          <input type="text" id="nama" placeholder="Nama" />
+          <input type="email" id="email" placeholder="Email" />
+          <textarea id="pesan" placeholder="Pesan"></textarea>
+          <button class="btn-submit" type="button" id="submitBtn" onclick="kirimData()">Kirim</button>
+        </div>
+      </form>
     </div>
 
     <hr class="divider" />
@@ -267,6 +270,7 @@
       </p>
     </div>
   </footer>
+  <script src="assets/js/kontak.js"></script>
   <script>
     const track = document.getElementById('carouselTrack');
     const items = track.querySelectorAll('.carousel-item');
